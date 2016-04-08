@@ -88,6 +88,8 @@
     <ClInclude Include="..\CallStacks\Queue.h" />
     <ClInclude Include="..\Collection\Hashmap.hpp" />
     <ClInclude Include="..\Collection\List.hpp" />
+    <ClInclude Include="..\Communication\Communication.h" />
+    <ClInclude Include="..\Communication\CommunicationRS.h" />
     <ClInclude Include="..\Debug\assertion.h" />
     <ClInclude Include="..\Error\FrameworkError.h" />
     <ClInclude Include="..\FileIO\FileIni.h" />
@@ -131,6 +133,8 @@
     <ClCompile Include="..\CallStacks\BaseStack.cpp" />
     <ClCompile Include="..\CallStacks\BaseStackMessage.cpp" />
     <ClCompile Include="..\CallStacks\Queue.cpp" />
+    <ClCompile Include="..\Communication\Communication.cpp" />
+    <ClCompile Include="..\Communication\CommunicationRS.cpp" />
     <ClCompile Include="..\Debug\assertion.cpp" />
     <ClCompile Include="..\Error\FrameworkError.cpp" />
     <ClCompile Include="..\FileIO\FileIni.cpp" />

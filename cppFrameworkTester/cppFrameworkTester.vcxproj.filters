@@ -109,6 +109,12 @@
     <Filter Include="Fichiers sources\cppFramework\Tools\Hardware">
       <UniqueIdentifier>{4a03812e-15ec-4a23-a19e-a4dc8b8f1390}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Communication">
+      <UniqueIdentifier>{e178098d-441e-4188-aed2-cdc8c3199113}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Communication">
+      <UniqueIdentifier>{11545de2-9d4d-48af-9070-29dd70a99b36}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -246,6 +252,12 @@
     <ClInclude Include="..\FileIO\FileIni.h">
       <Filter>Fichiers d%27en-tête\cppFramework\FileIO</Filter>
     </ClInclude>
+    <ClInclude Include="..\Communication\Communication.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Communication</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Communication\CommunicationRS.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Communication</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -361,6 +373,12 @@
     </ClCompile>
     <ClCompile Include="..\FileIO\FileIni.cpp">
       <Filter>Fichiers sources\cppFramework\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Communication\Communication.cpp">
+      <Filter>Fichiers sources\cppFramework\Communication</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Communication\CommunicationRS.cpp">
+      <Filter>Fichiers sources\cppFramework\Communication</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
