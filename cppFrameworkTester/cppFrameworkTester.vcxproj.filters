@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Fichiers sources">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Fichiers de ressources">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework">
+      <UniqueIdentifier>{68859094-c8da-487e-b596-030cfd6b62b5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework">
+      <UniqueIdentifier>{a180ffb3-2a1a-4b6c-86d9-3fa72268b3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\tester">
+      <UniqueIdentifier>{7a7ce7dd-115a-4b12-84a7-57b5ee6a3efb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\tester">
+      <UniqueIdentifier>{4347acdd-84a8-4f30-897c-4ba824dd6ac3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Collection">
+      <UniqueIdentifier>{d3cddd98-52f4-4fc3-9237-8da89282c795}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\CallStacks">
+      <UniqueIdentifier>{c9e72793-ff67-4a4b-a10d-713fcdfd75a9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\CallStacks">
+      <UniqueIdentifier>{10c725e2-a2f4-4ec4-a185-d60424e93d21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Threading">
+      <UniqueIdentifier>{4ee5b089-c06f-4cb1-ae82-3739a27b307a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Threading">
+      <UniqueIdentifier>{d50bf69d-8e54-49fd-9da3-dc87c9d0b57d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Debug">
+      <UniqueIdentifier>{b955f393-1040-4933-84d0-6971eb8eb343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Debug">
+      <UniqueIdentifier>{61823257-e83a-4f16-b192-e88af0937157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Matrix">
+      <UniqueIdentifier>{6fa856d4-1974-4770-a472-e19d9026e418}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Memory">
+      <UniqueIdentifier>{1374255d-df0f-48a9-8b18-b0a369bdc38e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Memory">
+      <UniqueIdentifier>{db7183d5-0c6a-4726-b54b-f774890a457d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\FileIO">
+      <UniqueIdentifier>{8ee88959-d4a3-4c44-ac5e-cfe2888c5b26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\FileIO">
+      <UniqueIdentifier>{0735cb93-7e56-44a7-9455-e191c5a38a64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Serializer">
+      <UniqueIdentifier>{52618f20-317a-431b-8202-67fa7b266775}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Serializer">
+      <UniqueIdentifier>{103c91fe-d3e8-4c78-9ceb-9cfa9626c050}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Tools">
+      <UniqueIdentifier>{b47e47ab-928f-4231-9f4d-17498e0979a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Tools\File">
+      <UniqueIdentifier>{f1561498-d0be-405c-b2e8-bcf3934b23cf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools">
+      <UniqueIdentifier>{8a7a4367-723a-48a3-a981-5dfeddc30a1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\File">
+      <UniqueIdentifier>{199f514f-e0a6-4bde-bdef-e1bc11c93fc9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Timing">
+      <UniqueIdentifier>{bdd39e9b-f140-4593-98c2-92800ac1bbf9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Timing">
+      <UniqueIdentifier>{230c1066-0ad1-4e5a-a081-49a565df9f32}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\String">
+      <UniqueIdentifier>{ea8ad637-1afa-4761-aff3-59d1f5a985cc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Tools\String">
+      <UniqueIdentifier>{fb352b1e-f15b-455a-87b3-6ce02c69c3b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Error">
+      <UniqueIdentifier>{7f762b66-4398-4e63-8af5-684b246b7732}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Error">
+      <UniqueIdentifier>{093048b8-0f58-4df2-9df8-87b8b73a5a80}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Tools\Conversion">
+      <UniqueIdentifier>{e1eab488-0a10-4f2b-9315-fb8ad3b7757d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\Conversion">
+      <UniqueIdentifier>{29867905-6f17-46b6-a5c3-1d4fd39a633a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\Hardware">
+      <UniqueIdentifier>{cdb8190f-bb2a-4cb2-b010-6f4311a3bf22}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Tools\Hardware">
+      <UniqueIdentifier>{4a03812e-15ec-4a23-a19e-a4dc8b8f1390}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ReadMe.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="stdafx.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testCollectionList.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="cppFrameworkTesterDefines.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testCollectionHashmap.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Collection\Hashmap.hpp">
+      <Filter>Fichiers d%27en-tête\cppFramework\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Collection\List.hpp">
+      <Filter>Fichiers d%27en-tête\cppFramework\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CallStacks\Queue.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\CallStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CallStacks\BaseStackMessage.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\CallStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CallStacks\BaseStack.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\CallStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testCallstacksQueue.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Threading\Mutex.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Threading\Thread.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Threading\ThreadPool.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Debug\assertion.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="..\toolsconstant.h">
+      <Filter>Fichiers d%27en-tête\cppFramework</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testCallstacksAbsouteStack.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CallStacks\AbsoluteStack.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\CallStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Math\Matrix.hpp">
+      <Filter>Fichiers d%27en-tête\cppFramework\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testMathMatrix.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testCallStacksBasemessage.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Memory\RAM.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FileIO\FileXml.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FileIO\FileTxt.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FileIO\FileLog.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\FileIO</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeItem.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeLong.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\Serializer.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\File\Directory.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\File\File.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Timing\Date.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\String\StringTools.h">
+      <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testSerializerTlvSerializer.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Error\FrameworkError.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Error</Filter>
+    </ClInclude>
+    <ClInclude Include="..\CallStacks\CallStacksDefines.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\CallStacks</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testThreadingMutex.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testTimingChrono.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Timing\Chrono.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Timing\Timing.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testMemoryRam.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\Conversion\SizeFileConversion.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\Conversion</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\Hardware\CPU.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testFileIOFileIni.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\FileIO\FileIni.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\FileIO</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="stdafx.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="cppFrameworkTester.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testCollectionList.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testCollectionHashmap.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CallStacks\BaseStack.cpp">
+      <Filter>Fichiers sources\cppFramework\CallStacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CallStacks\BaseStackMessage.cpp">
+      <Filter>Fichiers sources\cppFramework\CallStacks</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CallStacks\Queue.cpp">
+      <Filter>Fichiers sources\cppFramework\CallStacks</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testCallstacksQueue.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testCallstacksBaseMessage.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Threading\Mutex.cpp">
+      <Filter>Fichiers sources\cppFramework\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Threading\Thread.cpp">
+      <Filter>Fichiers sources\cppFramework\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Threading\ThreadPool.cpp">
+      <Filter>Fichiers sources\cppFramework\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Debug\assertion.cpp">
+      <Filter>Fichiers sources\cppFramework\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testCallstacksAbsouteStack.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\CallStacks\AbsoluteStack.cpp">
+      <Filter>Fichiers sources\cppFramework\CallStacks</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testMathMatrix.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Memory\RAM.cpp">
+      <Filter>Fichiers sources\cppFramework\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FileIO\FileXml.cpp">
+      <Filter>Fichiers sources\cppFramework\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FileIO\FileTxt.cpp">
+      <Filter>Fichiers sources\cppFramework\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FileIO\FileLog.cpp">
+      <Filter>Fichiers sources\cppFramework\FileIO</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeItem.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeLong.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\Serializer.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\File\Directory.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\File\File.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Timing\Date.cpp">
+      <Filter>Fichiers sources\cppFramework\Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\String\StringTools.cpp">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testSerializerTlvSerializer.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Error\FrameworkError.cpp">
+      <Filter>Fichiers sources\cppFramework\Error</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testTimingChrono.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testThreadingMutex.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Timing\Chrono.cpp">
+      <Filter>Fichiers sources\cppFramework\Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Timing\Timing.cpp">
+      <Filter>Fichiers sources\cppFramework\Timing</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testMemoryRam.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\Conversion\SizeFileConversion.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\Conversion</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\Hardware\CPU.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testFileIOFileIni.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\FileIO\FileIni.cpp">
+      <Filter>Fichiers sources\cppFramework\FileIO</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

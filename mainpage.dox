@@ -1,0 +1,30 @@
+/**
+ * \mainpage 	cpp tools documentation
+ * \version 	1.0.0
+ * \date 		04/11/2015 
+ * \author 		NSJ
+ * \brief		cpp tools sources
+ * 
+ * \details		MAJOR: 
+ * 				- CallStack
+ * 				- Collection
+ * 				- Crypto
+ * 				- Debug
+ * 				- Error
+ * 				- Exception
+ * 				- FileIO
+ * 				- Library
+ * 				- Math
+ * 				- Memory
+ * 				- Network
+ * 				- Serializer
+ * 				- Threading
+ * 				- Timing
+ * 				- Tools
+ * 
+ * 				MINOR:
+ *
+ * 				RELEASE:
+ *
+ */ 
+ 
