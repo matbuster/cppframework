@@ -81,11 +81,15 @@
     <None Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Buffer\RingBuffer.h" />
+    <ClInclude Include="..\Buffer\RingBufferPos.h" />
+    <ClInclude Include="..\Buffer\RingBufferIndex.h" />
     <ClInclude Include="..\CallStacks\AbsoluteStack.h" />
     <ClInclude Include="..\CallStacks\BaseStack.h" />
     <ClInclude Include="..\CallStacks\BaseStackMessage.h" />
     <ClInclude Include="..\CallStacks\CallStacksDefines.h" />
     <ClInclude Include="..\CallStacks\Queue.h" />
+    <ClInclude Include="..\Collection\Buffer.hpp" />
     <ClInclude Include="..\Collection\Hashmap.hpp" />
     <ClInclude Include="..\Collection\List.hpp" />
     <ClInclude Include="..\Communication\Communication.h" />
@@ -116,6 +120,7 @@
     <ClInclude Include="cppFrameworkTesterDefines.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="tester\testBufferRingBufferIndex.h" />
     <ClInclude Include="tester\testCallstacksAbsouteStack.h" />
     <ClInclude Include="tester\testCallStacksBasemessage.h" />
     <ClInclude Include="tester\testCallstacksQueue.h" />
@@ -129,6 +134,9 @@
     <ClInclude Include="tester\testTimingChrono.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\Buffer\RingBuffer.hpp" />
+    <ClCompile Include="..\Buffer\RingBufferPos.cpp" />
+    <ClCompile Include="..\Buffer\RingBufferIndex.cpp" />
     <ClCompile Include="..\CallStacks\AbsoluteStack.cpp" />
     <ClCompile Include="..\CallStacks\BaseStack.cpp" />
     <ClCompile Include="..\CallStacks\BaseStackMessage.cpp" />
@@ -158,6 +166,7 @@
     <ClCompile Include="..\Tools\String\StringTools.cpp" />
     <ClCompile Include="cppFrameworkTester.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="tester\testBufferRingBufferIndex.cpp" />
     <ClCompile Include="tester\testCallstacksAbsouteStack.cpp" />
     <ClCompile Include="tester\testCallstacksBaseMessage.cpp" />
     <ClCompile Include="tester\testCollectionHashmap.cpp" />

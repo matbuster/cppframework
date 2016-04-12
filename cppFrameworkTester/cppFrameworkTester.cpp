@@ -19,6 +19,7 @@
 //efine TEST_TIMING
 //efine TEST_MEMORY
 #define TEST_FILEIO
+#define TEST_BUFFER
 // --------------------------------------------------------------------
 // tester collection include
 #include "cppFrameworkTesterDefines.h"
@@ -55,6 +56,10 @@
 #ifdef TEST_FILEIO
 #include "tester/testFileIOFileIni.h"
 #endif //TEST_FILEIO
+
+#ifdef TEST_BUFFER
+#include "tester/testBufferRingBufferIndex.h"
+#endif // TEST_BUFFER
 
 // --------------------------------------------------------------------
 #ifdef WIN32
@@ -128,6 +133,11 @@ int _tmain(int argc, _TCHAR* argv[])
 #ifdef TEST_FILEIO
 		tester_fileio_fileini();
 #endif // TEST_FILEIO
+
+#ifdef TEST_BUFFER
+		tester_buffer_ring_buffer_index();
+#endif // TEST_BUFFER
+
 	system("pause");
 	return 0;
 }

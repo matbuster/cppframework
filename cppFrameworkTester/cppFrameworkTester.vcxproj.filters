@@ -115,6 +115,12 @@
     <Filter Include="Fichiers d%27en-tête\cppFramework\Communication">
       <UniqueIdentifier>{11545de2-9d4d-48af-9070-29dd70a99b36}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Buffer">
+      <UniqueIdentifier>{862c174b-9351-42f1-91f9-c9cd5ed64ba9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Buffer">
+      <UniqueIdentifier>{d7365d66-f091-4090-8b53-669520f49a11}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -258,6 +264,21 @@
     <ClInclude Include="..\Communication\CommunicationRS.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Communication</Filter>
     </ClInclude>
+    <ClInclude Include="tester\testBufferRingBufferIndex.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Buffer\RingBuffer.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Collection\Buffer.hpp">
+      <Filter>Fichiers d%27en-tête\cppFramework\Collection</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Buffer\RingBufferPos.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Buffer\RingBufferIndex.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Buffer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -379,6 +400,18 @@
     </ClCompile>
     <ClCompile Include="..\Communication\CommunicationRS.cpp">
       <Filter>Fichiers sources\cppFramework\Communication</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testBufferRingBufferIndex.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Buffer\RingBufferPos.cpp">
+      <Filter>Fichiers sources\cppFramework\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Buffer\RingBufferIndex.cpp">
+      <Filter>Fichiers sources\cppFramework\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Buffer\RingBuffer.hpp">
+      <Filter>Fichiers sources\cppFramework\Buffer</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
