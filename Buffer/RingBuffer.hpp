@@ -28,6 +28,7 @@ namespace Buffer {
 			delete m_ringBuffer;
 			delete m_index;
 		}
+
 	};
 };
 
