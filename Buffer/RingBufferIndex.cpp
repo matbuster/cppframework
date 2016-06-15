@@ -2,11 +2,11 @@
 #include "RingBufferIndex.h"
 
 // --------------------------------------------------------------
-Buffer::RingBufferIndex::RingBufferIndex(long _lSizeBuffer)
+Buffer::RingBufferIndex::RingBufferIndex(unsigned long _ulSizeBuffer)
 {
-	m_rbiTrailer = new Buffer::RingBufferPos(_lSizeBuffer);
-	m_rbiRead = new Buffer::RingBufferPos(_lSizeBuffer);
-	m_rbiWrite = new Buffer::RingBufferPos(_lSizeBuffer);
+	m_rbiTrailer = new Buffer::RingBufferPos(_ulSizeBuffer);
+	m_rbiRead = new Buffer::RingBufferPos(_ulSizeBuffer);
+	m_rbiWrite = new Buffer::RingBufferPos(_ulSizeBuffer);
 }
 // --------------------------------------------------------------
 Buffer::RingBufferIndex::~RingBufferIndex()

@@ -2,11 +2,11 @@
 #include "RingBufferPos.h"
 
 // -------------------------------------------------------------------------
-Buffer::RingBufferPos::RingBufferPos(long _lLenBuffer) 
+Buffer::RingBufferPos::RingBufferPos(unsigned long _lLenBuffer) 
 {
 	m_i64AbsN = 0;
-	m_lPosN = 0;
-	m_lLen = _lLenBuffer;
+	m_ulPosN = 0;
+	m_ulLen = _lLenBuffer;
 }
 Buffer::RingBufferPos::~RingBufferPos() 
 {
@@ -15,10 +15,10 @@ Buffer::RingBufferPos::~RingBufferPos()
 int Buffer::RingBufferPos::incrementIndex()
 {
 	m_i64AbsN++;
-	m_lPosN++; 
-	if((m_lPosN)>m_lLen-1)
+	m_ulPosN++; 
+	if((m_ulPosN)>m_ulLen-1)
 	{
-		m_lPosN-=m_lLen;
+		m_ulPosN-=m_ulLen;
 	}
 	return RBI_OK;
 }
@@ -26,55 +26,59 @@ int Buffer::RingBufferPos::incrementIndex()
 int Buffer::RingBufferPos::decrementIndex()
 {
 	m_i64AbsN--;
-	m_lPosN--;
-	if((m_lPosN)<0)
+	m_ulPosN--;
+	if((m_ulPosN)<0)
 	{
-		m_lPosN+=m_lLen;
+		m_ulPosN+=m_ulLen;
 	}
 	return RBI_OK;
 }
 // -------------------------------------------------------------------------		
-int Buffer::RingBufferPos::addIndex(int _iLenToAdd)
+int Buffer::RingBufferPos::addIndex(unsigned int _iLenToAdd)
 {
-	if((_iLenToAdd<0)||(_iLenToAdd>m_lLen))
+	if((_iLenToAdd<0)||((unsigned int)_iLenToAdd>m_ulLen))
 	{
 		return RBI_SIZE_BUFFER_TO_SMALL;
 	}
 
 	m_i64AbsN+= _iLenToAdd;
-	m_lPosN +=_iLenToAdd;
-	if(m_lPosN>=m_lLen)
+	m_ulPosN +=_iLenToAdd;
+	if(m_ulPosN>=m_ulLen)
 	{
-		m_lPosN -= m_lLen;
+		m_ulPosN -= m_ulLen;
 	}
 
 	return RBI_OK;
 }
 // -------------------------------------------------------------------------
-int Buffer::RingBufferPos::subIndex(int _iLenToSub)
+int Buffer::RingBufferPos::subIndex(unsigned int _iLenToSub)
 {
-	if((_iLenToSub<0)||(_iLenToSub >m_lLen))
+	if((_iLenToSub<0)||(_iLenToSub >m_ulLen))
 	{
 		return RBI_SIZE_BUFFER_TO_SMALL;
 	}
+	if(m_ulPosN < _iLenToSub)
+	{
+		return RBI_POS_NO_NEGATIVE;
+	}
 
 	m_i64AbsN-=_iLenToSub;
-	m_lPosN-=_iLenToSub;
-	if(m_lPosN<0)
+	m_ulPosN-=_iLenToSub;
+	if(m_ulPosN<0)
 	{
-		m_lPosN+=m_lLen;
+		m_ulPosN+=m_ulLen;
 	}
 	return RBI_OK;
 }
 // -------------------------------------------------------------------------
-long Buffer::RingBufferPos::getNPosition()
+unsigned long Buffer::RingBufferPos::getNPosition()
 {
-	return m_lPosN;
+	return m_ulPosN;
 }
 // -------------------------------------------------------------------------
-long Buffer::RingBufferPos::getBufferLen()
+unsigned long Buffer::RingBufferPos::getBufferLen()
 {
-	return m_lLen;
+	return m_ulLen;
 }
 // -------------------------------------------------------------------------
 

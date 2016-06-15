@@ -19,7 +19,7 @@ namespace Buffer {
 		Buffer::RingBufferPos * m_rbiWrite;
 
 	public:
-		RingBufferIndex(long _lSizeBuffer);
+		RingBufferIndex(unsigned long _ulSizeBuffer);
 		~RingBufferIndex();
 
 		/*! calculate the next position in the ring buffer
