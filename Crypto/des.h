@@ -7,7 +7,7 @@
 #ifndef DES_H
 #define DES_H
 
-#include "ibm.h"
+#include "cryptoDefine.h"
 
 long __sccDES3Key
 (

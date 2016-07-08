@@ -138,7 +138,7 @@ long Network::TCPServer::TCPSend(int iSession_ID, char * ucBufferSend, int iLenB
 	}
 
 	// d'un buffer via la socket
-	unsigned long nb_recept = 0;
+	int nb_recept = 0;
 	nb_recept = send(iSession_ID, ucBufferSend, iLenBufferSend, 0);
 	if (nb_recept == SOCKET_ERROR) {
 #ifdef WIN32

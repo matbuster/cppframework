@@ -73,9 +73,6 @@ long Timing::Timing::sleepInSecond(unsigned long iDuration) {
 double Timing::Timing::sysGetTime() {
     double dtimevalue = 0;
 #ifdef LINUX 
-
-    //TODO_NSJ// Voir laquelle est utilise ds la carte HSM
-
     //Methode 1
     struct timeval tv;
     gettimeofday(&tv, NULL);

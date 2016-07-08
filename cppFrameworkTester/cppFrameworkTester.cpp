@@ -14,12 +14,12 @@
 // define test plan
 //efine TEST_COLLECTIONS
 //efine TEST_MATH
-//efine TEST_CALLSTACKS
+#define TEST_CALLSTACKS
 //efine TEST_THREADING
 //efine TEST_TIMING
 //efine TEST_MEMORY
-#define TEST_FILEIO
-#define TEST_BUFFER
+//#define TEST_FILEIO
+//#define TEST_BUFFER
 // --------------------------------------------------------------------
 // tester collection include
 #include "cppFrameworkTesterDefines.h"

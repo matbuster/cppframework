@@ -34,11 +34,17 @@ int Tools::String::StringCountOccurence(char * pStr, long lSizeStr, char cCharTo
 	return iNumberOccurence;
 }
 
-/** function to chexk if str1 contain str2 */
+/** function to check if str1 contain str2 */
 bool Tools::String::StringCointain(unsigned char * pStr1, long lSizeStr1, unsigned char * pStr2, long lSizeStr2)
 {
 	long indexCheck = 0;
 	int iIndexMatch = 0;
+
+	// test if nothing to compare
+	if(lSizeStr1 <= 0 || lSizeStr2 <= 0)
+	{
+		return false;
+	}
 
 	for(indexCheck = 0; indexCheck < lSizeStr1; indexCheck++)
 	{

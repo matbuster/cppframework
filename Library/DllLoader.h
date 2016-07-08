@@ -24,7 +24,8 @@
 #define DLLLOADER_KO				1
 #define DLLLOADER_INVALID_PARAM		2
 #define DLLLOADER_CANNOT_LOAD_LIB	3
-#define DLLLOADER_CANNOT_LOAD_PROC	4	
+#define DLLLOADER_CANNOT_LOAD_PROC	4
+#define DLLLOADER_NON_INIT			5
 
 // -----------------------------------------------------------------------
 namespace Library {
@@ -39,6 +40,9 @@ namespace Library {
 
         /** internal instance declaration */
         void* m_vDllHandle;
+
+		/** state of library, loaded or not */
+		bool m_bLibraryLoaded;
         
         /**! initializer for constructor*/
         void initializeObjectForConstructor(FileIO::FileLog * logger);

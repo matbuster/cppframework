@@ -51,7 +51,7 @@ void Library::DllLoader::initializeObjectForConstructor(FileIO::FileLog * logger
 
     if (NULL == logger) {
         m_bInternalLogger = true;
-        m_logger = new FileIO::FileLog(LOGGER_DLL_LOADER_FILENAME);
+        m_logger = new FileIO::FileLog((char *) LOGGER_DLL_LOADER_FILENAME);
         // need to define setfilter actions
         m_logger->Log(FileIO::flPrioDebug, FileIO::flOrigSoftware, (char*) "[DllLoader]\tCreate a new logger for DllLoader.");
     } else {
@@ -62,6 +62,7 @@ void Library::DllLoader::initializeObjectForConstructor(FileIO::FileLog * logger
 
     m_mapping = new Collection::Hashmap<std::string *, void*>();
     m_vDllHandle = NULL;
+	m_bLibraryLoaded = false;
 
     memset(m_strFullPathLib, 0x00, STR_LONG);
 }
@@ -81,7 +82,7 @@ bool Library::DllLoader::findLibrary(char * _pFullPathLib, const char * _pInLibT
     bool bExist = Tools::File::FileExists(cPathFile);
     if (true == bExist) {
         memcpy(_pFullPathLib, cPathFile, STR_LONG);
-        m_logger->LogArguments(FileIO::flPrioDebug, FileIO::flOrigSoftware, (char*) "[DllLoader]\tSuccess: lib load from %s.", cPathFile);
+        m_logger->LogArguments(FileIO::flPrioDebug, FileIO::flOrigSoftware, (char*) "[DllLoader]\tSuccess: lib found in path %s.", cPathFile);
         return true;
     }
 
@@ -177,6 +178,7 @@ unsigned long Library::DllLoader::loadLibrary(const char * pDllName) {
 #endif //_WINDOWS
 
 #ifdef LINUX
+    
     m_vDllHandle = dlopen(pFullPathDllName, RTLD_LAZY);
     if (NULL == m_vDllHandle) {
         fprintf(stderr, "%s\n", dlerror());
@@ -186,6 +188,7 @@ unsigned long Library::DllLoader::loadLibrary(const char * pDllName) {
     }
 #endif //LINUX
 
+	m_bLibraryLoaded = true;
     m_logger->Log(FileIO::flPrioDebug, FileIO::flOrigSoftware, (char*) "[DllLoader]\tFound library and open with success.");
     return DLLLOADER_OK;
 }
@@ -253,7 +256,7 @@ void * Library::DllLoader::getProcAdress(char * cProcName) {
 #endif //_WINDOWS
 
 #ifdef LINUX
-    m_logger->LogArguments(FileIO::flPrioDebug, FileIO::flOrigSoftware, (char*) "[DllLoader]\tgetProcAdress for function: %s.", cProcName);    
+    m_logger->LogArguments(FileIO::flPrioDebug, FileIO::flOrigSoftware, (char*) "[DllLoader]\tgetProcAdress for function: %s.", cProcName);
     return dlsym(m_vDllHandle, cProcName);
 #endif //LINUX    
 
@@ -261,6 +264,13 @@ void * Library::DllLoader::getProcAdress(char * cProcName) {
 // ---------------------------------------------------------------------
 
 unsigned long Library::DllLoader::releaseLibrary() {
+
+	if(!m_bLibraryLoaded) {
+		return DLLLOADER_NON_INIT;
+	}
+	if(NULL == m_vDllHandle) {
+		return DLLLOADER_NON_INIT;
+	}
 
 #ifdef _WINDOWS
     FreeLibrary((HINSTANCE) m_vDllHandle);
