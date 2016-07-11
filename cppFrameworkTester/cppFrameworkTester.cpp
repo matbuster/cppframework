@@ -14,12 +14,13 @@
 // define test plan
 //efine TEST_COLLECTIONS
 //efine TEST_MATH
-#define TEST_CALLSTACKS
+//#define TEST_CALLSTACKS
 //efine TEST_THREADING
 //efine TEST_TIMING
 //efine TEST_MEMORY
 //#define TEST_FILEIO
 //#define TEST_BUFFER
+#define TEST_HARDWARE
 // --------------------------------------------------------------------
 // tester collection include
 #include "cppFrameworkTesterDefines.h"
@@ -60,6 +61,10 @@
 #ifdef TEST_BUFFER
 #include "tester/testBufferRingBufferIndex.h"
 #endif // TEST_BUFFER
+
+#ifdef TEST_HARDWARE
+#include "tester/testHardwareComputer.h"
+#endif // TEST_HARDWARE
 
 // --------------------------------------------------------------------
 #ifdef WIN32
@@ -137,6 +142,10 @@ int _tmain(int argc, _TCHAR* argv[])
 #ifdef TEST_BUFFER
 		tester_buffer_ring_buffer_index();
 #endif // TEST_BUFFER
+
+#ifdef TEST_HARDWARE
+		tester_hardware_computer();
+#endif // TEST_HARDWARE
 
 	system("pause");
 	return 0;

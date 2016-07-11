@@ -121,6 +121,12 @@
     <Filter Include="Fichiers sources\cppFramework\Buffer">
       <UniqueIdentifier>{d7365d66-f091-4090-8b53-669520f49a11}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Hardware">
+      <UniqueIdentifier>{2018d27c-7392-4dbb-ab56-9400f06e4d4b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Hardware">
+      <UniqueIdentifier>{4386ddff-7002-484e-9aad-bfccf2ac2c29}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -219,9 +225,6 @@
     <ClInclude Include="..\Timing\Date.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Timing</Filter>
     </ClInclude>
-    <ClInclude Include="..\Tools\String\StringTools.h">
-      <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
-    </ClInclude>
     <ClInclude Include="tester\testSerializerTlvSerializer.h">
       <Filter>Fichiers d%27en-tête\tester</Filter>
     </ClInclude>
@@ -278,6 +281,18 @@
     </ClInclude>
     <ClInclude Include="..\Buffer\RingBufferIndex.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Buffer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Hardware\computer.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testHardwareComputer.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\String\Conversion.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\String\StringTools.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -359,9 +374,6 @@
     <ClCompile Include="..\Timing\Date.cpp">
       <Filter>Fichiers sources\cppFramework\Timing</Filter>
     </ClCompile>
-    <ClCompile Include="..\Tools\String\StringTools.cpp">
-      <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
-    </ClCompile>
     <ClCompile Include="tester\testSerializerTlvSerializer.cpp">
       <Filter>Fichiers sources\tester</Filter>
     </ClCompile>
@@ -412,6 +424,18 @@
     </ClCompile>
     <ClCompile Include="..\Buffer\RingBuffer.hpp">
       <Filter>Fichiers sources\cppFramework\Buffer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Hardware\computer.cpp">
+      <Filter>Fichiers sources\cppFramework\Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testHardwareComputer.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\String\StringTools.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\String\Conversion.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

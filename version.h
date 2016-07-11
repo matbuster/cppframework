@@ -23,6 +23,6 @@
  * \def FRAMEWORK_RELEASE_VERSION
  * \brief Edit to each bug correction 
  */ 
-#define FRAMEWORK_RELEASE_VERSION		1
+#define FRAMEWORK_RELEASE_VERSION		2
 
 #endif // VERSION_H

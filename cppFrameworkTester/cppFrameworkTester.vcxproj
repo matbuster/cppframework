@@ -100,6 +100,7 @@
     <ClInclude Include="..\FileIO\FileLog.h" />
     <ClInclude Include="..\FileIO\FileTxt.h" />
     <ClInclude Include="..\FileIO\FileXml.h" />
+    <ClInclude Include="..\Hardware\computer.h" />
     <ClInclude Include="..\Math\Matrix.hpp" />
     <ClInclude Include="..\Memory\RAM.h" />
     <ClInclude Include="..\Serializer\SerializeItem.h" />
@@ -116,6 +117,7 @@
     <ClInclude Include="..\Tools\File\Directory.h" />
     <ClInclude Include="..\Tools\File\File.h" />
     <ClInclude Include="..\Tools\Hardware\CPU.h" />
+    <ClInclude Include="..\Tools\String\Conversion.h" />
     <ClInclude Include="..\Tools\String\StringTools.h" />
     <ClInclude Include="cppFrameworkTesterDefines.h" />
     <ClInclude Include="stdafx.h" />
@@ -127,6 +129,7 @@
     <ClInclude Include="tester\testCollectionHashmap.h" />
     <ClInclude Include="tester\testCollectionList.h" />
     <ClInclude Include="tester\testFileIOFileIni.h" />
+    <ClInclude Include="tester\testHardwareComputer.h" />
     <ClInclude Include="tester\testMathMatrix.h" />
     <ClInclude Include="tester\testMemoryRam.h" />
     <ClInclude Include="tester\testSerializerTlvSerializer.h" />
@@ -149,6 +152,7 @@
     <ClCompile Include="..\FileIO\FileLog.cpp" />
     <ClCompile Include="..\FileIO\FileTxt.cpp" />
     <ClCompile Include="..\FileIO\FileXml.cpp" />
+    <ClCompile Include="..\Hardware\computer.cpp" />
     <ClCompile Include="..\Memory\RAM.cpp" />
     <ClCompile Include="..\Serializer\SerializeItem.cpp" />
     <ClCompile Include="..\Serializer\SerializeLong.cpp" />
@@ -163,6 +167,7 @@
     <ClCompile Include="..\Tools\File\Directory.cpp" />
     <ClCompile Include="..\Tools\File\File.cpp" />
     <ClCompile Include="..\Tools\Hardware\CPU.cpp" />
+    <ClCompile Include="..\Tools\String\Conversion.cpp" />
     <ClCompile Include="..\Tools\String\StringTools.cpp" />
     <ClCompile Include="cppFrameworkTester.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -173,6 +178,7 @@
     <ClCompile Include="tester\testCollectionList.cpp" />
     <ClCompile Include="tester\testCallstacksQueue.cpp" />
     <ClCompile Include="tester\testFileIOFileIni.cpp" />
+    <ClCompile Include="tester\testHardwareComputer.cpp" />
     <ClCompile Include="tester\testMathMatrix.cpp" />
     <ClCompile Include="tester\testMemoryRam.cpp" />
     <ClCompile Include="tester\testSerializerTlvSerializer.cpp" />
