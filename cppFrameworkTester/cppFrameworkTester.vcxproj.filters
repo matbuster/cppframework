@@ -40,12 +40,6 @@
     <Filter Include="Fichiers sources\cppFramework\Threading">
       <UniqueIdentifier>{d50bf69d-8e54-49fd-9da3-dc87c9d0b57d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\cppFramework\Debug">
-      <UniqueIdentifier>{b955f393-1040-4933-84d0-6971eb8eb343}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers d%27en-tête\cppFramework\Debug">
-      <UniqueIdentifier>{61823257-e83a-4f16-b192-e88af0937157}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\cppFramework\Matrix">
       <UniqueIdentifier>{6fa856d4-1974-4770-a472-e19d9026e418}</UniqueIdentifier>
     </Filter>
@@ -103,12 +97,6 @@
     <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\Conversion">
       <UniqueIdentifier>{29867905-6f17-46b6-a5c3-1d4fd39a633a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\Hardware">
-      <UniqueIdentifier>{cdb8190f-bb2a-4cb2-b010-6f4311a3bf22}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\cppFramework\Tools\Hardware">
-      <UniqueIdentifier>{4a03812e-15ec-4a23-a19e-a4dc8b8f1390}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers sources\cppFramework\Communication">
       <UniqueIdentifier>{e178098d-441e-4188-aed2-cdc8c3199113}</UniqueIdentifier>
     </Filter>
@@ -126,6 +114,36 @@
     </Filter>
     <Filter Include="Fichiers d%27en-tête\cppFramework\Hardware">
       <UniqueIdentifier>{4386ddff-7002-484e-9aad-bfccf2ac2c29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Crypto">
+      <UniqueIdentifier>{3d914cfd-0317-425a-81ad-f63b786cd04d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Tools\Profile">
+      <UniqueIdentifier>{252c9fdf-7dfc-4fab-b0c4-ab3625a4aeb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\Profile">
+      <UniqueIdentifier>{27a82db4-b533-40b0-9e71-b0a559fa45ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Network">
+      <UniqueIdentifier>{9c2bd4ee-aff1-4fd7-97c5-ab01e7786edf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Network">
+      <UniqueIdentifier>{1fe75ac1-c6a5-4d31-8acf-7d27ca6352f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Math">
+      <UniqueIdentifier>{7df7915a-1b79-43c1-9409-6bcdde0712cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Math">
+      <UniqueIdentifier>{8e4d4a05-780e-4074-be24-47ec83e6d428}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Diagnostic">
+      <UniqueIdentifier>{61823257-e83a-4f16-b192-e88af0937157}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Crypto">
+      <UniqueIdentifier>{d63c71ab-2caf-4061-b7d1-dbe6e1041e39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\cppFramework\Diagnostic">
+      <UniqueIdentifier>{b955f393-1040-4933-84d0-6971eb8eb343}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -173,9 +191,6 @@
     </ClInclude>
     <ClInclude Include="..\Threading\ThreadPool.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Debug\assertion.h">
-      <Filter>Fichiers d%27en-tête\cppFramework\Debug</Filter>
     </ClInclude>
     <ClInclude Include="..\toolsconstant.h">
       <Filter>Fichiers d%27en-tête\cppFramework</Filter>
@@ -225,9 +240,6 @@
     <ClInclude Include="..\Timing\Date.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Timing</Filter>
     </ClInclude>
-    <ClInclude Include="tester\testSerializerTlvSerializer.h">
-      <Filter>Fichiers d%27en-tête\tester</Filter>
-    </ClInclude>
     <ClInclude Include="..\Error\FrameworkError.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Error</Filter>
     </ClInclude>
@@ -251,9 +263,6 @@
     </ClInclude>
     <ClInclude Include="..\Tools\Conversion\SizeFileConversion.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Tools\Conversion</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Tools\Hardware\CPU.h">
-      <Filter>Fichiers d%27en-tête\cppFramework\Tools\Hardware</Filter>
     </ClInclude>
     <ClInclude Include="tester\testFileIOFileIni.h">
       <Filter>Fichiers d%27en-tête\tester</Filter>
@@ -294,6 +303,99 @@
     <ClInclude Include="..\Tools\String\StringTools.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
     </ClInclude>
+    <ClInclude Include="..\Crypto\md5.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Crypto\crc.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Crypto</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testCryptoGeneric.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\Profile\BaseProfile.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\Profile\BaseProfileGender.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\Profile</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Timing\DayOfTheWeek.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Timing</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Network\IPAdress.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\String\Regex_Helper.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testNetworkIpAdress.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testNetworkTcpClientServer.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Network\TcpClient.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Network\TcpServer.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Network</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testSerializationSerializeItem.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testSerializationTlvSerializer.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeBool.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeShort.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeInt.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeFloat.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Math\Math.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeDouble.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\SerializeString.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Hardware\CPU.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\ISerializeObject.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testNetworkHttpRequest.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Serializer\EnumSerializerDetection.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Serializer</Filter>
+    </ClInclude>
+    <ClInclude Include="tester\testThreadingThreadPool.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Threading\ThreadPoolExcutionMode.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Threading\ThreadPoolGarbagedItem.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Threading\ThreadInterface.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Threading</Filter>
+    </ClInclude>
+    <ClInclude Include="TesterReport.h">
+      <Filter>Fichiers d%27en-tête</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Diagnostic\assertion.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Diagnostic</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -331,9 +433,6 @@
     </ClCompile>
     <ClCompile Include="..\Threading\ThreadPool.cpp">
       <Filter>Fichiers sources\cppFramework\Threading</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Debug\assertion.cpp">
-      <Filter>Fichiers sources\cppFramework\Debug</Filter>
     </ClCompile>
     <ClCompile Include="tester\testCallstacksAbsouteStack.cpp">
       <Filter>Fichiers sources\tester</Filter>
@@ -374,9 +473,6 @@
     <ClCompile Include="..\Timing\Date.cpp">
       <Filter>Fichiers sources\cppFramework\Timing</Filter>
     </ClCompile>
-    <ClCompile Include="tester\testSerializerTlvSerializer.cpp">
-      <Filter>Fichiers sources\tester</Filter>
-    </ClCompile>
     <ClCompile Include="..\Error\FrameworkError.cpp">
       <Filter>Fichiers sources\cppFramework\Error</Filter>
     </ClCompile>
@@ -397,9 +493,6 @@
     </ClCompile>
     <ClCompile Include="..\Tools\Conversion\SizeFileConversion.cpp">
       <Filter>Fichiers sources\cppFramework\Tools\Conversion</Filter>
-    </ClCompile>
-    <ClCompile Include="..\Tools\Hardware\CPU.cpp">
-      <Filter>Fichiers sources\cppFramework\Tools\Hardware</Filter>
     </ClCompile>
     <ClCompile Include="tester\testFileIOFileIni.cpp">
       <Filter>Fichiers sources\tester</Filter>
@@ -436,6 +529,78 @@
     </ClCompile>
     <ClCompile Include="..\Tools\String\Conversion.cpp">
       <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Crypto\md5.cpp">
+      <Filter>Fichiers sources\cppFramework\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Crypto\crc.cpp">
+      <Filter>Fichiers sources\cppFramework\Crypto</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testCryptoGeneric.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\Profile\BaseProfile.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\Profile</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Network\IPAdresse.cpp">
+      <Filter>Fichiers sources\cppFramework\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\String\Regex.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testNetworkIpAdress.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testNetworkTcpClientServer.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Network\TcpClient.cpp">
+      <Filter>Fichiers sources\cppFramework\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Network\TcpServer.cpp">
+      <Filter>Fichiers sources\cppFramework\Network</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testSerializationSerializeItem.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testSerializationTlvSerializer.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeBool.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeShort.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeInt.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeFloat.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Math\Math.cpp">
+      <Filter>Fichiers sources\cppFramework\Math</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeDouble.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Serializer\SerializeString.cpp">
+      <Filter>Fichiers sources\cppFramework\Serializer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Hardware\CPU.cpp">
+      <Filter>Fichiers sources\cppFramework\Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testThreadingThreadPool.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Threading\ThreadPoolGarbagedItem.cpp">
+      <Filter>Fichiers sources\cppFramework\Threading</Filter>
+    </ClCompile>
+    <ClCompile Include="TesterReport.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Diagnostic\assertion.cpp">
+      <Filter>Fichiers sources\cppFramework\Diagnostic</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -32,15 +32,17 @@ public:
 	~tempClass() {}
 	void set(int i) {memset(cTemp, (i%0xFF), LIST_TEST_STR_HUGE);}
 };
-// -----------------------------------------------------------
-int tester_collection_list_getter();
-// -----------------------------------------------------------
-int tester_collection_list_remove_items();
-// -----------------------------------------------------------
-int tester_collection_list_manage_class();
-// -----------------------------------------------------------
-/** generic function to test all list function */
-int tester_collection_list();
-// -----------------------------------------------------------
 
+namespace Test{
+	// -----------------------------------------------------------
+	int tester_collection_list_getter();
+	// -----------------------------------------------------------
+	int tester_collection_list_remove_items();
+	// -----------------------------------------------------------
+	int tester_collection_list_manage_class();
+	// -----------------------------------------------------------
+	/** generic function to test all list function */
+	int tester_collection_list();
+	// -----------------------------------------------------------
+}
 #endif /* TESTER_COLLECTION_LIST_H */

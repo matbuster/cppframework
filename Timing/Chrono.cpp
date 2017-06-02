@@ -8,10 +8,10 @@
 
 #include "Chrono.h"
 
-#ifdef WIN32
+#ifdef _WINDOWS
 using namespace std;
 #include <stdlib.h>
-#endif // WINDOWS
+#endif // _WINDOWS
 
 #ifdef LINUX
 #include <string.h>
@@ -43,7 +43,7 @@ long Timing::Chrono::getAbsoluteTime_ms() {
 	__int64 _lNumberTicks = li.QuadPart;
 
 	double _dTimeRetValue = (double)_lNumberTicks / _dFrequency;
-    return (long)(_dTimeRetValue);
+    lChronoValueMs = (long)(_dTimeRetValue);
 #endif //CYGWIN
 #endif //_WINDOWS
     return lChronoValueMs;
@@ -86,8 +86,8 @@ long Timing::Chrono::startChrono() {
     
 #ifdef LINUX
     gettimeofday(&m_startTime, NULL);
+	return CHRONO_OK;
 #endif // LINUX
-    return 0;
 }
 
 /** function to get the absolute time according to startChrono()*/
@@ -111,8 +111,6 @@ double Timing::Chrono::getTime_ms() {
     shiftTime = ((seconds) * 1000 + useconds/1000.0) + 0.5;       
     return (double)shiftTime;
 #endif // LINUX    
-    
-    return 0.0;
 }
 
 /** function to return the absolute time value */
@@ -136,5 +134,4 @@ unsigned long Timing::Chrono::getAbsoluteTime() {
     shiftTime = ((seconds) * 1000 + useconds/1000.0) + 0.5;       
     return shiftTime;
 #endif // LINUX
-    return 0;
 }

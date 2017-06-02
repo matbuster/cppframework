@@ -40,7 +40,15 @@ namespace Debug {
 	 * \param [in] ... argument to pass to function to display in message
 	 * \return success or fail
 	 */
-	bool displayArgs(char * functionName, char * message, ...);
+	bool displayArgsWithFunctionName(char * functionName, char * message, ...);
+
+	// ------------------------------------------------------------------------
+	/** function to display hexa buffer
+	 * \param [in] _pInputBuffer: input buffer to display in console
+	 * \param [in] _iSizeInputBuffer : size of the input buffer
+	 * \return success or failed
+	 */
+	bool displayBuffer(unsigned char * _pInputBuffer, long _iSizeInputBuffer);
 };
 
 #endif /* CONSOLE_H */

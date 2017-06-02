@@ -2,12 +2,13 @@
 #include "Collection\Hashmap.hpp"
 #include "testCollectionHashmap.h"
 #include "cppFrameworkTesterDefines.h"
+#include "TesterReport.h"
 
 #include <assert.h>
 #include <string>
 
 // -----------------------------------------------------------
-int tester_collection_hashmap_getter()
+int Test::tester_collection_hashmap_getter()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_COLL_HASHMAP_GETTER
@@ -34,20 +35,14 @@ int tester_collection_hashmap_getter()
 
 	delete mapper;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester Collection::List : tester_collection_hashmap_getter() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester Collection::List : tester_collection_hashmap_getter() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Collection::Hashmap", "tester_collection_hashmap_getter()");
+
 #endif /* TEST_COLL_HASHMAP_GETTER */
 	return iReturnCode;
 }
 // -----------------------------------------------------------
-int tester_collection_hashmap_remove_items()
+int Test::tester_collection_hashmap_remove_items()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_COLL_HASHMAP_REMOVE
@@ -57,11 +52,9 @@ int tester_collection_hashmap_remove_items()
 }
 // -----------------------------------------------------------
 /** generic function to test all hasmap function */
-int tester_collection_hashmap()
+int Test::tester_collection_hashmap()
 {
-	printf(STR_LINE_DISPLAY_SEP);
-	printf("testing Collection::Hashmap\r\n");
-	printf(STR_LINE_DISPLAY_SEP);
+	Test::TesterReport::getInstance()->printHeader("testing Collection::Hashmap");
 
 	int iReturnCode = TEST_OK;
 	iReturnCode = tester_collection_hashmap_getter();

@@ -1,10 +1,14 @@
 #ifndef HARDWARE_COMPUTER_H
 #define HARDWARE_COMPUTER_H
-
-// ----------------------------------------------------------
-int tester_hardware_computer_getName();
-// ----------------------------------------------------------
-int tester_hardware_computer();
-// ----------------------------------------------------------
-
+namespace Test {
+	// ----------------------------------------------------------
+	int tester_hardware_computer_getName();
+	// ----------------------------------------------------------
+	int tester_hardware_computer_getIpAdressAvailable();
+	// ----------------------------------------------------------
+	int tester_hardware_computer_getInterfaceAvailable();
+	// ----------------------------------------------------------
+	int tester_hardware_computer();
+	// ----------------------------------------------------------
+}
 #endif // HARDWARE_COMPUTER_H

@@ -22,6 +22,8 @@ bool Debug::Assert(bool bValue, const char * pMessage)
 	printf(pMessage);
 	printf("\r\n");
 	assert(bValue && pMessage);
+#else //_DEBUG
+	pMessage;
 #endif /* _DEBUG */
 	return bValue;
 }

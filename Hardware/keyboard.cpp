@@ -2,9 +2,9 @@
 #include "keyboard.h"
 
 //Include des en-tetes standard windows
-#ifdef WIN32
+#ifdef _WINDOWS
 #include <Windows.h>
-#endif // WIN32
+#endif // _WINDOWS
 
 // Include des en-tetes standard linux
 #ifdef LINUX
@@ -20,7 +20,7 @@
 #include <string.h>
 // include from galitt framework
 #include "Tools/String/Regex_Helper.h"
-
+#pragma warning(disable:4127)
 // ----------------------------------------------------------------------
 int Hardware::Keyboard::kbhit() 
 {
@@ -132,7 +132,7 @@ bool Hardware::Keyboard::getIpAdress(char * _pIpAdress, int _iSizeIpAdress)
 	printf("Ip adress value : %s\r\n", ip);
 
 	std::string sip = ip;
-	if(Tools::Regex::match_ipadress(sip))
+	if(Tools::Regex::match_ipV4adress(sip))
 	{
 		memset(_pIpAdress, 0x00, _iSizeIpAdress);
 		memcpy(_pIpAdress, ip, 15);

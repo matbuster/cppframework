@@ -1,13 +1,15 @@
 
 #include "testTimingChrono.h"
 #include "cppFrameworkTesterDefines.h"
+#include "TesterReport.h"
 
 // framework include timing
 #include "Timing/Chrono.h"
 #include "Timing/Timing.h"
+#include "Timing/Date.h"
 
 // framework include assertion
-#include "Debug/assertion.h"
+#include "Diagnostic/assertion.h"
 
 #include <stdio.h>
 
@@ -18,10 +20,17 @@
 #define TEST_ELLAPSED_VALUE_4_MS		500		
 #define TEST_ELLAPSED_VALUE_5_MS		1000
 
+// ----------------------------------------------------------
+int Test::tester_timing_datetime()
+{
+	Timing::Date::DateTime * date = Timing::Date::DateTime::Now();
+	delete date;
 
+    return TEST_OK;
+}
 // ----------------------------------------------------------
 
-int tester_timing_duration() {
+int Test::tester_timing_duration() {
 
     long _lAbsoluteStartTime_ms = Timing::Chrono::getAbsoluteTime_ms();
     long _lAbsoluteEndTime_ms = 0;
@@ -31,7 +40,7 @@ int tester_timing_duration() {
     long _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_1_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_1_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enought efficient for TEST_ELLAPSED_VALUE_1_MS.");
+        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_1_MS.");
         return TEST_KO;
     }
 
@@ -41,7 +50,7 @@ int tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_2_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_2_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enought efficient for TEST_ELLAPSED_VALUE_2_MS.");
+        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
         return TEST_KO;
     }
 
@@ -51,7 +60,7 @@ int tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_3_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_3_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enought efficient for TEST_ELLAPSED_VALUE_3_MS.");
+        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_3_MS.");
         return TEST_KO;
     }
 
@@ -61,7 +70,7 @@ int tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_4_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_4_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enought efficient for TEST_ELLAPSED_VALUE_4_MS.");
+        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_4_MS.");
         return TEST_KO;
     }
 
@@ -71,7 +80,7 @@ int tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_5_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_5_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enought efficient for TEST_ELLAPSED_VALUE_5_MS.");
+        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_5_MS.");
         return TEST_KO;
     }
 
@@ -79,7 +88,7 @@ int tester_timing_duration() {
 }
 // ----------------------------------------------------------
 
-int tester_timing_Chrono() {
+int Test::tester_timing_Chrono() {
 
     Timing::Chrono * chrono = new Timing::Chrono();
     chrono->startChrono();
@@ -90,7 +99,7 @@ int tester_timing_Chrono() {
 
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enought efficient for TEST_ELLAPSED_VALUE_1_MS.");
+        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_1_MS.");
         return TEST_KO;        
     }
     
@@ -100,7 +109,7 @@ int tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enought efficient for TEST_ELLAPSED_VALUE_2_MS.");
+        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
         return TEST_KO;        
     }    
     
@@ -110,7 +119,7 @@ int tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enought efficient for TEST_ELLAPSED_VALUE_3_MS.");
+        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_3_MS.");
         return TEST_KO;        
     }    
     
@@ -120,7 +129,7 @@ int tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enought efficient for TEST_ELLAPSED_VALUE_4_MS.");
+        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_4_MS.");
         return TEST_KO;        
     }
     
@@ -130,7 +139,7 @@ int tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enought efficient for TEST_ELLAPSED_VALUE_2_MS.");
+        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
         return TEST_KO;        
     }     
 
@@ -139,19 +148,25 @@ int tester_timing_Chrono() {
 }
 // ----------------------------------------------------------
 
-int tester_timing_chrono() {
+int Test::tester_timing_chrono() {
 
     int iReturnCode = TEST_OK;
-    printf(STR_LINE_DISPLAY_SEP);
-    printf("testing Timing::Chrono\r\n");
-    printf(STR_LINE_DISPLAY_SEP);
+    Test::TesterReport::getInstance()->printHeader("testing Timing::Chrono");
 
-    iReturnCode = tester_timing_duration();
+	iReturnCode = tester_timing_datetime();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Timing", "tester_timing_datetime()");
+	if (TEST_OK != iReturnCode) {
+        return TEST_KO;
+    }
+
+	iReturnCode = tester_timing_duration();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Timing", "tester_timing_duration()");
     if (TEST_OK != iReturnCode) {
         return TEST_KO;
     }
 
-    iReturnCode = tester_timing_Chrono();
+	iReturnCode = tester_timing_Chrono();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Timing", "tester_timing_Chrono()");
     if (TEST_OK != iReturnCode) {
         return TEST_KO;
     }

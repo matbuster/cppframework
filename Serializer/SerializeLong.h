@@ -17,8 +17,13 @@ namespace Serialization {
 	public:
 		/** main constructor and destructor of the class */
 		SerializedLong(long _lValue);
-		SerializedLong(unsigned char * _pSerializedData, long _lSerializedDataLen);
+		SerializedLong(unsigned char * _pSerializedData, unsigned long  _lSerializedDataLen);
 		~SerializedLong();
+
+		/**! getter on the value
+		 * \return long value
+		 */
+		long getValue();
 	};
 };
 

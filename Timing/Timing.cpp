@@ -90,7 +90,7 @@ dtimevalue = requestStart.tv_sec + requestStart.tv_nsec / BILLION;*/
     return dtimevalue;
 }
 
-double Timing::Timing::sysWatchTime(char * message, double dStartTime) {
+double Timing::Timing::sysWatchTime(char * /*message*/, double dStartTime) {
 
 	//TODO_MAT// use message mother fucker !!!
     double dStopTime = sysGetTime();

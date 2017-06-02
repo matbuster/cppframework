@@ -1,16 +1,17 @@
 
 #include "testMemoryRam.h"
 #include "cppFrameworkTesterDefines.h"
+#include "TesterReport.h"
 
 // Memory Tools
 #include "Memory/RAM.h"
 
 // include conversion
 #include "Tools/Conversion/SizeFileConversion.h"
-#include "Tools/Hardware/CPU.h"
+#include "Hardware/CPU.h"
 
 // debug tools
-#include "Debug/assertion.h"
+#include "Diagnostic/assertion.h"
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +20,7 @@
 #define DBL_MEMORY_SHIFT_ACCURACY		0.1
 // ----------------------------------------------------------
 
-int tester_one_mega_allocation() {
+int Test::tester_one_mega_allocation() {
 
     int iRetValue = TEST_OK;
 
@@ -53,7 +54,7 @@ int tester_one_mega_allocation() {
 }
 // ----------------------------------------------------------
 
-int tester_total_virtual_memory() {
+int Test::tester_total_virtual_memory() {
 
     int iReturnCode = TEST_KO;
 
@@ -70,7 +71,7 @@ int tester_total_virtual_memory() {
 }
 // ----------------------------------------------------------
 
-int tester_virtual_memory_currently_used() {
+int Test::tester_virtual_memory_currently_used() {
 
     int iReturnCode = TEST_KO;
     Memory::Ram * mem = new Memory::Ram();
@@ -86,7 +87,7 @@ int tester_virtual_memory_currently_used() {
 }
 // ----------------------------------------------------------
 
-int tester_virtual_memory_currently_used_by_current_process() {
+int Test::tester_virtual_memory_currently_used_by_current_process() {
 
     int iReturnCode = TEST_KO;
     Memory::Ram * mem = new Memory::Ram();
@@ -102,7 +103,7 @@ int tester_virtual_memory_currently_used_by_current_process() {
 }
 // ----------------------------------------------------------
 
-int tester_total_physics_memory() {
+int Test::tester_total_physics_memory() {
 
     int iReturnCode = TEST_KO;
     Memory::Ram * mem = new Memory::Ram();
@@ -118,7 +119,7 @@ int tester_total_physics_memory() {
 }
 // ----------------------------------------------------------
 
-int tester_physic_memory_currently_used() {
+int Test::tester_physic_memory_currently_used() {
     int iReturnCode = TEST_KO;
     Memory::Ram * mem = new Memory::Ram();
 
@@ -134,7 +135,7 @@ int tester_physic_memory_currently_used() {
 }
 // ----------------------------------------------------------
 
-int tester_physic_memory_currently_used_by_current_process() {
+int Test::tester_physic_memory_currently_used_by_current_process() {
 
     int iReturnCode = TEST_KO;
     Memory::Ram * mem = new Memory::Ram();
@@ -154,31 +155,35 @@ int tester_physic_memory_currently_used_by_current_process() {
 }
 // ----------------------------------------------------------
 
-int tester_memory_ram() {
+int Test::tester_memory_ram() {
 
     int iReturnCode = TEST_KO;
-    printf(STR_LINE_DISPLAY_SEP);
-    printf("testing Memory::RAM\r\n");
-    printf(STR_LINE_DISPLAY_SEP);
+    Test::TesterReport::getInstance()->printHeader("testing Memory::RAM");
 
     //iReturnCode = tester_one_mega_allocation();
     // virtual memory
-    iReturnCode = tester_total_virtual_memory();
-    iReturnCode = tester_virtual_memory_currently_used();
-    iReturnCode = tester_virtual_memory_currently_used_by_current_process();
+	iReturnCode = tester_total_virtual_memory();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Memory::VirtualMemory", "tester_total_virtual_memory()");
+	iReturnCode = tester_virtual_memory_currently_used();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Memory::VirtualMemory", "tester_virtual_memory_currently_used()");
+	iReturnCode = tester_virtual_memory_currently_used_by_current_process();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Memory::VirtualMemory", "tester_virtual_memory_currently_used_by_current_process()");
 
     // physic memory
-    iReturnCode = tester_total_physics_memory();
-    iReturnCode = tester_physic_memory_currently_used();
-    iReturnCode = tester_physic_memory_currently_used_by_current_process();
+	iReturnCode = tester_total_physics_memory();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Memory::PhysicalMemory", "tester_total_physics_memory()");
+	iReturnCode = tester_physic_memory_currently_used();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Memory::PhysicalMemory", "tester_physic_memory_currently_used()");
+	iReturnCode = tester_physic_memory_currently_used_by_current_process();
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Memory::PhysicalMemory", "tester_physic_memory_currently_used_by_current_process()");
 
     // testing cpu occupation
     double _dCPUCurrentValue = Tools::Hardware::getCPUCurrentlyUsed();
 	double _dCPUCurrentProcessValue = Tools::Hardware::getCPUCurrentluUsedByProcess();
 	int _iNumPross = Tools::Hardware::getNumberProcessor();
 
-    printf("[DEBUG]\t[CPU]\tCPU current occupation %0.3f purcent\n", _dCPUCurrentValue);
-    printf("[DEBUG]\t[CPU]\tCPU current process occupation %0.3f purcent\n", _dCPUCurrentProcessValue);
+    printf("[DEBUG]\t[CPU]\tCPU current occupation %0.3f percent\n", _dCPUCurrentValue);
+    printf("[DEBUG]\t[CPU]\tCPU current process occupation %0.3f percent\n", _dCPUCurrentProcessValue);
 	printf("[DEBUG]\t[CPU]\tNumber processor %d\n", _iNumPross);
 
     return iReturnCode;

@@ -20,13 +20,14 @@
 #define TEST_CSTK_ABSSTACK_PUSH_POP
 
 #endif /* TEST_COOL_LIST_FULL */
-
-// ------------------------------------------------------------
-int tester_callstacks_absolute_stacks_push_pop_1();
-int tester_callstacks_absolute_stacks_push_pop_2();
-int tester_callstacks_absolute_stacks_push_get();
-// ------------------------------------------------------------
-int tester_callstacks_absolute_queue();
-// ------------------------------------------------------------
-
+namespace Test{
+	// ------------------------------------------------------------
+	int tester_callstacks_absolute_stacks_push_pop_1();
+	int tester_callstacks_absolute_stacks_push_pop_2();
+	int tester_callstacks_absolute_stacks_push_get();
+	int tester_callstacks_absolute_stacks_push_pop_not_found();
+	// ------------------------------------------------------------
+	int tester_callstacks_absolute_queue();
+	// ------------------------------------------------------------
+}
 #endif /* TEST_CALLSTACKS_ABS_STACK_H */

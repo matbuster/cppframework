@@ -1,7 +1,9 @@
 #ifndef CHAR_ARGS_H
 #define CHAR_ARGS_H
 
-#ifdef WIN32
+#ifdef _WINDOWS
+
+#include <tchar.h>
 
 namespace Tools {
 
@@ -39,6 +41,6 @@ namespace Tools {
 	};
 };
 
-#endif // WIN32
+#endif // _WINDOWS
 
 #endif // CHAR_ARGS_H

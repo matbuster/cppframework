@@ -1,6 +1,4 @@
 
-#include "stdafx.h"
-
 #include <Windows.h>
 #include <stdio.h>
 
@@ -137,7 +135,7 @@ namespace Communications
 	}
 
 	/*! fonction to send data from an encoded buffer */
-	int CommunicationRS::SendData(char* _pBufferToSend,int _iSizeBufferToSend, int* _iOctetsSended)
+	int CommunicationRS::SendData(char* /*_pBufferToSend*/,int /*_iSizeBufferToSend*/, int* /*_iOctetsSended*/)
 	{
 		// seulement si la com a été ouverte
 		if(m_bOpened)
@@ -187,7 +185,7 @@ namespace Communications
 	}
 
 	/*! fonction to receive data from an encoded buffer */
-	int CommunicationRS::ReceiveData(char* _pBufferReceived, int _iSizeOutputBuffer, int* _iOctetsReceived)
+	int CommunicationRS::ReceiveData(char* _pBufferReceived, int /*_iSizeOutputBuffer*/, int* _iOctetsReceived)
 	{
 		if(NULL == _pBufferReceived)
 		{

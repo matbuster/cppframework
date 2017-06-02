@@ -13,7 +13,7 @@
 
 // the eight DES S-boxes
 
-static const ULONG SB1[64] = {
+static const unsigned long SB1[64] = {
     0x01010400, 0x00000000, 0x00010000, 0x01010404,
     0x01010004, 0x00010404, 0x00000004, 0x00010000,
     0x00000400, 0x01010400, 0x01010404, 0x00000400,
@@ -32,7 +32,7 @@ static const ULONG SB1[64] = {
     0x00010004, 0x00010400, 0x00000000, 0x01010004
 };
 
-static const ULONG SB2[64] = {
+static const unsigned long SB2[64] = {
     0x80108020, 0x80008000, 0x00008000, 0x00108020,
     0x00100000, 0x00000020, 0x80100020, 0x80008020,
     0x80000020, 0x80108020, 0x80108000, 0x80000000,
@@ -51,7 +51,7 @@ static const ULONG SB2[64] = {
     0x80000000, 0x80100020, 0x80108020, 0x00108000
 };
 
-static const ULONG SB3[64] = {
+static const unsigned long SB3[64] = {
     0x00000208, 0x08020200, 0x00000000, 0x08020008,
     0x08000200, 0x00000000, 0x00020208, 0x08000200,
     0x00020008, 0x08000008, 0x08000008, 0x00020000,
@@ -70,7 +70,7 @@ static const ULONG SB3[64] = {
     0x00020208, 0x00000008, 0x08020008, 0x00020200
 };
 
-static const ULONG SB4[64] = {
+static const unsigned long SB4[64] = {
     0x00802001, 0x00002081, 0x00002081, 0x00000080,
     0x00802080, 0x00800081, 0x00800001, 0x00002001,
     0x00000000, 0x00802000, 0x00802000, 0x00802081,
@@ -89,7 +89,7 @@ static const ULONG SB4[64] = {
     0x00000080, 0x00800000, 0x00002000, 0x00802080
 };
 
-static const ULONG SB5[64] = {
+static const unsigned long SB5[64] = {
     0x00000100, 0x02080100, 0x02080000, 0x42000100,
     0x00080000, 0x00000100, 0x40000000, 0x02080000,
     0x40080100, 0x00080000, 0x02000100, 0x40080100,
@@ -108,7 +108,7 @@ static const ULONG SB5[64] = {
     0x00000000, 0x40080000, 0x02080100, 0x40000100
 };
 
-static const ULONG SB6[64] = {
+static const unsigned long SB6[64] = {
     0x20000010, 0x20400000, 0x00004000, 0x20404010,
     0x20400000, 0x00000010, 0x20404010, 0x00400000,
     0x20004000, 0x00404010, 0x00400000, 0x20000010,
@@ -127,7 +127,7 @@ static const ULONG SB6[64] = {
     0x20404000, 0x20000000, 0x00400010, 0x20004010
 };
 
-static const ULONG SB7[64] = {
+static const unsigned long SB7[64] = {
     0x00200000, 0x04200002, 0x04000802, 0x00000000,
     0x00000800, 0x04000802, 0x00200802, 0x04200800,
     0x04200802, 0x00200000, 0x00000000, 0x04000002,
@@ -146,7 +146,7 @@ static const ULONG SB7[64] = {
     0x04000002, 0x04000800, 0x00000800, 0x00200002
 };
 
-static const ULONG SB8[64] = {
+static const unsigned long SB8[64] = {
     0x10001040, 0x00001000, 0x00040000, 0x10041040,
     0x10000000, 0x10001040, 0x00000040, 0x10000000,
     0x00040040, 0x10040000, 0x10041040, 0x00041000,
@@ -166,14 +166,14 @@ static const ULONG SB8[64] = {
 };
 
 // PC1: left and right halves bit-swap
-static const ULONG LHs[16] = {
+static const unsigned long LHs[16] = {
     0x00000000, 0x00000001, 0x00000100, 0x00000101,
     0x00010000, 0x00010001, 0x00010100, 0x00010101,
     0x01000000, 0x01000001, 0x01000100, 0x01000101,
     0x01010000, 0x01010001, 0x01010100, 0x01010101
 };
 
-static const ULONG RHs[16] = {
+static const unsigned long RHs[16] = {
     0x00000000, 0x01000000, 0x00010000, 0x01010000,
     0x00000100, 0x01000100, 0x00010100, 0x01010100,
     0x00000001, 0x01000001, 0x00010001, 0x01010001,
@@ -184,18 +184,18 @@ static const ULONG RHs[16] = {
 
 #define GET_ULONG(n,b,i)                       \
 	{                                            \
-		(n) = ( (ULONG) (b)[(i)    ] << 24 )       \
-				| ( (ULONG) (b)[(i) + 1] << 16 )       \
-				| ( (ULONG) (b)[(i) + 2] <<  8 )       \
-				| ( (ULONG) (b)[(i) + 3]       );      \
+		(n) = ( (unsigned long) (b)[(i)    ] << 24 )       \
+				| ( (unsigned long) (b)[(i) + 1] << 16 )       \
+				| ( (unsigned long) (b)[(i) + 2] <<  8 )       \
+				| ( (unsigned long) (b)[(i) + 3]       );      \
 	}
 
 #define PUT_ULONG(n,b,i)                        \
 	{                                             \
-		(b)[(i)    ] = (UCHAR) ( (n) >> 24 );       \
-		(b)[(i) + 1] = (UCHAR) ( (n) >> 16 );       \
-		(b)[(i) + 2] = (UCHAR) ( (n) >>  8 );       \
-		(b)[(i) + 3] = (UCHAR) ( (n)       );       \
+		(b)[(i)    ] = (unsigned char) ( (n) >> 24 );       \
+		(b)[(i) + 1] = (unsigned char) ( (n) >> 16 );       \
+		(b)[(i) + 2] = (unsigned char) ( (n) >>  8 );       \
+		(b)[(i) + 3] = (unsigned char) ( (n)       );       \
 	}
 
 // Initial Permutation macro
@@ -240,9 +240,9 @@ static const ULONG RHs[16] = {
 
 // DES key
 
-void des_main_ks(ULONG SK[32], UCHAR key[8]) {
-    ULONG i;
-    ULONG X, Y, T;
+void des_main_ks(unsigned long SK[32], unsigned char key[8]) {
+    unsigned long i;
+    unsigned long X, Y, T;
 
     GET_ULONG(X, key, 0);
     GET_ULONG(Y, key, 4);
@@ -308,8 +308,8 @@ void des_main_ks(ULONG SK[32], UCHAR key[8]) {
 
 // fonctions internes
 
-void sccDES8(ULONG *SK, UCHAR *input, UCHAR *output) {
-    ULONG X, Y, T;
+void sccDES8(unsigned long *SK, unsigned char *input, unsigned char *output) {
+    unsigned long X, Y, T;
 
     GET_ULONG(X, input, 0);
     GET_ULONG(Y, input, 4);
@@ -339,8 +339,8 @@ void sccDES8(ULONG *SK, UCHAR *input, UCHAR *output) {
     PUT_ULONG(X, output, 4);
 }
 
-void sccTDES8(ULONG *SK, UCHAR *input, UCHAR *output) {
-    ULONG X, Y, T;
+void sccTDES8(unsigned long *SK, unsigned char *input, unsigned char *output) {
+    unsigned long X, Y, T;
 
     GET_ULONG(X, input, 0);
     GET_ULONG(Y, input, 4);
@@ -408,11 +408,11 @@ void sccTDES8(ULONG *SK, UCHAR *input, UCHAR *output) {
 
 long __sccDES
 (
-        sccDES_RB_t *DES_rb
+        DES_RB_t *DES_rb
         ) {
-    ULONG i, nb = 0;
-    ULONG ctx[2][96];
-    UCHAR temp[8], temp2[8];
+    unsigned long i, nb = 0;
+    unsigned long ctx[2][96];
+    unsigned char temp[8], temp2[8];
 
     des_main_ks(ctx[0], DES_rb->key);
 
@@ -425,43 +425,43 @@ long __sccDES
     }
 
     if (DES_ECB_MODE & DES_rb->options) {
-        for (i = 0; i < DES_rb->source.internal.count; i += 8)
-            sccDES8(ctx[nb], (UCHAR*) DES_rb->source.internal.buffer + i, (UCHAR*)DES_rb->destination.internal.buffer + i);
+        for (i = 0; i < DES_rb->source.inter.count; i += 8)
+            sccDES8(ctx[nb], (unsigned char*) DES_rb->source.inter.buffer + i, (unsigned char*)DES_rb->destination.inter.buffer + i);
     }
     if (DES_CBC_MODE & DES_rb->options) {
-        for (i = 0; i < DES_rb->source.internal.count; i += 8) {
+        for (i = 0; i < DES_rb->source.inter.count; i += 8) {
             if (DES_ENCRYPT & DES_rb->options) {
                 if (0 == i)
-                    XorLen(DES_rb->init_v, (UCHAR*)DES_rb->source.internal.buffer, temp, 8);
+                    XorLen(DES_rb->init_v, (unsigned char*)DES_rb->source.inter.buffer, temp, 8);
                 else
-                    XorLen((UCHAR*)DES_rb->destination.internal.buffer + i - 8, (UCHAR*)DES_rb->source.internal.buffer + i, temp, 8);
+                    XorLen((unsigned char*)DES_rb->destination.inter.buffer + i - 8, (unsigned char*)DES_rb->source.inter.buffer + i, temp, 8);
             }
             if (DES_DECRYPT & DES_rb->options) {
-                memcpy(temp, (UCHAR*)DES_rb->source.internal.buffer + i, 8);
+                memcpy(temp, (unsigned char*)DES_rb->source.inter.buffer + i, 8);
             }
 
-            sccDES8(ctx[nb], temp, (UCHAR*)DES_rb->destination.internal.buffer + i);
+            sccDES8(ctx[nb], temp, (unsigned char*)DES_rb->destination.inter.buffer + i);
 
             if (DES_DECRYPT & DES_rb->options) {
                 if (0 == i)
-                    XorLen(DES_rb->init_v, (UCHAR*)DES_rb->destination.internal.buffer, (UCHAR*)DES_rb->destination.internal.buffer, 8);
+                    XorLen(DES_rb->init_v, (unsigned char*)DES_rb->destination.inter.buffer, (unsigned char*)DES_rb->destination.inter.buffer, 8);
                 else
-                    XorLen(temp2, (UCHAR*)DES_rb->destination.internal.buffer + i, (UCHAR*)DES_rb->destination.internal.buffer + i, 8);
+                    XorLen(temp2, (unsigned char*)DES_rb->destination.inter.buffer + i, (unsigned char*)DES_rb->destination.inter.buffer + i, 8);
                 memcpy(temp2, temp, 8);
             }
         }
     }
 
-    return DMGood;
+    return RESULT_GOOD;
 }
 
-long __sccTDES
+long TDES
 (
-        sccTDES_RB_t *TDES_rb
+        TDES_RB_t *TDES_rb
         ) {
-    ULONG i, nb;
-    ULONG ctx[2][96];
-    UCHAR temp[8], temp2[8];
+    unsigned long i, nb;
+    unsigned long ctx[2][96];
+    unsigned char temp[8], temp2[8];
 
     des_main_ks(ctx[0], TDES_rb->key1);
     des_main_ks(ctx[1] + 32, TDES_rb->key2);
@@ -485,43 +485,43 @@ long __sccTDES
     }
 
     if (DES_ECB_MODE & TDES_rb->options) {
-        for (i = 0; i < TDES_rb->source.internal.count; i += 8)
-            sccTDES8(ctx[nb], (UCHAR*)TDES_rb->source.internal.buffer + i, (UCHAR*)TDES_rb->destination.internal.buffer + i);
+        for (i = 0; i < TDES_rb->source.inter.count; i += 8)
+            sccTDES8(ctx[nb], (unsigned char*)TDES_rb->source.inter.buffer + i, (unsigned char*)TDES_rb->destination.inter.buffer + i);
     }
     if (DES_CBC_MODE & TDES_rb->options) {
-        for (i = 0; i < TDES_rb->source.internal.count; i += 8) {
+        for (i = 0; i < TDES_rb->source.inter.count; i += 8) {
             if (DES_ENCRYPT & TDES_rb->options) {
                 if (0 == i)
-                    XorLen(TDES_rb->init_v, (UCHAR*)TDES_rb->source.internal.buffer, temp, 8);
+                    XorLen(TDES_rb->init_v, (unsigned char*)TDES_rb->source.inter.buffer, temp, 8);
                 else
-                    XorLen((UCHAR*)TDES_rb->destination.internal.buffer + i - 8, (UCHAR*)TDES_rb->source.internal.buffer + i, temp, 8);
+                    XorLen((unsigned char*)TDES_rb->destination.inter.buffer + i - 8, (unsigned char*)TDES_rb->source.inter.buffer + i, temp, 8);
             }
             if (DES_DECRYPT & TDES_rb->options) {
-                memcpy(temp, (UCHAR*)TDES_rb->source.internal.buffer + i, 8);
+                memcpy(temp, (unsigned char*)TDES_rb->source.inter.buffer + i, 8);
             }
 
-            sccTDES8(ctx[nb], temp, (UCHAR*)TDES_rb->destination.internal.buffer + i);
+            sccTDES8(ctx[nb], temp, (unsigned char*)TDES_rb->destination.inter.buffer + i);
 
             if (DES_DECRYPT & TDES_rb->options) {
                 if (0 == i)
-                    XorLen(TDES_rb->init_v, (UCHAR*)TDES_rb->destination.internal.buffer, (UCHAR*)TDES_rb->destination.internal.buffer, 8);
+                    XorLen(TDES_rb->init_v, (unsigned char*)TDES_rb->destination.inter.buffer, (unsigned char*)TDES_rb->destination.inter.buffer, 8);
                 else
-                    XorLen(temp2, (UCHAR*)TDES_rb->destination.internal.buffer + i, (UCHAR*)TDES_rb->destination.internal.buffer + i, 8);
+                    XorLen(temp2, (unsigned char*)TDES_rb->destination.inter.buffer + i, (unsigned char*)TDES_rb->destination.inter.buffer + i, 8);
                 memcpy(temp2, temp, 8);
             }
 
         }
     }
 
-    return DMGood;
+    return RESULT_GOOD;
 }
 
-long __sccDES8bytes
+long DES8bytes
 (
-        sccDES8bytes_RB_t *des8_rb
+        DES8bytes_RB_t *des8_rb
         ) {
-    ULONG i, nb;
-    ULONG ctx[2][32];
+    unsigned long i, nb;
+    unsigned long ctx[2][32];
 
     des_main_ks(ctx[0], des8_rb->key);
     if (des8_rb->options & DES_DECRYPT) {
@@ -535,16 +535,16 @@ long __sccDES8bytes
     }
     sccDES8(ctx[nb], des8_rb->input_data, des8_rb->output_data);
 
-    return DMGood;
+    return RESULT_GOOD;
 }
 
-long __sccDES3Key
+long DES3Key
 (
-        sccDES3Key_RB_t *TDES8_rb
+        DES3Key_RB_t *TDES8_rb
         ) {
-    ULONG i, nb;
-    ULONG ctx[2][32];
-    UCHAR Temp[8];
+    unsigned long i, nb;
+    unsigned long ctx[2][32];
+    unsigned char Temp[8];
 
     des_main_ks(ctx[0], TDES8_rb->key1);
     if (TDES8_rb->options & DES3_1_DECRYPT) {
@@ -582,27 +582,27 @@ long __sccDES3Key
     }
     sccDES8(ctx[nb], Temp, TDES8_rb->key_out);
 
-    return DMGood;
+    return RESULT_GOOD;
 }
 
 // fonctions externes
 
-long scc_single_des_ecb_encrypt
+long single_des_ecb_encrypt
 (
-        UCHAR *key,
-        UCHAR *pcleartxt,
-        ULONG *length,
-        UCHAR *pciphrtxt
+        unsigned char *key,
+        unsigned char *pcleartxt,
+        unsigned long *length,
+        unsigned char *pciphrtxt
         ) {
-    sccDES_RB_t DES_rb;
+    DES_RB_t DES_rb;
 
     memcpy(&DES_rb.key, key, 8);
     memset(&DES_rb.init_v, 0, 8);
     memset(&DES_rb.term_v, 0, 8);
-    DES_rb.source.internal.count = *length;
-    DES_rb.source.internal.buffer = pcleartxt;
-    DES_rb.destination.internal.count = *length;
-    DES_rb.destination.internal.buffer = pciphrtxt;
+    DES_rb.source.inter.count = *length;
+    DES_rb.source.inter.buffer = pcleartxt;
+    DES_rb.destination.inter.count = *length;
+    DES_rb.destination.inter.buffer = pciphrtxt;
     memset(&DES_rb.prePadding, 0, sizeof (DES_rb.prePadding));
     memset(&DES_rb.postPadding, 0, sizeof (DES_rb.postPadding));
 
@@ -616,26 +616,26 @@ long scc_single_des_ecb_encrypt
 }
 
 // --------------------------------------------------------
-// scc_single_des_ecb_decrypt
+// single_des_ecb_decrypt
 //     to decrypt a multiple of 8 bytes in ECB mode
 // --------------------------------------------------------
 
-long scc_single_des_ecb_decrypt
+long single_des_ecb_decrypt
 (
-        UCHAR *key,
-        UCHAR *pciphrtxt,
-        ULONG *length,
-        UCHAR *pcleartxt
+        unsigned char *key,
+        unsigned char *pciphrtxt,
+        unsigned long *length,
+        unsigned char *pcleartxt
         ) {
-    sccDES_RB_t DES_rb;
+    DES_RB_t DES_rb;
 
     memcpy(&DES_rb.key, key, 8);
     memset(&DES_rb.init_v, 0, 8);
     memset(&DES_rb.term_v, 0, 8);
-    DES_rb.source.internal.count = *length;
-    DES_rb.source.internal.buffer = pciphrtxt;
-    DES_rb.destination.internal.count = *length;
-    DES_rb.destination.internal.buffer = pcleartxt;
+    DES_rb.source.inter.count = *length;
+    DES_rb.source.inter.buffer = pciphrtxt;
+    DES_rb.destination.inter.count = *length;
+    DES_rb.destination.inter.buffer = pcleartxt;
     memset(&DES_rb.prePadding, 0, sizeof (DES_rb.prePadding));
     memset(&DES_rb.postPadding, 0, sizeof (DES_rb.postPadding));
 
@@ -649,26 +649,26 @@ long scc_single_des_ecb_decrypt
 }
 
 // --------------------------------------------------------
-// scc_single_des_cbc_encrypt
+// single_des_cbc_encrypt
 //     to encrypt a multiple of 8 bytes in CBC mode
 // --------------------------------------------------------
 
-long scc_single_des_cbc_encrypt
+long single_des_cbc_encrypt
 (
-        UCHAR *key,
-        UCHAR *pcleartxt,
-        ULONG *length,
-        UCHAR *pciphrtxt
+        unsigned char *key,
+        unsigned char *pcleartxt,
+        unsigned long *length,
+        unsigned char *pciphrtxt
         ) {
-    sccDES_RB_t DES_rb;
+    DES_RB_t DES_rb;
 
     memcpy(&DES_rb.key, key, 8);
     memset(&DES_rb.init_v, 0, 8);
     memset(&DES_rb.term_v, 0, 8);
-    DES_rb.source.internal.count = *length;
-    DES_rb.source.internal.buffer = pcleartxt;
-    DES_rb.destination.internal.count = *length;
-    DES_rb.destination.internal.buffer = pciphrtxt;
+    DES_rb.source.inter.count = *length;
+    DES_rb.source.inter.buffer = pcleartxt;
+    DES_rb.destination.inter.count = *length;
+    DES_rb.destination.inter.buffer = pciphrtxt;
     memset(&DES_rb.prePadding, 0, sizeof (DES_rb.prePadding));
     memset(&DES_rb.postPadding, 0, sizeof (DES_rb.postPadding));
 
@@ -682,26 +682,26 @@ long scc_single_des_cbc_encrypt
 }
 
 // --------------------------------------------------------
-// scc_single_des_cbc_decrypt
+// single_des_cbc_decrypt
 //     to decrypt a multiple of 8 bytes in CBC mode
 // --------------------------------------------------------
 
-long scc_single_des_cbc_decrypt
+long single_des_cbc_decrypt
 (
-        UCHAR *key,
-        UCHAR *pciphrtxt,
-        ULONG *length,
-        UCHAR *pcleartxt
+        unsigned char *key,
+        unsigned char *pciphrtxt,
+        unsigned long *length,
+        unsigned char *pcleartxt
         ) {
-    sccDES_RB_t DES_rb;
+    DES_RB_t DES_rb;
 
     memcpy(&DES_rb.key, key, 8);
     memset(&DES_rb.init_v, 0, 8);
     memset(&DES_rb.term_v, 0, 8);
-    DES_rb.source.internal.count = *length;
-    DES_rb.source.internal.buffer = pciphrtxt;
-    DES_rb.destination.internal.count = *length;
-    DES_rb.destination.internal.buffer = pcleartxt;
+    DES_rb.source.inter.count = *length;
+    DES_rb.source.inter.buffer = pciphrtxt;
+    DES_rb.destination.inter.count = *length;
+    DES_rb.destination.inter.buffer = pcleartxt;
     memset(&DES_rb.prePadding, 0, sizeof (DES_rb.prePadding));
     memset(&DES_rb.postPadding, 0, sizeof (DES_rb.postPadding));
 
@@ -719,26 +719,26 @@ long scc_single_des_cbc_decrypt
 //     to TDES-encrypt a multiple of 8 bytes in ECB mode
 // --------------------------------------------------------
 
-long scc_triple_des_ecb_encrypt_m2
+long triple_des_ecb_encrypt
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pcleartxt,
-        ULONG *length,
-        UCHAR *pciphrtxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pcleartxt,
+        unsigned long *length,
+        unsigned char *pciphrtxt
         ) {
-    sccTDES_RB_t TDES_rb;
+    TDES_RB_t TDES_rb;
 
     memcpy(&TDES_rb.key1, key1, 8);
     memcpy(&TDES_rb.key2, key2, 8);
     memcpy(&TDES_rb.key3, key3, 8);
     memset(&TDES_rb.init_v, 0, 8);
     memset(&TDES_rb.term_v, 0, 8);
-    TDES_rb.source.internal.count = *length;
-    TDES_rb.source.internal.buffer = pcleartxt;
-    TDES_rb.destination.internal.count = *length;
-    TDES_rb.destination.internal.buffer = pciphrtxt;
+    TDES_rb.source.inter.count = *length;
+    TDES_rb.source.inter.buffer = pcleartxt;
+    TDES_rb.destination.inter.count = *length;
+    TDES_rb.destination.inter.buffer = pciphrtxt;
     memset(&TDES_rb.prePadding, 0, sizeof (TDES_rb.prePadding));
     memset(&TDES_rb.postPadding, 0, sizeof (TDES_rb.postPadding));
 
@@ -749,29 +749,29 @@ long scc_triple_des_ecb_encrypt_m2
             DES_INTERNAL_INPUT |
             DES_INTERNAL_OUTPUT;
 
-    return __sccTDES(&TDES_rb);
+    return TDES(&TDES_rb);
 }
 
-long scc_triple_des_ecb_decrypt_m2
+long triple_des_ecb_decrypt
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pciphrtxt,
-        ULONG *length,
-        UCHAR *pcleartxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pciphrtxt,
+        unsigned long *length,
+        unsigned char *pcleartxt
         ) {
-    sccTDES_RB_t TDES_rb;
+    TDES_RB_t TDES_rb;
 
     memcpy(&TDES_rb.key1, key1, 8);
     memcpy(&TDES_rb.key2, key2, 8);
     memcpy(&TDES_rb.key3, key3, 8);
     memset(&TDES_rb.init_v, 0, 8);
     memset(&TDES_rb.term_v, 0, 8);
-    TDES_rb.source.internal.count = *length;
-    TDES_rb.source.internal.buffer = pciphrtxt;
-    TDES_rb.destination.internal.count = *length;
-    TDES_rb.destination.internal.buffer = pcleartxt;
+    TDES_rb.source.inter.count = *length;
+    TDES_rb.source.inter.buffer = pciphrtxt;
+    TDES_rb.destination.inter.count = *length;
+    TDES_rb.destination.inter.buffer = pcleartxt;
     memset(&TDES_rb.prePadding, 0, sizeof (TDES_rb.prePadding));
     memset(&TDES_rb.postPadding, 0, sizeof (TDES_rb.postPadding));
 
@@ -782,34 +782,34 @@ long scc_triple_des_ecb_decrypt_m2
             DES_INTERNAL_INPUT |
             DES_INTERNAL_OUTPUT;
 
-    return __sccTDES(&TDES_rb);
+    return TDES(&TDES_rb);
 }
 
 // --------------------------------------------------------
-// scc_triple_des_cbc_encrypt
+// triple_des_cbc_encrypt
 //     to TDES-encrypt a multiple of 8 bytes in CBC mode
 // --------------------------------------------------------
 
-long scc_triple_des_cbc_encrypt
+long triple_des_cbc_encrypt
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pcleartxt,
-        ULONG *length,
-        UCHAR *pciphrtxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pcleartxt,
+        unsigned long *length,
+        unsigned char *pciphrtxt
         ) {
-    sccTDES_RB_t TDES_rb;
+    TDES_RB_t TDES_rb;
 
     memcpy(&TDES_rb.key1, key1, 8);
     memcpy(&TDES_rb.key2, key2, 8);
     memcpy(&TDES_rb.key3, key3, 8);
     memset(&TDES_rb.init_v, 0, 8);
     memset(&TDES_rb.term_v, 0, 8);
-    TDES_rb.source.internal.count = *length;
-    TDES_rb.source.internal.buffer = pcleartxt;
-    TDES_rb.destination.internal.count = *length;
-    TDES_rb.destination.internal.buffer = pciphrtxt;
+    TDES_rb.source.inter.count = *length;
+    TDES_rb.source.inter.buffer = pcleartxt;
+    TDES_rb.destination.inter.count = *length;
+    TDES_rb.destination.inter.buffer = pciphrtxt;
     memset(&TDES_rb.prePadding, 0, sizeof (TDES_rb.prePadding));
     memset(&TDES_rb.postPadding, 0, sizeof (TDES_rb.postPadding));
 
@@ -820,29 +820,29 @@ long scc_triple_des_cbc_encrypt
             DES_INTERNAL_INPUT |
             DES_INTERNAL_OUTPUT;
 
-    return __sccTDES(&TDES_rb);
+    return TDES(&TDES_rb);
 }
 
-long scc_triple_des_cbc_decrypt
+long triple_des_cbc_decrypt
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pciphrtxt,
-        ULONG *length,
-        UCHAR *pcleartxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pciphrtxt,
+        unsigned long *length,
+        unsigned char *pcleartxt
         ) {
-    sccTDES_RB_t TDES_rb;
+    TDES_RB_t TDES_rb;
 
     memcpy(&TDES_rb.key1, key1, 8);
     memcpy(&TDES_rb.key2, key2, 8);
     memcpy(&TDES_rb.key3, key3, 8);
     memset(&TDES_rb.init_v, 0, 8);
     memset(&TDES_rb.term_v, 0, 8);
-    TDES_rb.source.internal.count = *length;
-    TDES_rb.source.internal.buffer = pciphrtxt;
-    TDES_rb.destination.internal.count = *length;
-    TDES_rb.destination.internal.buffer = pcleartxt;
+    TDES_rb.source.inter.count = *length;
+    TDES_rb.source.inter.buffer = pciphrtxt;
+    TDES_rb.destination.inter.count = *length;
+    TDES_rb.destination.inter.buffer = pcleartxt;
     memset(&TDES_rb.prePadding, 0, sizeof (TDES_rb.prePadding));
     memset(&TDES_rb.postPadding, 0, sizeof (TDES_rb.postPadding));
 
@@ -853,21 +853,21 @@ long scc_triple_des_cbc_decrypt
             DES_INTERNAL_INPUT |
             DES_INTERNAL_OUTPUT;
 
-    return __sccTDES(&TDES_rb);
+    return TDES(&TDES_rb);
 }
 
 // --------------------------------------------------------
-// scc_single_des8_encrypt
+// single_des8_encrypt
 //     to DES-encrypt 8 bytes
 // --------------------------------------------------------
 
-long scc_single_des8_encrypt
+long single_des8_encrypt
 (
-        UCHAR *key,
-        UCHAR *pcleartxt,
-        UCHAR *pciphrtxt
+        unsigned char *key,
+        unsigned char *pcleartxt,
+        unsigned char *pciphrtxt
         ) {
-    sccDES8bytes_RB_t DES8_rb;
+    DES8bytes_RB_t DES8_rb;
     long Retmsg;
 
     memcpy(&DES8_rb.key, key, 8);
@@ -875,24 +875,24 @@ long scc_single_des8_encrypt
 
     DES8_rb.options = DES_ENCRYPT;
 
-    Retmsg = __sccDES8bytes(&DES8_rb);
-    if (DMGood == Retmsg)
+    Retmsg = DES8bytes(&DES8_rb);
+    if (RESULT_GOOD == Retmsg)
         memcpy(pciphrtxt, &DES8_rb.output_data, 8);
     return Retmsg;
 }
 
 // --------------------------------------------------------
-// scc_single_des8_decrypt
+// single_des8_decrypt
 //     to DES-decrypt 8 bytes
 // --------------------------------------------------------
 
-long scc_single_des8_decrypt
+long single_des8_decrypt
 (
-        UCHAR *key,
-        UCHAR *pcleartxt,
-        UCHAR *pciphrtxt
+        unsigned char *key,
+        unsigned char *pcleartxt,
+        unsigned char *pciphrtxt
         ) {
-    sccDES8bytes_RB_t DES8_rb;
+    DES8bytes_RB_t DES8_rb;
     long Retmsg;
 
     memcpy(&DES8_rb.key, key, 8);
@@ -900,26 +900,26 @@ long scc_single_des8_decrypt
 
     DES8_rb.options = DES_DECRYPT;
 
-    Retmsg = __sccDES8bytes(&DES8_rb);
-    if (DMGood == Retmsg)
+    Retmsg = DES8bytes(&DES8_rb);
+    if (RESULT_GOOD == Retmsg)
         memcpy(pciphrtxt, &DES8_rb.output_data, 8);
     return Retmsg;
 }
 
 // --------------------------------------------------------
-// scc_triple_des8_encrypt
+// triple_des8_encrypt
 //     to TDES-encrypt 8 bytes
 // --------------------------------------------------------
 
-long scc_triple_des8_encrypt
+long triple_des8_encrypt
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pcleartxt,
-        UCHAR *pciphrtxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pcleartxt,
+        unsigned char *pciphrtxt
         ) {
-    sccDES3Key_RB_t TDES8_rb;
+    DES3Key_RB_t TDES8_rb;
     long Retmsg;
 
     memcpy(&TDES8_rb.key1, key1, 8);
@@ -931,27 +931,27 @@ long scc_triple_des8_encrypt
             DES3_2_DECRYPT |
             DES3_3_ENCRYPT;
 
-    Retmsg = __sccDES3Key(&TDES8_rb);
-    if (DMGood == Retmsg)
+    Retmsg = DES3Key(&TDES8_rb);
+    if (RESULT_GOOD == Retmsg)
         memcpy(pciphrtxt, &TDES8_rb.key_out, 8);
     return Retmsg;
 }
 
 
 // --------------------------------------------------------
-// scc_triple_des8_decrypt
+// triple_des8_decrypt
 //     to TDES-decrypt 8 bytes
 // --------------------------------------------------------
 
-long scc_triple_des8_decrypt
+long triple_des8_decrypt
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pciphrtxt,
-        UCHAR *pcleartxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pciphrtxt,
+        unsigned char *pcleartxt
         ) {
-    sccDES3Key_RB_t TDES8_rb;
+    DES3Key_RB_t TDES8_rb;
     long Retmsg;
 
     memcpy(&TDES8_rb.key1, key3, 8);
@@ -962,26 +962,26 @@ long scc_triple_des8_decrypt
             DES3_2_ENCRYPT |
             DES3_3_DECRYPT;
 
-    Retmsg = __sccDES3Key(&TDES8_rb);
-    if (DMGood == Retmsg)
+    Retmsg = DES3Key(&TDES8_rb);
+    if (RESULT_GOOD == Retmsg)
         memcpy(pcleartxt, &TDES8_rb.key_out, 8);
     return Retmsg;
 }
 
 // --------------------------------------------------------
-// scc_triple_des8_decrypt_dmode
+// triple_des8_decrypt_dmode
 //     to TDES-encrypt-encrypt-encrypt 8 bytes
 // --------------------------------------------------------
 
-long scc_triple_des8_decrypt_dmode
+long triple_des8_decrypt_dmode
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pcleartxt,
-        UCHAR *pciphrtxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pcleartxt,
+        unsigned char *pciphrtxt
         ) {
-    sccDES3Key_RB_t TDES8_rb; // In/Out struc f.DES (SCC_INT.H)
+    DES3Key_RB_t TDES8_rb; // In/Out struc f.DES (SCC_INT.H)
     long Retmsg; // subroutine error message
 
     memcpy(&TDES8_rb.key1, key1, 8);
@@ -994,28 +994,28 @@ long scc_triple_des8_decrypt_dmode
             DES3_3_ENCRYPT;
 
     // -----------------------------------
-    // Run the __sccDES3Key call
+    // Run the DES3Key call
     // -----------------------------------
-    Retmsg = __sccDES3Key(&TDES8_rb);
-    if (DMGood == Retmsg)
+    Retmsg = DES3Key(&TDES8_rb);
+    if (RESULT_GOOD == Retmsg)
         memcpy(pciphrtxt, &TDES8_rb.key_out, 8);
     return Retmsg;
-} // end of scc_triple_des8_encrypt
+} // end of triple_des8_encrypt
 
 // --------------------------------------------------------
-// scc_triple_des8_encrypt_dmode
+// triple_des8_encrypt_dmode
 //     to TDES-decrypt-decrypt-decrypt 8 bytes
 // --------------------------------------------------------
 
-long scc_triple_des8_encrypt_dmode
+long triple_des8_encrypt_dmode
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pciphrtxt,
-        UCHAR *pcleartxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pciphrtxt,
+        unsigned char *pcleartxt
         ) {
-    sccDES3Key_RB_t TDES8_rb; // In/Out struc f.DES (SCC_INT.H)
+    DES3Key_RB_t TDES8_rb; // In/Out struc f.DES (SCC_INT.H)
     long Retmsg; // subroutine error message
 
     memcpy(&TDES8_rb.key1, key1, 8);
@@ -1028,31 +1028,31 @@ long scc_triple_des8_encrypt_dmode
             DES3_3_DECRYPT;
 
     // -----------------------------------
-    // Run the __sccDES3Key call
+    // Run the DES3Key call
     // -----------------------------------
-    Retmsg = __sccDES3Key(&TDES8_rb);
-    if (DMGood == Retmsg)
+    Retmsg = DES3Key(&TDES8_rb);
+    if (RESULT_GOOD == Retmsg)
         memcpy(pcleartxt, &TDES8_rb.key_out, 8);
     return Retmsg;
-} // end of scc_triple_des8_decrypt
+} // end of triple_des8_decrypt
 
 // --------------------------------------------------------
-// scc_triple_des_cbc_encrypt_dmode
+// triple_des_cbc_encrypt_dmode
 //     to TDES-decrypt-decrypt-decrypt a multiple of 8 bytes in CBC mode
 // --------------------------------------------------------
 
-long scc_triple_des_cbc_encrypt_dmode
+long triple_des_cbc_encrypt_dmode
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pcleartxt,
-        ULONG *length,
-        UCHAR *pciphrtxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pcleartxt,
+        unsigned long *length,
+        unsigned char *pciphrtxt
         ) {
-    ULONG indice;
+    unsigned long indice;
     long RetMsg;
-    UCHAR *pointer = pciphrtxt;
+    unsigned char *pointer = pciphrtxt;
 
     for (indice = 0; indice<*length; indice += 8) {
         if (0 < indice)
@@ -1060,7 +1060,7 @@ long scc_triple_des_cbc_encrypt_dmode
         else
             memcpy(pointer, pcleartxt, 8);
 
-        RetMsg = scc_triple_des8_encrypt_dmode
+        RetMsg = triple_des8_encrypt_dmode
                 (
                 key1,
                 key2,
@@ -1068,35 +1068,35 @@ long scc_triple_des_cbc_encrypt_dmode
                 pointer,
                 pointer
                 );
-        if (DMGood != RetMsg)
+        if (RESULT_GOOD != RetMsg)
             return RetMsg;
         pointer += 8;
     }
-    return DMGood;
+    return RESULT_GOOD;
 }
 
 // --------------------------------------------------------
-// scc_triple_des_cbc_decrypt_dmode
+// triple_des_cbc_decrypt_dmode
 //     to TDES-encrypt-encrypt-encrypt a multiple of 8 bytes in CBC mode
 // --------------------------------------------------------
 
-long scc_triple_des_cbc_decrypt_dmode
+long triple_des_cbc_decrypt_dmode
 (
-        UCHAR *key1,
-        UCHAR *key2,
-        UCHAR *key3,
-        UCHAR *pciphrtxt,
-        ULONG *length,
-        UCHAR *pcleartxt
+        unsigned char *key1,
+        unsigned char *key2,
+        unsigned char *key3,
+        unsigned char *pciphrtxt,
+        unsigned long *length,
+        unsigned char *pcleartxt
         ) {
-    ULONG indice;
+    unsigned long indice;
     long RetMsg;
-    UCHAR *pointer = pciphrtxt + *length;
+    unsigned char *pointer = pciphrtxt + *length;
 
     for (indice = *length; indice >= 8; indice -= 8) {
         pointer -= 8;
 
-        RetMsg = scc_triple_des8_decrypt_dmode
+        RetMsg = triple_des8_decrypt_dmode
                 (
                 key1,
                 key2,
@@ -1104,7 +1104,7 @@ long scc_triple_des_cbc_decrypt_dmode
                 pointer,
                 pointer
                 );
-        if (DMGood != RetMsg)
+        if (RESULT_GOOD != RetMsg)
             return RetMsg;
 
         if (8 < indice)
@@ -1112,5 +1112,5 @@ long scc_triple_des_cbc_decrypt_dmode
         else
             memcpy(pcleartxt, pointer, 8);
     }
-    return DMGood;
+    return RESULT_GOOD;
 }

@@ -84,7 +84,7 @@ long Tools::Directory::GetExeDirectoryPath(char * _pModuleName, char * _pcPath, 
 }
 
 
-long Tools::Directory::GetSpecificFolder(int _idPath, char * _pSpecificPath, int _iMaxSizePath)
+long Tools::Directory::GetSpecificFolder(int _idPath, char * _pSpecificPath, int /*_iMaxSizePath*/)
 {
 	char localPath[STR_LONG] = {0};
 #ifdef _WINDOWS	

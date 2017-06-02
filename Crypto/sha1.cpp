@@ -42,7 +42,7 @@ static unsigned char sha1_padding[64] ={
 //GLOBAL
 //************************************************************
 
-void sha1_process(hash_context *ctx, UCHAR data[64]) {
+void sha1_process(hash_context *ctx, unsigned char data[64]) {
     unsigned long temp, W[16], A, B, C, D, E;
 
     GET_ULONG(W[0], data, 0);
@@ -255,7 +255,7 @@ void sha1_update(hash_context *ctx, unsigned char *input, unsigned long length) 
 // SHA-1 Termine HASH-RETURN
 //************************************************************
 
-void sha1_finish(hash_context *ctx, UCHAR digest[20]) {
+void sha1_finish(hash_context *ctx, unsigned char digest[20]) {
     unsigned long last, padn;
     unsigned long high, low;
     unsigned char msglen[8];
@@ -280,7 +280,7 @@ void sha1_finish(hash_context *ctx, UCHAR digest[20]) {
     PUT_ULONG(ctx->state[4], digest, 16);
 }
 
-long __sccSHA1(__sccSHA_RB_t *sha_rb) {
+long __sccSHA1(SHA_RB_t *sha_rb) {
     switch (sha_rb->options) {
         case SHA_MSGPART_ONLY:
             sha1_starts(&sha_rb->ctx);
@@ -313,7 +313,7 @@ long scc_SHA1
         unsigned char *SHA1,
         unsigned char *Context
         ) {
-    __sccSHA_RB_t SHA_rb;
+    SHA_RB_t SHA_rb;
     long Retmsg;
 
     if (NULL == Rule_Array)

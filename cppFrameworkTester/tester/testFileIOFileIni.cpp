@@ -1,6 +1,7 @@
 
 #include "testFileIOFileIni.h"
 #include "cppFrameworkTesterDefines.h"
+#include "TesterReport.h"
 
 // include cpp framework
 #include "FileIO/FileIni.h"
@@ -29,11 +30,13 @@ int tester_read_file()
 	return TEST_OK;
 }
 // --------------------------------------------------------------------
-int tester_fileio_fileini() 
+int Test::tester_fileio_fileini() 
 {
+	Test::TesterReport::getInstance()->printHeader("testing File IO");
 	int iReturnCode = TEST_OK;
 
 	iReturnCode = tester_read_file();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "FileIO", "tester_read_file()");
 	return iReturnCode;
 }
 // --------------------------------------------------------------------

@@ -23,9 +23,10 @@
 #define DLLLOADER_OK				0
 #define DLLLOADER_KO				1
 #define DLLLOADER_INVALID_PARAM		2
-#define DLLLOADER_CANNOT_LOAD_LIB	3
-#define DLLLOADER_CANNOT_LOAD_PROC	4
-#define DLLLOADER_NON_INIT			5
+#define DLLLOADER_CANNOT_FIND_LIB	3
+#define DLLLOADER_CANNOT_LOAD_LIB	4
+#define DLLLOADER_CANNOT_LOAD_PROC	5
+#define DLLLOADER_NON_INIT			6
 
 // -----------------------------------------------------------------------
 namespace Library {
@@ -66,10 +67,10 @@ namespace Library {
         ~DllLoader();
 
         /** load libray from the dll full path name*/
-        unsigned long loadLibrary(const char * pFullPathDllName);
+        unsigned long loadLibrary(const char * pDllName);
 
         /** load libray from the dll full path name and list of entrypoints*/
-        unsigned long loadLibraryWithEntry(char * pFullPathDllName, Collection::List<std::string> * entryPoints);
+        unsigned long loadLibraryWithEntry(char * pDllName, Collection::List<std::string> * entryPoints);
 
         /** release all ressources allocated by Dll loader */
         unsigned long releaseLibrary();
@@ -81,7 +82,7 @@ namespace Library {
         void * getProcAdress(int index);
 
         /** get the pointer value of the target proc Adress */
-        void * getProcAdress(char * cProcName);
+        void * getProcAdress(const char * cProcName);
     };
 };
 

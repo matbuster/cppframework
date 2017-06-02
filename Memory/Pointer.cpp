@@ -42,7 +42,7 @@ bool Memory::CheckPointerValue(int * pointerValue)
 	return true;
 }
 // -------------------------------------------------------------------------
-const char * Memory::getPointerValueCorrespondingMessage(int * pointerValue)
+const char * Memory::getPointerValueCorrespondingMessage(int * /*pointerValue*/)
 {
 	return "";
 }

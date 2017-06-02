@@ -4,11 +4,11 @@
  * \author 		MAT
  */
  
-#include "..\toolsconstant.h"
+#include "../toolsconstant.h"
+#include "Timing/Timing.h"
 #include "TcpClient.h"
 
 #include <stdio.h>
-#include <Winsock2.h>
 
 /** main constructor of the class TCP */
 Network::TCPClient::TCPClient() 
@@ -22,7 +22,21 @@ Network::TCPClient::TCPClient()
 Network::TCPClient::~TCPClient() 
 {
 }
+/** Returns true on success, or false if there was an error */
+bool Network::TCPClient::SetSocketBlockingEnabled(int fd, bool blocking)
+{
+   if (fd < 0) return false;
 
+#ifdef _WINDOWS
+   unsigned long mode = blocking ? 0 : 1;
+   return (ioctlsocket(fd, FIONBIO, &mode) == 0) ? true : false;
+#else // _WINDOWS
+   int flags = fcntl(fd, F_GETFL, 0);
+   if (flags < 0) return false;
+   flags = blocking ? (flags&~O_NONBLOCK) : (flags|O_NONBLOCK);
+   return (fcntl(fd, F_SETFL, flags) == 0) ? true : false;
+#endif // _WINDOWS
+}
 /** private function to check and replace localhost */
 char * Network::TCPClient::checkStringLocalhost(char * cInputAdress)
 {
@@ -40,11 +54,11 @@ long Network::TCPClient::TCPconnect(char * ucIPAdress, int iPort)
 {
 	if(NULL == ucIPAdress)
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 	if(iPort < 0)
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 
 	struct sockaddr_in addr;
@@ -61,7 +75,7 @@ long Network::TCPClient::TCPconnect(char * ucIPAdress, int iPort)
 	memset((char *) &addr, 0, sizeof(addr));
 	addr.sin_addr.s_addr	= inet_addr(ucIPAdress);
 	addr.sin_family = AF_INET;		
-	addr.sin_port   = htons (m_iPort);
+	addr.sin_port   = htons ((u_short)m_iPort);
 
 	m_iSocket_id = socket(AF_INET, SOCK_STREAM, 0);
 
@@ -82,22 +96,22 @@ long Network::TCPClient::TCPSend(char * ucBufferSend, int iLenBufferSend)
 {
 	if(!m_bOpenedConnection)
 	{
-		return TCP_ERR_CLOSED;
+		return TCP_ERR_CLIENT_CLOSED;
 	}
 	if(NULL == ucBufferSend)
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 	if(iLenBufferSend<0) 
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 
 	// envoi des donnees 
 	int nbSend = send(m_iSocket_id, ucBufferSend, iLenBufferSend, 0);
     if (nbSend == SOCKET_ERROR) {
 		// check if necessary to use WSAGetLastError() for debug
-		return TCP_ERR_SEND;
+		return TCP_ERR_CLIENT_SEND;
 	}
 
 	return TCP_OK;
@@ -108,29 +122,66 @@ long Network::TCPClient::TCPReceive(char * ucBufferReceive, int iLenBufferReceiv
 {
 	if(!m_bOpenedConnection)
 	{
-		return TCP_ERR_CLOSED;
+		return TCP_ERR_CLIENT_CLOSED;
 	}
 	if(NULL == ucBufferReceive)
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 	if(iLenBufferReceive<0) 
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 	if(NULL == iOutLenDataReceive)
 	{
-		return TCP_ERR_WRONG_PARAMS;
+		return TCP_ERR_CLIENT_WRONG_PARAMS;
 	}
 
-	//reception reponse
-	int nbRep = recv(m_iSocket_id, ucBufferReceive, iLenBufferReceive, 0);
-	if (nbRep==SOCKET_ERROR) {
-		return TCP_ERR_RECV;
-	}
+	// Put the socket in non-blocking mode:
+	//SetSocketBlockingEnabled(m_iSocket_id, false);
+	//printf("Configure non blocking\r\n");
 
-	*iOutLenDataReceive = nbRep;
+	int iTotal_received = 0;
+	int inumRetry = 0;
+	int nbRep = 0;
+	char pTempBuffer[TCP_MAX_DATA];
+	memset(pTempBuffer, 0x00, TCP_MAX_DATA);
 
+	do
+	{
+		//reception reponse
+		nbRep = recv(m_iSocket_id, pTempBuffer, TCP_MAX_DATA, 0);
+		if (nbRep==SOCKET_ERROR) {
+			
+			*iOutLenDataReceive=0;
+			return TCP_ERR_CLIENT_RECV;
+		}
+
+		// manage receiption
+		if(nbRep > 0)
+		{
+			// calculate max copy
+			if((iTotal_received + nbRep) <= iLenBufferReceive)
+			{
+				memcpy(ucBufferReceive + iTotal_received, pTempBuffer, nbRep);
+				iTotal_received+=nbRep;
+				memset(pTempBuffer, 0x00, TCP_MAX_DATA);
+			}
+			else
+			{
+				*iOutLenDataReceive=iLenBufferReceive;
+				return TCP_BUFF_TOO_SMALL;
+			}
+		}
+		else
+		{
+			inumRetry++;
+			Timing::Timing::sleepInMilliSecond(100);
+		}
+
+	} while( (nbRep > 0) || ( inumRetry < CLIENT_MAX_RETRY));
+
+	*iOutLenDataReceive = iTotal_received;
 	return TCP_OK;
 }
 
@@ -139,24 +190,24 @@ long Network::TCPClient::TCPclose()
 {
 	if(!m_bOpenedConnection)
 	{
-		return TCP_ERR_CLOSED;
+		return TCP_ERR_CLIENT_CLOSED;
 	}
 
 	int erreur;
 	erreur = shutdown(m_iSocket_id, 2);
 	if (erreur!=0) {
 		// think if necessary to use WSAGetLastError() for debug
-		return TCP_ERR_CLOSE_SOCKET;
+		return TCP_ERR_CLIENT_CLOSE_SOCKET;
 	}
 
 	erreur = closesocket(m_iSocket_id);
     if (erreur!=0) {
-		return TCP_ERR_CLOSE_SOCKET;
+		return TCP_ERR_CLIENT_CLOSE_SOCKET;
 	}
  
 	erreur = WSACleanup();
 	if (erreur!=0) {
-		return TCP_ERR_CLEANUP;
+		return TCP_ERR_CLIENT_CLEANUP;
 	}
 
 	return TCP_OK;

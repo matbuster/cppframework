@@ -11,12 +11,14 @@
 #define TEST_BASE_MESSAGE
 #endif
 
-// ------------------------------------------------------------
-int tester_callstacks_create_max_base_message();
-// ------------------------------------------------------------
-int tester_callstacks_base_message();
-// ------------------------------------------------------------
-int tester_callstacks_base_message_full();
-// ------------------------------------------------------------
+namespace Test{
+	// ------------------------------------------------------------
+	int tester_callstacks_create_max_base_message();
+	// ------------------------------------------------------------
+	int tester_callstacks_base_message();
+	// ------------------------------------------------------------
+	int tester_callstacks_base_message_full();
+	// ------------------------------------------------------------
+}
 
 #endif /* TEST_CALLSTACKS_BASE_MESSAGE_H */

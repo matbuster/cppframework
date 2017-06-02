@@ -51,12 +51,12 @@
       </PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
-      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;Ws2_32.lib;;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -67,14 +67,14 @@
       <Optimization>MaxSpeed</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_WINDOWS;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>psapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>psapi.lib;Ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -94,46 +94,74 @@
     <ClInclude Include="..\Collection\List.hpp" />
     <ClInclude Include="..\Communication\Communication.h" />
     <ClInclude Include="..\Communication\CommunicationRS.h" />
-    <ClInclude Include="..\Debug\assertion.h" />
+    <ClInclude Include="..\Crypto\crc.h" />
+    <ClInclude Include="..\Crypto\md5.h" />
+    <ClInclude Include="..\Diagnostic\assertion.h" />
     <ClInclude Include="..\Error\FrameworkError.h" />
     <ClInclude Include="..\FileIO\FileIni.h" />
     <ClInclude Include="..\FileIO\FileLog.h" />
     <ClInclude Include="..\FileIO\FileTxt.h" />
     <ClInclude Include="..\FileIO\FileXml.h" />
     <ClInclude Include="..\Hardware\computer.h" />
+    <ClInclude Include="..\Hardware\CPU.h" />
+    <ClInclude Include="..\Math\Math.h" />
     <ClInclude Include="..\Math\Matrix.hpp" />
     <ClInclude Include="..\Memory\RAM.h" />
+    <ClInclude Include="..\Network\IPAdress.h" />
+    <ClInclude Include="..\Network\TcpClient.h" />
+    <ClInclude Include="..\Network\TcpServer.h" />
+    <ClInclude Include="..\Serializer\EnumSerializerDetection.h" />
+    <ClInclude Include="..\Serializer\ISerializeObject.h" />
+    <ClInclude Include="..\Serializer\SerializeBool.h" />
+    <ClInclude Include="..\Serializer\SerializeDouble.h" />
+    <ClInclude Include="..\Serializer\SerializeFloat.h" />
+    <ClInclude Include="..\Serializer\SerializeInt.h" />
     <ClInclude Include="..\Serializer\SerializeItem.h" />
     <ClInclude Include="..\Serializer\SerializeLong.h" />
     <ClInclude Include="..\Serializer\Serializer.h" />
+    <ClInclude Include="..\Serializer\SerializeShort.h" />
+    <ClInclude Include="..\Serializer\SerializeString.h" />
     <ClInclude Include="..\Threading\Mutex.h" />
     <ClInclude Include="..\Threading\Thread.h" />
+    <ClInclude Include="..\Threading\ThreadInterface.h" />
     <ClInclude Include="..\Threading\ThreadPool.h" />
+    <ClInclude Include="..\Threading\ThreadPoolExcutionMode.h" />
+    <ClInclude Include="..\Threading\ThreadPoolGarbagedItem.h" />
     <ClInclude Include="..\Timing\Chrono.h" />
     <ClInclude Include="..\Timing\Date.h" />
+    <ClInclude Include="..\Timing\DayOfTheWeek.h" />
     <ClInclude Include="..\Timing\Timing.h" />
     <ClInclude Include="..\toolsconstant.h" />
     <ClInclude Include="..\Tools\Conversion\SizeFileConversion.h" />
     <ClInclude Include="..\Tools\File\Directory.h" />
     <ClInclude Include="..\Tools\File\File.h" />
-    <ClInclude Include="..\Tools\Hardware\CPU.h" />
+    <ClInclude Include="..\Tools\Profile\BaseProfile.h" />
+    <ClInclude Include="..\Tools\Profile\BaseProfileGender.h" />
     <ClInclude Include="..\Tools\String\Conversion.h" />
+    <ClInclude Include="..\Tools\String\Regex_Helper.h" />
     <ClInclude Include="..\Tools\String\StringTools.h" />
     <ClInclude Include="cppFrameworkTesterDefines.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TesterReport.h" />
     <ClInclude Include="tester\testBufferRingBufferIndex.h" />
     <ClInclude Include="tester\testCallstacksAbsouteStack.h" />
     <ClInclude Include="tester\testCallStacksBasemessage.h" />
     <ClInclude Include="tester\testCallstacksQueue.h" />
     <ClInclude Include="tester\testCollectionHashmap.h" />
     <ClInclude Include="tester\testCollectionList.h" />
+    <ClInclude Include="tester\testCryptoGeneric.h" />
     <ClInclude Include="tester\testFileIOFileIni.h" />
     <ClInclude Include="tester\testHardwareComputer.h" />
     <ClInclude Include="tester\testMathMatrix.h" />
     <ClInclude Include="tester\testMemoryRam.h" />
-    <ClInclude Include="tester\testSerializerTlvSerializer.h" />
+    <ClInclude Include="tester\testNetworkHttpRequest.h" />
+    <ClInclude Include="tester\testNetworkIpAdress.h" />
+    <ClInclude Include="tester\testNetworkTcpClientServer.h" />
+    <ClInclude Include="tester\testSerializationSerializeItem.h" />
+    <ClInclude Include="tester\testSerializationTlvSerializer.h" />
     <ClInclude Include="tester\testThreadingMutex.h" />
+    <ClInclude Include="tester\testThreadingThreadPool.h" />
     <ClInclude Include="tester\testTimingChrono.h" />
   </ItemGroup>
   <ItemGroup>
@@ -146,43 +174,64 @@
     <ClCompile Include="..\CallStacks\Queue.cpp" />
     <ClCompile Include="..\Communication\Communication.cpp" />
     <ClCompile Include="..\Communication\CommunicationRS.cpp" />
-    <ClCompile Include="..\Debug\assertion.cpp" />
+    <ClCompile Include="..\Crypto\crc.cpp" />
+    <ClCompile Include="..\Crypto\md5.cpp" />
+    <ClCompile Include="..\Diagnostic\assertion.cpp" />
     <ClCompile Include="..\Error\FrameworkError.cpp" />
     <ClCompile Include="..\FileIO\FileIni.cpp" />
     <ClCompile Include="..\FileIO\FileLog.cpp" />
     <ClCompile Include="..\FileIO\FileTxt.cpp" />
     <ClCompile Include="..\FileIO\FileXml.cpp" />
     <ClCompile Include="..\Hardware\computer.cpp" />
+    <ClCompile Include="..\Hardware\CPU.cpp" />
+    <ClCompile Include="..\Math\Math.cpp" />
     <ClCompile Include="..\Memory\RAM.cpp" />
+    <ClCompile Include="..\Network\IPAdresse.cpp" />
+    <ClCompile Include="..\Network\TcpClient.cpp" />
+    <ClCompile Include="..\Network\TcpServer.cpp" />
+    <ClCompile Include="..\Serializer\SerializeBool.cpp" />
+    <ClCompile Include="..\Serializer\SerializeDouble.cpp" />
+    <ClCompile Include="..\Serializer\SerializeFloat.cpp" />
+    <ClCompile Include="..\Serializer\SerializeInt.cpp" />
     <ClCompile Include="..\Serializer\SerializeItem.cpp" />
     <ClCompile Include="..\Serializer\SerializeLong.cpp" />
     <ClCompile Include="..\Serializer\Serializer.cpp" />
+    <ClCompile Include="..\Serializer\SerializeShort.cpp" />
+    <ClCompile Include="..\Serializer\SerializeString.cpp" />
     <ClCompile Include="..\Threading\Mutex.cpp" />
     <ClCompile Include="..\Threading\Thread.cpp" />
     <ClCompile Include="..\Threading\ThreadPool.cpp" />
+    <ClCompile Include="..\Threading\ThreadPoolGarbagedItem.cpp" />
     <ClCompile Include="..\Timing\Chrono.cpp" />
     <ClCompile Include="..\Timing\Date.cpp" />
     <ClCompile Include="..\Timing\Timing.cpp" />
     <ClCompile Include="..\Tools\Conversion\SizeFileConversion.cpp" />
     <ClCompile Include="..\Tools\File\Directory.cpp" />
     <ClCompile Include="..\Tools\File\File.cpp" />
-    <ClCompile Include="..\Tools\Hardware\CPU.cpp" />
+    <ClCompile Include="..\Tools\Profile\BaseProfile.cpp" />
     <ClCompile Include="..\Tools\String\Conversion.cpp" />
+    <ClCompile Include="..\Tools\String\Regex.cpp" />
     <ClCompile Include="..\Tools\String\StringTools.cpp" />
     <ClCompile Include="cppFrameworkTester.cpp" />
     <ClCompile Include="stdafx.cpp" />
+    <ClCompile Include="TesterReport.cpp" />
     <ClCompile Include="tester\testBufferRingBufferIndex.cpp" />
     <ClCompile Include="tester\testCallstacksAbsouteStack.cpp" />
     <ClCompile Include="tester\testCallstacksBaseMessage.cpp" />
     <ClCompile Include="tester\testCollectionHashmap.cpp" />
     <ClCompile Include="tester\testCollectionList.cpp" />
     <ClCompile Include="tester\testCallstacksQueue.cpp" />
+    <ClCompile Include="tester\testCryptoGeneric.cpp" />
     <ClCompile Include="tester\testFileIOFileIni.cpp" />
     <ClCompile Include="tester\testHardwareComputer.cpp" />
     <ClCompile Include="tester\testMathMatrix.cpp" />
     <ClCompile Include="tester\testMemoryRam.cpp" />
-    <ClCompile Include="tester\testSerializerTlvSerializer.cpp" />
+    <ClCompile Include="tester\testNetworkIpAdress.cpp" />
+    <ClCompile Include="tester\testNetworkTcpClientServer.cpp" />
+    <ClCompile Include="tester\testSerializationSerializeItem.cpp" />
+    <ClCompile Include="tester\testSerializationTlvSerializer.cpp" />
     <ClCompile Include="tester\testThreadingMutex.cpp" />
+    <ClCompile Include="tester\testThreadingThreadPool.cpp" />
     <ClCompile Include="tester\testTimingChrono.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

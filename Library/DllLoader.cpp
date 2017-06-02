@@ -107,8 +107,6 @@ bool Library::DllLoader::findLibrary(char * _pFullPathLib, const char * _pInLibT
     }
 
     // 3) looking in windows path if the library not found
-    char path[MAX_PATH_SIZE] = {0};
-    long lPathSize = 0;
     //if(ENV_OK != Windows::Environment::GetPath(path, MAX_PATH_SIZE, &lPathSize))
     std::list<std::string> * paths = new std::list<std::string>();
     if (ENV_OK != Windows::Environment::GetPaths(paths)) {
@@ -165,14 +163,16 @@ unsigned long Library::DllLoader::loadLibrary(const char * pDllName) {
 
     // Formate le nom du fichier
     char pFullPathDllName[STR_LONG] = {0};
-    findLibrary(pFullPathDllName, pDllName);
+    if( true != findLibrary(pFullPathDllName, pDllName)) {
+		 return DLLLOADER_CANNOT_FIND_LIB;
+	}
 
     // copy execution path
     memcpy(m_strFullPathLib, pFullPathDllName, STR_LONG);
 
     // loading library
 #ifdef _WINDOWS
-    if (NULL == (m_vDllHandle = LoadLibraryA(pFullPathDllName))) {
+    if (NULL == (m_vDllHandle = LoadLibraryA(m_strFullPathLib))) {
         return DLLLOADER_CANNOT_LOAD_LIB;
     }
 #endif //_WINDOWS
@@ -193,7 +193,7 @@ unsigned long Library::DllLoader::loadLibrary(const char * pDllName) {
     return DLLLOADER_OK;
 }
 
-unsigned long Library::DllLoader::loadLibraryWithEntry(char * pFullPathDllName, Collection::List<std::string> * entryPoints) {
+unsigned long Library::DllLoader::loadLibraryWithEntry(char * pDllName, Collection::List<std::string> * entryPoints) {
 
     unsigned long lReturnCode = DLLLOADER_OK;
 
@@ -202,7 +202,7 @@ unsigned long Library::DllLoader::loadLibraryWithEntry(char * pFullPathDllName, 
     }
 
     // loading library
-    if (DLLLOADER_OK != (lReturnCode = loadLibrary(pFullPathDllName))) {
+    if (DLLLOADER_OK != (lReturnCode = loadLibrary(pDllName))) {
         return lReturnCode;
     }
 
@@ -249,7 +249,7 @@ void * Library::DllLoader::getProcAdress(int index) {
 }
 // ---------------------------------------------------------------------
 
-void * Library::DllLoader::getProcAdress(char * cProcName) {
+void * Library::DllLoader::getProcAdress(const char * cProcName) {
 
 #ifdef _WINDOWS
     return GetProcAddress((HINSTANCE) m_vDllHandle, (LPCSTR) cProcName);

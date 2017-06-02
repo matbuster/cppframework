@@ -1,6 +1,6 @@
 
 //Include des en-tetes standard windows
-#ifdef WIN32
+#ifdef _WINDOWS
 #include <tchar.h>
 #include <stdio.h>
 #include <stdlib.h> 
@@ -46,6 +46,6 @@ Tools::String::CharArgs::~CharArgs()
     free(l_argn);
 }
 
-#endif // WIN32
+#endif // _WINDOWS
 
 // ------------------------------------------------------

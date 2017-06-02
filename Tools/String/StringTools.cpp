@@ -126,14 +126,21 @@ bool Tools::String::StringSplit(char ** pOutResult, int * iOutResultNumber, char
 	return true;
 }
 
-/** function to transform a String to an hexa buffer */
 bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, char * pStringSource, unsigned long lSourceLgt)
+{
+	long lVal = 0;
+	return StringToHexaBuffer(pDataTransformed, &lVal, pStringSource, lSourceLgt);
+}
+
+/** function to transform a String to an hexa buffer */
+bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, long * lLenTransformed, char * pStringSource, unsigned long lSourceLgt)
 {
 	unsigned char	ucVal;
 	int				nStrchar;
 	unsigned long	i;
+	unsigned long	lNumberValues = 0;
 	
-	if ((NULL == pDataTransformed) || (NULL == pStringSource))
+	if ((NULL == pDataTransformed) || (NULL == pStringSource) || (NULL == lLenTransformed))
 		return false;
 
 	ucVal = 0;
@@ -152,7 +159,7 @@ bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, char * 
 			case '7':
 			case '8':
 			case '9':
-				ucVal = (ucVal << 4) + (nStrchar - '0');
+				ucVal = (unsigned char)((ucVal << 4) + (nStrchar - '0'));
 				break;	
 
 			case 'A':
@@ -161,7 +168,7 @@ bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, char * 
 			case 'D':
 			case 'E':
 			case 'F':
-				ucVal = (ucVal << 4) + nStrchar - 'A' + 10;
+				ucVal = (unsigned char)((ucVal << 4) + nStrchar - 'A' + 10);
 				break;	
 
 			case 'a':
@@ -170,7 +177,7 @@ bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, char * 
 			case 'd':
 			case 'e':
 			case 'f':
-				ucVal = (ucVal << 4) + nStrchar - 'a' + 10;
+				ucVal = (unsigned char)((ucVal << 4) + nStrchar - 'a' + 10);
 				break;		
 
 			default:
@@ -182,6 +189,7 @@ bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, char * 
 		{
 			pDataTransformed [i >> 1] = ucVal;
 			ucVal = 0;
+			lNumberValues++;
 		}
 	}
 
@@ -191,6 +199,7 @@ bool Tools::String::StringToHexaBuffer(unsigned char * pDataTransformed, char * 
 		pDataTransformed [i >> 1] = (ucVal << 4);
 	}
 
+	*lLenTransformed=lNumberValues;
 	return true;
 }
 
@@ -231,3 +240,40 @@ bool Tools::String::HexaBufferToString(unsigned char *target, unsigned char *hex
     return true;
 }
 
+bool Tools::String::IndexOf(char * pStr, long lSizeStr, char cCharToSearch, int * indexValue)
+{
+	if(NULL == pStr ||  NULL == indexValue)
+	{
+		return false;
+	}
+
+	for(int i = 0; i <lSizeStr; i++)
+	{
+		if(pStr[i] == cCharToSearch)
+		{
+			*indexValue = i;
+			return true;
+		}
+	}
+
+	return false;
+}
+
+bool Tools::String::SubString(char * pStr, long lSizeStr, int iStartIndex, int iLenSub, char * pSubStr)
+{
+	if(NULL == pStr || NULL == pSubStr)
+	{
+		return false;
+	}
+	if(iStartIndex < 0 || iStartIndex > lSizeStr)
+	{
+		return false;
+	}
+	if(iLenSub < 0 || iLenSub > lSizeStr || (iLenSub + iStartIndex) > lSizeStr)
+	{
+		return false;
+	}
+
+	memcpy(pSubStr, pStr+iStartIndex, iLenSub);
+	return true;
+}

@@ -27,17 +27,17 @@
 #define TEST_CSTK_QUEU_PUSH_POP
 
 #endif /* TEST_COOL_LIST_FULL */
-
-// ------------------------------------------------------------
-int tester_callstacks_queue_push_pop();
-// ------------------------------------------------------------
-int tester_callstacks_queue_push_get();
-// ------------------------------------------------------------
-int tester_callstacks_queue_get_mem_class();
-// ------------------------------------------------------------
-int tester_callstacks_queue_pop_mem_class();
-// ------------------------------------------------------------
-int tester_callstacks_queue();
-// ------------------------------------------------------------
-
+namespace Test{
+	// ------------------------------------------------------------
+	int tester_callstacks_queue_push_pop();
+	// ------------------------------------------------------------
+	int tester_callstacks_queue_push_get();
+	// ------------------------------------------------------------
+	int tester_callstacks_queue_get_mem_class();
+	// ------------------------------------------------------------
+	int tester_callstacks_queue_pop_mem_class();
+	// ------------------------------------------------------------
+	int tester_callstacks_queue();
+	// ------------------------------------------------------------
+}
 #endif /* TEST_CALLSTACKs_QUEUE_H */

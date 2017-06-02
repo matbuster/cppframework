@@ -1,9 +1,10 @@
 
 #include "testCallstacksAbsouteStack.h"
 #include "CallStacks/AbsoluteStack.h"
-#include "Debug/assertion.h"
+#include "Diagnostic/assertion.h"
 #include "cppFrameworkTesterDefines.h"
 #include "toolsconstant.h"
+#include "TesterReport.h"
 
 #ifdef LINUX
 #include <stdio.h>
@@ -11,7 +12,7 @@
 #endif // LINUX
 
 // ------------------------------------------------------------
-int tester_callstacks_absolute_stacks_push_pop_1()
+int Test::tester_callstacks_absolute_stacks_push_pop_1()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_ABSSTACK_PUSH_POP
@@ -55,19 +56,13 @@ int tester_callstacks_absolute_stacks_push_pop_1()
 
 	delete absStack;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_pop_1() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_pop_1() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "CallStacks::AbsoluteStack", "tester_callstacks_absolute_stacks_push_pop_1()");
+
 #endif /* TEST_CSTK_ABSSTACK_PUSH_POP */
 	return iReturnCode;
 }
-int tester_callstacks_absolute_stacks_push_pop_2()
+int Test::tester_callstacks_absolute_stacks_push_pop_2()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_ABSSTACK_PUSH_POP
@@ -120,20 +115,14 @@ int tester_callstacks_absolute_stacks_push_pop_2()
 
 	delete absStack;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_pop_2() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_pop_2() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "CallStacks::AbsoluteStack", "tester_callstacks_absolute_stacks_push_pop_2()");
+
 #endif /* TEST_CSTK_ABSSTACK_PUSH_POP */
 	return iReturnCode;
 }
 // ------------------------------------------------------------
-int tester_callstacks_absolute_stacks_push_pop_not_found()
+int Test::tester_callstacks_absolute_stacks_push_pop_not_found()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_ABSSTACK_PUSH_POP
@@ -172,26 +161,20 @@ int tester_callstacks_absolute_stacks_push_pop_not_found()
 
 	delete absStack;
 
-	// test summarry
-	if(iReturnCode == BASESTACK_NO_IT_FOUND)
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_pop_not_found() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_pop_not_found() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == BASESTACK_NO_IT_FOUND), "CallStacks::AbsoluteStack", "tester_callstacks_absolute_stacks_push_pop_not_found()");
+	
 
 #endif /* TEST_CSTK_ABSSTACK_PUSH_POP */
 	return iReturnCode;
 }
 // ------------------------------------------------------------
-int tester_callstacks_absolute_stacks_push_get()
+int Test::tester_callstacks_absolute_stacks_push_get()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_ABSSTACK_PUSH_GET
 	CallStacks::AbsoluteStack * absStack = new CallStacks::AbsoluteStack();
-        printf("->testing CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_get()\r\n");
+       printf("->testing CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_get()\r\n");
 
 	unsigned long ulAbsoluteCounter = 0;
 
@@ -228,31 +211,27 @@ int tester_callstacks_absolute_stacks_push_get()
 
 	delete absStack;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_get() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::AbsoluteStack  : tester_callstacks_absolute_stacks_push_get() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "CallStacks::AbsoluteStack", "tester_callstacks_absolute_stacks_push_get()");
+	
 #endif /* TEST_CSTK_ABSSTACK_PUSH_GET */
 	return iReturnCode;
 }
 // ------------------------------------------------------------
-int tester_callstacks_absolute_queue()
+int Test::tester_callstacks_absolute_queue()
 {
-	printf(STR_LINE_DISPLAY_SEP);
-	printf("testing CallStacks::AbsoluteStack\r\n");
-	printf(STR_LINE_DISPLAY_SEP);
-
+	Test::TesterReport::getInstance()->printHeader("testing CallStacks::AbsoluteStack");
+	
 	int iReturnCode = TEST_OK;
 	
 	iReturnCode = tester_callstacks_absolute_stacks_push_pop_1();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::AbsoluteStack", "tester_callstacks_absolute_stacks_push_pop_1()");
 	iReturnCode = tester_callstacks_absolute_stacks_push_pop_2();
-	tester_callstacks_absolute_stacks_push_pop_not_found();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::AbsoluteStack", "tester_callstacks_absolute_stacks_push_pop_2()");
+	iReturnCode = tester_callstacks_absolute_stacks_push_pop_not_found();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::AbsoluteStack", "tester_callstacks_absolute_stacks_push_pop_not_found()");
 	iReturnCode = tester_callstacks_absolute_stacks_push_get();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::AbsoluteStack", "tester_callstacks_absolute_stacks_push_get()");
 
 	return iReturnCode;
 }

@@ -51,9 +51,11 @@ public:
 	MathMemTestClass() {memset(cTemp, 0x00, MATH_TEST_STR_HUGE);}
 	~MathMemTestClass() {}
 };
-// ------------------------------------------------------------
-int tester_math_matrix_set_get_interger();
-int tester_math_matrix_set_get_enum();
-// ------------------------------------------------------------
-int tester_math_matrix();
-// ------------------------------------------------------------
+namespace Test{
+	// ------------------------------------------------------------
+	int tester_math_matrix_set_get_integer();
+	int tester_math_matrix_set_get_enum();
+	// ------------------------------------------------------------
+	int tester_math_matrix();
+	// ------------------------------------------------------------
+}

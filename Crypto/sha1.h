@@ -7,14 +7,21 @@
 #ifndef SHA1_H
 #define SHA1_H
 
-#include "ibm.h"
+#include "cryptoDefine.h"
+
+typedef unsigned char SHA1_hash_t[20];
+
+#define  SHA_MSGPART_ONLY       0x01000000
+#define  SHA_MSGPART_FIRST      0x02000000
+#define  SHA_MSGPART_MIDDLE     0x04000000
+#define  SHA_MSGPART_FINAL      0x08000000
 
 typedef struct {
-    sccInternalBuffer_t source;
+    internalBuffer_t source;
     unsigned long options;
-    sccSHA1_hash_t hash_value;
+    SHA1_hash_t hash_value;
     hash_context ctx;
-} __sccSHA_RB_t;
+} SHA_RB_t;
 
 #ifdef NT2000
 __declspec(dllexport)

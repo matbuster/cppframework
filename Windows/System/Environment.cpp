@@ -108,7 +108,6 @@ long Windows::Environment::GetPaths(std::list<std::string> * paths)
 
 	int iNumberResult = 0;
 
-	int iNumPath = Tools::String::StringCountOccurence(path, lPathSize, ';');
 	Tools::String::StringSplit(pSplittedPath, &iNumberResult, path, lPathSize, ';');
 
 	for(int i = 0; i < MAX_PATH_CONTENT; i++) {paths->push_back(pSplittedPath[i]) ;free(pSplittedPath[i]);}

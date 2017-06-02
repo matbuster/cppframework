@@ -28,7 +28,7 @@ Tools::String::LogLine::~LogLine()
 {
 }
 /** get next index */
-int Tools::String::LogLine::getNextIndex(int iStart, std::string value, std::string delimiter)
+int Tools::String::LogLine::getNextIndex(int /*iStart*/, std::string value, std::string delimiter)
 {
 	return 0;
 }

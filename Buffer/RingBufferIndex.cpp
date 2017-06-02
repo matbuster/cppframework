@@ -61,8 +61,5 @@ int Buffer::RingBufferIndex::CalculePosition(int * _allowedLenghtTillEnd, int * 
 		// T<=W<R est un cas d'erreur TWR(4)
 		return RBI_WRONG_INDEX_CFG;
 	}
-
-	// retour sans erreur
-	return RBI_OK;
 }
 // --------------------------------------------------------------

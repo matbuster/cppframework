@@ -6,7 +6,7 @@
  
 #ifndef FRAMEWORK_ERROR_H
 #define FRAMEWORK_ERROR_H
-
+#pragma warning(disable:4505)
 // --------------------------------------------------------------------------------------
 // includes
 // TODOMAT

@@ -12,6 +12,22 @@
 
 #include "Mutex.h"
 
+#ifdef _WINDOWS
+#define PLATFORM_CAST_STR
+#define THREAD_CALLCONV         WINAPI
+#define THREAD_RETURN_VOID      void
+#define THREAD_INPUT_PARAM      LPVOID
+#define THREAD_RETURN_VAL
+#endif // _WINDOWS
+
+#ifdef LINUX
+#define PLATFORM_CAST_STR       (char*)
+#define THREAD_CALLCONV
+#define THREAD_RETURN_VOID      void*
+#define THREAD_INPUT_PARAM      void*
+#define THREAD_RETURN_VAL       NULL
+#endif
+
 #ifdef LINUX
 #include <signal.h>             // needed in definition of pthread_kill()
 #include <pthread.h>

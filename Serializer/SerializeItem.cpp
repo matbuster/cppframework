@@ -13,10 +13,12 @@
 /** internal function to initialize data */
 void Serialization::SerializedItem::InitInternalData()
 {
-	memset(m_pSerializedData, 0x00, SI_SERIALIZED_BLOCK_LEN);
 	m_lSerializedDataLen = 0;
 	m_lType = 0;
 	m_lLengthItem = 0;
+	m_bSerializedDataAllocated = false;
+	m_pSerializedData = NULL;
+	memset(m_pDataName, 0x00, STR_TINY);
 	return;
 }
 // -------------------------------------------------------------------------
@@ -37,15 +39,16 @@ Serialization::SerializedItem::SerializedItem(long _lType, long _lLengthItem, vo
 	// serialize
 	Serialize();
 }
-Serialization::SerializedItem::SerializedItem(unsigned char * _pSerializedBuffer, long _lLengthData)
+Serialization::SerializedItem::SerializedItem(unsigned char * _pSerializedBuffer, unsigned long _lLengthData)
 {
 	InitInternalData();
 
 	m_lSerializedDataLen = _lLengthData;
-	if(_lLengthData < SI_SERIALIZED_BLOCK_LEN)
-	{
-		memcpy(m_pSerializedData, _pSerializedBuffer, _lLengthData);
-	}
+
+	// allocate memory for the serialized block
+	m_pSerializedData = (unsigned char*) malloc(_lLengthData * sizeof(unsigned char));
+	m_bSerializedDataAllocated = true;
+	memcpy(m_pSerializedData, _pSerializedBuffer, _lLengthData);
 
 	// deserialize
 	Deserialize();
@@ -55,6 +58,13 @@ Serialization::SerializedItem::~SerializedItem()
 	if(m_pValue != NULL) 
 	{
 		free(m_pValue);
+	}
+	if(true == m_bSerializedDataAllocated)
+	{
+		if(NULL != m_pSerializedData)
+		{
+			free(m_pSerializedData);
+		}
 	}
 }
 // -------------------------------------------------------------------------
@@ -67,6 +77,7 @@ long Serialization::SerializedItem::CheckAvailableType()
 	else if(m_lType == SI_TYPE_LONG) return SI_OK;
 	else if(m_lType == SI_TYPE_FLOAT) return SI_OK;
 	else if(m_lType == SI_TYPE_DOUBLE) return SI_OK;
+	else if(m_lType == SI_TYPE_STRING) return SI_OK;
 	else if(m_lType == SI_TYPE_STRUCT) return SI_OK;
 
 	return SI_KO;
@@ -76,6 +87,12 @@ long Serialization::SerializedItem::CheckAvailableType()
 long Serialization::SerializedItem::Serialize()
 {
 	int iIndexCpy = 0;
+
+	// calculate size of data block
+	m_lSerializedDataLen = sizeof(long) + sizeof(long) + m_lLengthItem;
+
+	// allocate block
+	m_pSerializedData = (unsigned char*)malloc(m_lSerializedDataLen * sizeof(unsigned char));
 
 	memcpy(m_pSerializedData + iIndexCpy, &m_lType, sizeof(long));
 	iIndexCpy += sizeof(long);
@@ -124,7 +141,7 @@ long Serialization::SerializedItem::getLength()
 }
 // -------------------------------------------------------------------------
 /** get pointer on data */
-void * Serialization::SerializedItem::getValue()
+void * Serialization::SerializedItem::getPointerValue()
 {
 	return m_pValue;
 }

@@ -7,7 +7,7 @@
 #ifndef TCP_INTERFACE
 #define TCP_INTERFACE
 
-#ifdef WIN32
+#ifdef _WINDOWS
 #include <stdio.h>
 #include <Winsock2.h>
 #endif
@@ -29,21 +29,23 @@ typedef struct sockaddr_in SOCKADDR_IN;
 
 #define TCP_SV_ERR_SHIFT			100
 
-#define TCP_SERVER_SUCCESS		0
-#define TCP_ERR_PARAMS			TCP_SV_ERR_SHIFT + 1
-#define TCP_ERR_CREATE_SOCKET	TCP_SV_ERR_SHIFT + 2
-#define TCP_ERR_BIND_PORT		TCP_SV_ERR_SHIFT + 3
-#define TCP_ERR_ACCEPT			TCP_SV_ERR_SHIFT + 4
-#define TCP_ERR_NOT_CONNECT		TCP_SV_ERR_SHIFT + 5
-#define TCP_ERR_NOT_ACCEPTED	TCP_SV_ERR_SHIFT + 6
-#define TCP_ERR_SEND			TCP_SV_ERR_SHIFT + 7
-#define TCP_ERR_CLOSE			TCP_SV_ERR_SHIFT + 8
-#define TCP_ERR_RECV			TCP_SV_ERR_SHIFT + 9
-#define TCP_ERR_SHUTDOWN		TCP_SV_ERR_SHIFT + 10
-#define TCP_ERR_WSAS			TCP_SV_ERR_SHIFT + 11
+#define TCP_SERVER_SUCCESS			0
+#define TCP_ERR_SERV_PARAMS			TCP_SV_ERR_SHIFT + 1
+#define TCP_ERR_SERV_CREATE_SOCKET	TCP_SV_ERR_SHIFT + 2
+#define TCP_ERR_SERV_BIND_PORT		TCP_SV_ERR_SHIFT + 3
+#define TCP_ERR_SERV_ACCEPT			TCP_SV_ERR_SHIFT + 4
+#define TCP_ERR_SERV_NOT_CONNECT	TCP_SV_ERR_SHIFT + 5
+#define TCP_ERR_SERV_NOT_ACCEPTED	TCP_SV_ERR_SHIFT + 6
+#define TCP_ERR_SERV_SEND			TCP_SV_ERR_SHIFT + 7
+#define TCP_ERR_SERV_CLOSE			TCP_SV_ERR_SHIFT + 8
+#define TCP_ERR_SERV_RECV			TCP_SV_ERR_SHIFT + 9
+#define TCP_ERR_SERV_SHUTDOWN		TCP_SV_ERR_SHIFT + 10
+#define TCP_ERR_SERV_WSAS			TCP_SV_ERR_SHIFT + 11
+#define TCP_ERR_SERV_INVALID_PT		TCP_SV_ERR_SHIFT + 12
 
 #define TCP_MAX_DATA			8092
 #define TCP_MAX_ACCEPTANCE		5
+#define MAX_TRY_RECEIVED		5
 
 #define KEY_STR_INADDR_ANY		"INADDR_ANY"
 
@@ -51,10 +53,10 @@ namespace Network {
 
 	class TCPServer {
 	protected:
-#ifdef WIN32
+#ifdef _WINDOWS
 		/** WSADATA for windows implementation */
 		WSADATA m_wsaData;
-#endif
+#endif // _WINDOWS
 		/** state of connection */
 		bool m_bConnected;
 
@@ -78,6 +80,9 @@ namespace Network {
 
 		/** private function to check and replace localhost */
 		char * checkStringLocalhost(char * cInputAdress);
+
+		/** Returns true on success, or false if there was an error */
+		bool SetSocketBlockingEnabled(int fd, bool blocking);
 
 	public:
 		/** main constructor of class TCP */
@@ -104,6 +109,9 @@ namespace Network {
 
 		/** receive data from tcp connection, using session ID */
 		long TCPReceive(int iSession_ID, char * ucBufferReceive, int iLenBufferReceive, int * iOutLenDataReceive);
+
+		/** receive data from tcp connection, using session ID */
+		long TCPReceive(int iSession_ID, char ** ucBufferReceive, int iLenBufferReceive, int * iOutLenDataReceive, bool bAllowAllocate);
 
 		/** shutdown socket session connection */
 		long TCPshutdown();

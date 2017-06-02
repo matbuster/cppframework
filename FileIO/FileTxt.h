@@ -26,6 +26,7 @@
 #include <list>
 
 #include "../Threading/Mutex.h"
+#include "../toolsconstant.h"
 
 using namespace std;
 

@@ -14,6 +14,12 @@
 #include <stdarg.h>
 
 // ------------------------------------------------------------------------
+// constant defines definition
+#define DC_CONS_STR_SHORT					128
+#define DC_CONS_STR_TINY					32
+#define DC_CONS_LOG_MAX_HEXA_PER_LINE		20
+
+// ------------------------------------------------------------------------
 bool Debug::display(char * message)
 {
 	if(NULL == message) {
@@ -30,7 +36,6 @@ bool Debug::display(char * message)
 #endif
 	return true;
 }
-
 
 // ------------------------------------------------------------------------
 bool Debug::display(char * functionName, char * message)
@@ -65,7 +70,7 @@ bool Debug::displayArgs(char * message, ...)
 }
 
 // ------------------------------------------------------------------------
-bool Debug::displayArgs(char * functionName, char * message, ...)
+bool Debug::displayArgsWithFunctionName(char * functionName, char * message, ...)
 {
 	bool bSuccess = false;
 	char cMessage[STR_LONG];
@@ -78,6 +83,41 @@ bool Debug::displayArgs(char * functionName, char * message, ...)
 
     bSuccess = display(functionName, cMessage);
     va_end(args);
+
+	return bSuccess;
+}
+// ------------------------------------------------------------------------
+bool Debug::displayBuffer(unsigned char * _pInputBuffer, long _iSizeInputBuffer)
+{
+	bool bSuccess = false;
+
+	// logging a series of LOG_MAX_HEXA_PER_LINE on n lines
+	char cTempLine[DC_CONS_STR_SHORT];
+	char cTempChar[DC_CONS_STR_TINY];
+	int i = 0;
+	int iIndex = 0;
+
+	memset(cTempLine, 0x00, DC_CONS_STR_SHORT);
+	memset(cTempChar, 0x00, DC_CONS_STR_TINY);
+
+	for(i = 0; i < _iSizeInputBuffer; i++ )
+	{
+		if(iIndex >= DC_CONS_LOG_MAX_HEXA_PER_LINE)
+		{
+			iIndex=0;
+			display(cTempLine);
+			memset(cTempLine, 0x00, DC_CONS_STR_SHORT);
+		}
+
+		// work and copy for line
+		sprintf(cTempChar,"%02X ", _pInputBuffer[i]);
+		if(iIndex == 0) strcpy(cTempLine,cTempChar);
+		else strcat(cTempLine,cTempChar);
+		iIndex++;
+	}
+
+	// print the last value cat in temp line
+	display(cTempLine);
 
 	return bSuccess;
 }

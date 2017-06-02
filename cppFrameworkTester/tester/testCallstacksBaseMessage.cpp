@@ -4,6 +4,7 @@
 #include "testCallStacksBasemessage.h"
 #include "cppFrameworkTesterDefines.h"
 #include "toolsconstant.h"
+#include "TesterReport.h"
 
 #include <string>
 #include <assert.h>
@@ -16,7 +17,7 @@
 #define MAX_MESSAGE_CREATION	10000000
 
 // ------------------------------------------------------------
-int tester_callstacks_create_max_base_message()
+int Test::tester_callstacks_create_max_base_message()
 {
 #ifdef TEST_CREATE_BASE_MESSAGE
 
@@ -37,22 +38,16 @@ int tester_callstacks_create_max_base_message()
 	double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
 	delete ramState;
 
-	// test summarry
-	if(abs(dVal2-dVal1)<0.0001)
-	{
-		printf("->tester CallStacks::BaseStackMessage : tester_callstacks_create_max_base_message() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::BaseStackMessage : tester_callstacks_create_max_base_message() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((abs(dVal2-dVal1)<0.0001), "CallStacks::BaseStackMessage", "tester_callstacks_create_max_base_message()");
+
 
 #endif // TEST_CREATE_BASE_MESSAGE
 
 	return 0;
 }
 // ------------------------------------------------------------
-int tester_callstacks_base_message()
+int Test::tester_callstacks_base_message()
 {
 	int iReturnCode = TEST_OK;
 
@@ -76,28 +71,24 @@ int tester_callstacks_base_message()
 
 	delete message;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester CallStacks::BaseStackMessage : tester_callstacks_base_message() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::BaseStackMessage : tester_callstacks_base_message() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "CallStacks::BaseStackMessage", "tester_callstacks_base_message()");
+
 #endif /* TEST_BASE_MESSAGE */
 
 	return iReturnCode;
 }
 // ------------------------------------------------------------
-int tester_callstacks_base_message_full()
+int Test::tester_callstacks_base_message_full()
 {
-	printf(STR_LINE_DISPLAY_SEP);
-	printf("testing CallStack::BaseStackMessage\r\n");
-	printf(STR_LINE_DISPLAY_SEP);
+	Test::TesterReport::getInstance()->printHeader("testing CallStack::BaseStackMessage");
 
-	tester_callstacks_create_max_base_message();
-	tester_callstacks_base_message();
+	int iReturnCode = TEST_OK;
+
+	iReturnCode = tester_callstacks_create_max_base_message();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::BaseMessage", "tester_callstacks_create_max_base_message()");
+	iReturnCode = tester_callstacks_base_message();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::BaseMessage", "tester_callstacks_base_message()");
 
 	return 0;
 }

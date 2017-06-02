@@ -99,7 +99,7 @@ long FileIO::FileIni::replaceline(char * cSection, char * cKey, std::string strR
 }
 
 /** write value in a specific ini file */
-long FileIO::FileIni::WriteInt(char * cSection, char * Key, int iReadValue)
+long FileIO::FileIni::WriteInt(char * cSection, char * Key, int /*iReadValue*/)
 {
 #ifdef _WINDOWS
 	WriteProfileString(
@@ -107,12 +107,12 @@ long FileIO::FileIni::WriteInt(char * cSection, char * Key, int iReadValue)
 	  (LPCTSTR)Key,
 	  (LPCTSTR)("33")
 	);
-	int iError = GetLastError(); 
+	//int iError = GetLastError(); 
 #endif
 	return FILE_SUCCESS;
 }
 /** write a string value in a cini file */
-long FileIO::FileIni::WriteString(char * cSection, char * cKey, char * cStrValue)
+long FileIO::FileIni::WriteString(char * /*cSection*/, char * /*cKey*/, char * cStrValue)
 {
 	std::string strValue = cStrValue;
 	//replaceline(cSection, cKey, strValue);

@@ -21,13 +21,14 @@
 
 #endif /* TEST_COOL_HASHMAP_FULL */
 
-// -----------------------------------------------------------
-int tester_collection_hashmap_getter();
-// -----------------------------------------------------------
-int tester_collection_hashmap_remove_items();
-// -----------------------------------------------------------
-/** generic function to test all hasmap function */
-int tester_collection_hashmap();
-// -----------------------------------------------------------
-
+namespace Test{
+	// -----------------------------------------------------------
+	int tester_collection_hashmap_getter();
+	// -----------------------------------------------------------
+	int tester_collection_hashmap_remove_items();
+	// -----------------------------------------------------------
+	/** generic function to test all hasmap function */
+	int tester_collection_hashmap();
+	// -----------------------------------------------------------
+}
 #endif /* TESTER_COLLECITON_HASHMAP_H */

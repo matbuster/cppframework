@@ -5,6 +5,7 @@
 #include "Memory\Ram.h"
 #include "testCollectionList.h"
 #include "cppFrameworkTesterDefines.h"
+#include "TesterReport.h"
 
 #include <assert.h>
 
@@ -39,7 +40,7 @@ void internal_static_element( )
 	return;
 }
 // -----------------------------------------------------------
-int tester_collection_list_getter()
+int Test::tester_collection_list_getter()
 {
 	int iReturnCode = TEST_OK;
 
@@ -62,21 +63,15 @@ int tester_collection_list_getter()
 	}
 	delete list;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester Collection::List : tester_collection_list_getter() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester Collection::List : tester_collection_list_getter() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Collection::List", "tester_collection_list_getter()");
+	
 #endif /* TEST_COLL_LIST_GETTER */
 
 	return iReturnCode;
 }
 // -----------------------------------------------------------
-int tester_collection_list_remove_items()
+int Test::tester_collection_list_remove_items()
 {
 	int iReturnCode = TEST_OK;
 	
@@ -99,7 +94,7 @@ int tester_collection_list_remove_items()
 		} 
 		catch(...)
 		{
-			printf("->tester_collection_list_remove_items() : FAILED !!! index out of bound exception.\r\n");
+			Test::TesterReport::getInstance()->printSummary(false, "Collection::List", "tester_collection_list_remove_items() - Index out of bound exception");
 			assert(false);
 		}
 	}
@@ -114,15 +109,9 @@ int tester_collection_list_remove_items()
 	assert( dListSize == dItemsRemoved );
 	delete list;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester Collection::List : tester_collection_list_remove_items() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester Collection::List : tester_collection_list_remove_items() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "Collection::List", "tester_collection_list_remove_items()");
+
 #endif /* TEST_COLL_LIST_REMOVE */
 
 	return iReturnCode;
@@ -156,21 +145,15 @@ int tester_collection_list_manage_class_shared_ptr()
 	double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
 	delete ramState;
 
-	// test summarry
-	if(true == bsuccess)
-	{
-		printf("->tester Collection::List : tester_collection_list_remove_items() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester Collection::List : tester_collection_list_remove_items() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((true == bsuccess), "Collection::List", "tester_collection_list_manage_class_shared_ptr()");
+	
 
 #endif /* TEST_COLL_LIST_CLASS */
 	return iReturnCode;
 }
 // -----------------------------------------------------------
-int tester_collection_list_manage_class()
+int Test::tester_collection_list_manage_class()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_COLL_LIST_CLASS
@@ -205,24 +188,16 @@ int tester_collection_list_manage_class()
 	double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
 	delete ramState;
 
-	// test summarry
-	if(true == bsuccess)
-	{
-		printf("->tester Collection::List : tester_collection_list_remove_items() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester Collection::List : tester_collection_list_remove_items() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((true == bsuccess), "Collection::List", "tester_collection_list_manage_class()");
+
 #endif /* TEST_COLL_LIST_CLASS */
 	return iReturnCode;
 }
 // -----------------------------------------------------------
-int tester_collection_list()
+int Test::tester_collection_list()
 {
-	printf(STR_LINE_DISPLAY_SEP);
-	printf("testing Collection::List\r\n");
-	printf(STR_LINE_DISPLAY_SEP);
+	Test::TesterReport::getInstance()->printHeader("testing Collection::List");
 
 	int iReturnCode = TEST_OK;
 	iReturnCode = tester_collection_list_getter();
@@ -231,7 +206,6 @@ int tester_collection_list()
 	iReturnCode = tester_collection_list_manage_class();
 	internal_static_element();
 
-	printf(STR_LINE_JUMP);
 	return iReturnCode;
 }
 // -----------------------------------------------------------

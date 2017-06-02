@@ -8,15 +8,15 @@
 #define CONVERT_INVALID_INPUT_PARAM			2
 
 // ------------------------------------------------------
-#ifdef WIN32
+#ifdef _WINDOWS
 #include <Windows.h>
-#endif // WIN32
+#endif // _WINDOWS
 
 namespace Tools {
 
 	namespace String {
 
-#ifdef WIN32
+#ifdef _WINDOWS
 		/**! function to convert an input string LPWSTR to a char array
 		 * @param in _pInBuffer input string buffer
 		 * @param in _uiInputSize input size for string buffer to convert
@@ -24,7 +24,7 @@ namespace Tools {
 		 * @param out _iSizeConverted converted output buffer size
 		 */
 		long convert_LPWSTR_to_char_array(LPWSTR _pInBuffer, unsigned int _uiInputSize, char * _pConvertedData, unsigned int _iSizeConverted);
-#endif // WIN32
+#endif // _WINDOWS
 
 	};
 };

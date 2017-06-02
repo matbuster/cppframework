@@ -12,8 +12,12 @@
 
 #define SERIALIZER_LEN			8092
 
-#define SERIALIZER_OK			0
-
+#define SERIALIZER_OK						0
+#define SERIALIZER_KO						1
+#define SERIALIZER_WRONG_SIZE_SIRIALIZED	2
+#define SERIALIZER_DESER_LOST				3
+#define SERIALIZER_DESER_FAILED				4
+				
 namespace Serialization {
 
 	/** class serializer to serialize data */
@@ -21,16 +25,16 @@ namespace Serialization {
 	
 	private:
 		/** buffer of serialized data */
-		unsigned char m_pSerializedData[SERIALIZER_LEN];
+		unsigned char * m_pSerializedData;
 
 		/** len of the serialized data buffer */
-		long m_lSerializedDataLen;
+		unsigned long m_ulSerializedDataLen;
 
 		/** collection of serialized items */
-		Collection::List<SerializedItem> * m_list;
+		Collection::List<SerializedItem*> * m_list;
 
-		/** function to get the tag of element and size */
-		//long get
+		/** function to estimate buffe len */
+		unsigned long getSerilizedDataLenEstimation();
 	
 	public:
 		/** main constructor and destructor of the class */
@@ -38,7 +42,7 @@ namespace Serialization {
 		~Serializer();
 
 		/** function to add an item to the Serializer */
-		void AddItem(SerializedItem item);
+		void AddItem(SerializedItem * item);
 
 		/** clear all the items inserted in the serializer */
 		void ClearItems();
@@ -50,16 +54,23 @@ namespace Serialization {
 		long Deserialize(unsigned char * _pSerializedBuffer, long _lSerializeDataLen);
 
 		/** function to get serialized data */
-		void * getSerializedData();
+		unsigned char * getSerializedData();
 
 		/** function to get the serialized data len */
 		long getSerializeDataLen();
+		
+		// ---------------------------------------------------------------
+		/**! getter on the size of SerializedItem
+		 * \return counter on serialized item
+		 */
+		int getItemCount();
 
-		/** function to export serialized data into an xml file */
-		// long ExportToXml();
-
-		/** function to export serialized data into an csv file */
-		// long ExportToCsv();
+		// ---------------------------------------------------------------
+		/**! getter on the target item, pointer by index
+		 * \param [in] index: target index of the item
+		 * \return serialized item object, NULL if index is out of bounds
+		 */
+		SerializedItem * getItemAt(int index);
 	};
 };
 

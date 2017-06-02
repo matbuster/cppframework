@@ -1,13 +1,14 @@
 
 #include "testThreadingMutex.h"
 #include "cppFrameworkTesterDefines.h"
+#include "TesterReport.h"
 
 // include framework tools
 #include "Threading/Mutex.h"
 #include "Threading/Thread.h"
 
 // debug tools
-#include "Debug/assertion.h"
+#include "Diagnostic/assertion.h"
 
 #include <stdio.h>
 
@@ -47,7 +48,7 @@ DWORD WINAPI background_work_for_tester_one_mutex_threading_lock(LPVOID lpThread
 }
 // ----------------------------------------------------------
 
-int tester_one_mutex_no_timeout() {
+int Test::tester_one_mutex_no_timeout() {
     
     int iReturnCode = TEST_OK;
     
@@ -65,7 +66,7 @@ int tester_one_mutex_no_timeout() {
     return iReturnCode;
 }
 // ----------------------------------------------------------
-int tester_one_mutex_with_timeout() {
+int Test::tester_one_mutex_with_timeout() {
 
     int iReturnCode = TEST_OK;
     
@@ -83,7 +84,7 @@ int tester_one_mutex_with_timeout() {
     return iReturnCode;    
 }
 // ----------------------------------------------------------
-int tester_one_mutex_threading_lock() {
+int Test::tester_one_mutex_threading_lock() {
 
     int iReturnCode = TEST_OK;    
     THREADING_STRUCT structShared;
@@ -119,23 +120,24 @@ int tester_one_mutex_threading_lock() {
 }
 // ----------------------------------------------------------
 
-int tester_threading_mutex() {
+int Test::tester_threading_mutex() {
     
-    printf(STR_LINE_DISPLAY_SEP);
-    printf("testing Threading::Mutex\r\n");
-    printf(STR_LINE_DISPLAY_SEP);    
+    Test::TesterReport::getInstance()->printHeader("testing Threading::Mutex");
     
     int iReturnCode = TEST_OK;
 
     iReturnCode = tester_one_mutex_no_timeout();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Threading::Mutex", "tester_one_mutex_no_timeout()");
     if (TEST_OK != iReturnCode) {
         return TEST_KO;
     }
-    iReturnCode = tester_one_mutex_with_timeout();
+	iReturnCode = tester_one_mutex_with_timeout();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Threading::Mutex", "tester_one_mutex_with_timeout()");
     if (TEST_OK != iReturnCode) {
         return TEST_KO;
     }   
-    iReturnCode = tester_one_mutex_threading_lock();
+	iReturnCode = tester_one_mutex_threading_lock();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Threading::Mutex", "tester_one_mutex_threading_lock()");
     if (TEST_OK != iReturnCode) {
         return TEST_KO;
     }       

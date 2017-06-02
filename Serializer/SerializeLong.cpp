@@ -12,7 +12,7 @@ Serialization::SerializedLong::SerializedLong(long _lValue)
 	: SerializedItem(SI_TYPE_LONG , sizeof(long), &_lValue)
 {
 }
-Serialization::SerializedLong::SerializedLong(unsigned char * _pSerializedData, long _lSerializedDataLen)
+Serialization::SerializedLong::SerializedLong(unsigned char * _pSerializedData, unsigned long  _lSerializedDataLen)
 	: SerializedItem(_pSerializedData, _lSerializedDataLen)
 {
 }
@@ -20,3 +20,9 @@ Serialization::SerializedLong::~SerializedLong()
 {
 }
 // -----------------------------------------------------------
+long Serialization::SerializedLong::getValue()
+{
+	return *(long*)getPointerValue();
+}
+// -----------------------------------------------------------
+

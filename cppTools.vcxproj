@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Buffer\RingBuffer.h" />
+    <ClInclude Include="Buffer\RingBuffer.hpp" />
+    <ClInclude Include="Buffer\RingBufferIndex.h" />
+    <ClInclude Include="Buffer\RingBufferPos.h" />
+    <ClInclude Include="CallStacks\AbsoluteStack.h" />
+    <ClInclude Include="CallStacks\BaseStack.h" />
+    <ClInclude Include="CallStacks\BaseStackMessage.h" />
+    <ClInclude Include="CallStacks\CallStacksDefines.h" />
+    <ClInclude Include="CallStacks\Queue.h" />
+    <ClInclude Include="Collection\Buffer.hpp" />
+    <ClInclude Include="Collection\Hashmap.hpp" />
+    <ClInclude Include="Collection\List.h" />
+    <ClInclude Include="Collection\List.hpp" />
+    <ClInclude Include="Communication\Communication.h" />
+    <ClInclude Include="Communication\CommunicationRS.h" />
+    <ClInclude Include="Crypto\crc.h" />
+    <ClInclude Include="Crypto\cryptoDefine.h" />
+    <ClInclude Include="Crypto\des.h" />
+    <ClInclude Include="Crypto\ibm.h" />
+    <ClInclude Include="Crypto\md5.h" />
+    <ClInclude Include="Crypto\sha1.h" />
+    <ClInclude Include="Crypto\xor.h" />
+    <ClInclude Include="Diagnostic\assertion.h" />
+    <ClInclude Include="Diagnostic\console.h" />
+    <ClInclude Include="Error\FrameworkError.h" />
+    <ClInclude Include="Exception\BaseException.h" />
+    <ClInclude Include="FileIO\FileIni.h" />
+    <ClInclude Include="FileIO\FileLog.h" />
+    <ClInclude Include="FileIO\FileTxt.h" />
+    <ClInclude Include="FileIO\FileXml.h" />
+    <ClInclude Include="FileIO\tinyxml2.h" />
+    <ClInclude Include="Hardware\computer.h" />
+    <ClInclude Include="Hardware\CPU.h" />
+    <ClInclude Include="Hardware\Disk.h" />
+    <ClInclude Include="Hardware\keyboard.h" />
+    <ClInclude Include="Library\DllLoader.h" />
+    <ClInclude Include="Library\LibraryInfo.h" />
+    <ClInclude Include="Math\CommonStats.h" />
+    <ClInclude Include="Math\Math.h" />
+    <ClInclude Include="Math\Matrix.hpp" />
+    <ClInclude Include="Math\Random.h" />
+    <ClInclude Include="Memory\LinkedList.h" />
+    <ClInclude Include="Memory\MemMgr.h" />
+    <ClInclude Include="Memory\Pointer.h" />
+    <ClInclude Include="Memory\RAM.h" />
+    <ClInclude Include="Network\IPAdress.h" />
+    <ClInclude Include="Network\TcpClient.h" />
+    <ClInclude Include="Network\TcpConnection.h" />
+    <ClInclude Include="Network\TcpServer.h" />
+    <ClInclude Include="Serializer\EnumSerializerDetection.h" />
+    <ClInclude Include="Serializer\ISerializeObject.h" />
+    <ClInclude Include="Serializer\SerializeBool.h" />
+    <ClInclude Include="Serializer\SerializeDouble.h" />
+    <ClInclude Include="Serializer\SerializeFloat.h" />
+    <ClInclude Include="Serializer\SerializeInt.h" />
+    <ClInclude Include="Serializer\SerializeItem.h" />
+    <ClInclude Include="Serializer\SerializeLong.h" />
+    <ClInclude Include="Serializer\Serializer.h" />
+    <ClInclude Include="Serializer\SerializeShort.h" />
+    <ClInclude Include="Serializer\SerializeString.h" />
+    <ClInclude Include="Threading\ErnoBaseTranslator.h" />
+    <ClInclude Include="Threading\Mutex.h" />
+    <ClInclude Include="Threading\Thread.h" />
+    <ClInclude Include="Threading\ThreadPool.h" />
+    <ClInclude Include="Timing\Chrono.h" />
+    <ClInclude Include="Timing\Date.h" />
+    <ClInclude Include="Timing\DayOfTheWeek.h" />
+    <ClInclude Include="Timing\Timing.h" />
+    <ClInclude Include="toolsconstant.h" />
+    <ClInclude Include="Tools\Conversion\QtConversion.h" />
+    <ClInclude Include="Tools\Conversion\SizeFileConversion.h" />
+    <ClInclude Include="Tools\ErrorCode\ErrorCode.h" />
+    <ClInclude Include="Tools\File\Directory.h" />
+    <ClInclude Include="Tools\File\File.h" />
+    <ClInclude Include="Tools\Profile\BaseProfile.h" />
+    <ClInclude Include="Tools\Profile\BaseProfileGender.h" />
+    <ClInclude Include="Tools\Profile\NetworkProfile.h" />
+    <ClInclude Include="Tools\String\CharArgs.h" />
+    <ClInclude Include="Tools\String\Conversion.h" />
+    <ClInclude Include="Tools\String\LogLine.h" />
+    <ClInclude Include="Tools\String\Regex_Helper.h" />
+    <ClInclude Include="Tools\String\StringTools.h" />
+    <ClInclude Include="version.h" />
+    <ClInclude Include="Windows\Registry\Registry.h" />
+    <ClInclude Include="Windows\System\Environment.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Buffer\RingBufferIndex.cpp" />
+    <ClCompile Include="Buffer\RingBufferPos.cpp" />
+    <ClCompile Include="CallStacks\AbsoluteStack.cpp" />
+    <ClCompile Include="CallStacks\BaseStack.cpp" />
+    <ClCompile Include="CallStacks\BaseStackMessage.cpp" />
+    <ClCompile Include="CallStacks\Queue.cpp" />
+    <ClCompile Include="Collection\List.cpp" />
+    <ClCompile Include="Communication\Communication.cpp" />
+    <ClCompile Include="Communication\CommunicationRS.cpp" />
+    <ClCompile Include="Crypto\crc.cpp" />
+    <ClCompile Include="Crypto\des.cpp" />
+    <ClCompile Include="Crypto\md5.cpp" />
+    <ClCompile Include="Crypto\sha1.cpp" />
+    <ClCompile Include="Crypto\xor.cpp" />
+    <ClCompile Include="Diagnostic\assertion.cpp" />
+    <ClCompile Include="Diagnostic\console.cpp" />
+    <ClCompile Include="Error\FrameworkError.cpp" />
+    <ClCompile Include="Exception\BaseException.cpp" />
+    <ClCompile Include="FileIO\FileIni.cpp" />
+    <ClCompile Include="FileIO\FileLog.cpp" />
+    <ClCompile Include="FileIO\FileTxt.cpp" />
+    <ClCompile Include="FileIO\FileXml.cpp" />
+    <ClCompile Include="FileIO\tinyxml2.cpp" />
+    <ClCompile Include="Hardware\computer.cpp" />
+    <ClCompile Include="Hardware\CPU.cpp" />
+    <ClCompile Include="Hardware\Disk_win32.cpp" />
+    <ClCompile Include="Hardware\keyboard.cpp" />
+    <ClCompile Include="Library\DllLoader.cpp" />
+    <ClCompile Include="Library\LibraryInfo.cpp" />
+    <ClCompile Include="Math\CommonStats.cpp" />
+    <ClCompile Include="Math\Math.cpp" />
+    <ClCompile Include="Math\Random.cpp" />
+    <ClCompile Include="Memory\LinkedList.cpp" />
+    <ClCompile Include="Memory\MemMgr.cpp" />
+    <ClCompile Include="Memory\Pointer.cpp" />
+    <ClCompile Include="Memory\RAM.cpp" />
+    <ClCompile Include="Network\IPAdresse.cpp" />
+    <ClCompile Include="Network\TcpClient.cpp" />
+    <ClCompile Include="Network\TcpConnection.cpp" />
+    <ClCompile Include="Network\TcpServer.cpp" />
+    <ClCompile Include="Serializer\SerializeBool.cpp" />
+    <ClCompile Include="Serializer\SerializeDouble.cpp" />
+    <ClCompile Include="Serializer\SerializeFloat.cpp" />
+    <ClCompile Include="Serializer\SerializeInt.cpp" />
+    <ClCompile Include="Serializer\SerializeItem.cpp" />
+    <ClCompile Include="Serializer\SerializeLong.cpp" />
+    <ClCompile Include="Serializer\Serializer.cpp" />
+    <ClCompile Include="Serializer\SerializeShort.cpp" />
+    <ClCompile Include="Serializer\SerializeString.cpp" />
+    <ClCompile Include="Threading\ErnoBaseTranslator.cpp" />
+    <ClCompile Include="Threading\Mutex.cpp" />
+    <ClCompile Include="Threading\Thread.cpp" />
+    <ClCompile Include="Threading\ThreadPool.cpp" />
+    <ClCompile Include="Timing\Chrono.cpp" />
+    <ClCompile Include="Timing\Date.cpp" />
+    <ClCompile Include="Timing\Timing.cpp" />
+    <ClCompile Include="Tools\Conversion\QtConversion.cpp" />
+    <ClCompile Include="Tools\Conversion\SizeFileConversion.cpp" />
+    <ClCompile Include="Tools\ErrorCode\ErrorCode.cpp" />
+    <ClCompile Include="Tools\File\Directory.cpp" />
+    <ClCompile Include="Tools\File\File.cpp" />
+    <ClCompile Include="Tools\Profile\BaseProfile.cpp" />
+    <ClCompile Include="Tools\Profile\NetworkProfile.cpp" />
+    <ClCompile Include="Tools\String\CharArgs.cpp" />
+    <ClCompile Include="Tools\String\Conversion.cpp" />
+    <ClCompile Include="Tools\String\LogLine.cpp" />
+    <ClCompile Include="Tools\String\Regex.cpp" />
+    <ClCompile Include="Tools\String\StringTools.cpp" />
+    <ClCompile Include="Windows\Registry\Registry.cpp" />
+    <ClCompile Include="Windows\System\Environment.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9CE654A8-E0BC-4667-94A1-AD67BBCFA0CD}</ProjectGuid>
+    <RootNamespace>tools</RootNamespace>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;_CRT_SECURE_NO_WARNINGS;_SCL_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <TreatWarningAsError>true</TreatWarningAsError>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

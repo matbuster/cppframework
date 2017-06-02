@@ -123,7 +123,7 @@ long FileIO::FileTxt::FileTxtClose()
 }
 
 /** write in the openning text file the input message */
-long FileIO::FileTxt::FileTxtWrite(char * cInMessage, int iMessageLen)
+long FileIO::FileTxt::FileTxtWrite(char * cInMessage, int /*iMessageLen*/)
 {
 	if(!m_bFileOpened) 
 	{

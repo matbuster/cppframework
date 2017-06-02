@@ -1,10 +1,11 @@
 
 #include "CallStacks/Queue.h"
-#include "Debug/assertion.h"
+#include "Diagnostic/assertion.h"
 #include "Memory/RAM.h"
 #include "testCallstacksQueue.h"
 #include "cppFrameworkTesterDefines.h"
 #include "toolsconstant.h"
+#include "TesterReport.h"
 
 #ifdef LINUX
 #include <stdio.h>
@@ -12,7 +13,7 @@
 #endif // LINUX
 
 // ------------------------------------------------------------
-int tester_callstacks_queue_push_pop()
+int Test::tester_callstacks_queue_push_pop()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_QUEU_PUSH_POP
@@ -70,20 +71,14 @@ int tester_callstacks_queue_push_pop()
 	}
 	delete queue;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_push_pop() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_push_pop() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "CallStacks::Queue", "tester_callstacks_queue_push_pop()");
+
 #endif /* TEST_CSTK_QUEU_PUSH_POP */
 	return iReturnCode; 
 }
 // ------------------------------------------------------------
-int tester_callstacks_queue_push_get()
+int Test::tester_callstacks_queue_push_get()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_QUEU_PUSH_GET
@@ -143,21 +138,15 @@ int tester_callstacks_queue_push_get()
 	}
 	delete queue;
 
-	// test summarry
-	if(iReturnCode == TEST_OK)
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_push_get() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_push_get() FAILED !!!\r\n");
-	}
+	// test summary
+	Test::TesterReport::getInstance()->printSummary((iReturnCode == TEST_OK), "CallStacks::Queue", "tester_callstacks_queue_push_get()");
+	
 
 #endif /* TEST_CSTK_QUEU_PUSH_GET */
 	return iReturnCode; 
 }
 // ------------------------------------------------------------
-int tester_callstacks_queue_get_mem_class()
+int Test::tester_callstacks_queue_get_mem_class()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_QUEU_MEM_GET_CLASS
@@ -183,16 +172,10 @@ int tester_callstacks_queue_get_mem_class()
 	Debug::Assert(QUEUE_TEST_STR_HUGE == queue->getCount());
 
 	//double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
-	// test summarry
+	// test summary
 	bool bSuccess = (QUEUE_TEST_STR_HUGE == queue->getCount());
-	if(bSuccess == true)
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_get_mem_class() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_get_mem_class() FAILED !!!\r\n");
-	}
+	Test::TesterReport::getInstance()->printSummary((bSuccess == true), "CallStacks::Queue", "tester_callstacks_queue_get_mem_class()");
+
 
 	delete queue;
 	delete ramState;
@@ -201,7 +184,7 @@ int tester_callstacks_queue_get_mem_class()
 	return iReturnCode;
 }
 // ------------------------------------------------------------
-int tester_callstacks_queue_pop_mem_class()
+int Test::tester_callstacks_queue_pop_mem_class()
 {
 	int iReturnCode = TEST_OK;
 #ifdef TEST_CSTK_QUEU_MEM_POP_CLASS
@@ -227,16 +210,10 @@ int tester_callstacks_queue_pop_mem_class()
 	Debug::Assert(0 == queue->getCount());
 	//double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
 
-	// test summarry
+	// test summary
 	bool bSuccess = (0 == queue->getCount());
-	if(bSuccess == true)
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_get_mem_class() SUCCESS.\r\n");
-	}
-	else
-	{
-		printf("->tester CallStacks::Queue  : tester_callstacks_queue_get_mem_class() FAILED !!!\r\n");
-	}
+	Test::TesterReport::getInstance()->printSummary((bSuccess == true), "CallStacks::Queue", "tester_callstacks_queue_pop_mem_class()");
+
 
 	delete queue;
 	delete ramState;
@@ -245,19 +222,20 @@ int tester_callstacks_queue_pop_mem_class()
 	return iReturnCode;
 }
 // ------------------------------------------------------------
-int tester_callstacks_queue()
+int Test::tester_callstacks_queue()
 {
-	printf(STR_LINE_DISPLAY_SEP);
-	printf("testing CallStacks::Queue\r\n");
-	printf(STR_LINE_DISPLAY_SEP);
-
-	tester_callstacks_queue_push_pop();
-	tester_callstacks_queue_push_get();
-	tester_callstacks_queue_get_mem_class();
-	tester_callstacks_queue_pop_mem_class();
+	Test::TesterReport::getInstance()->printHeader("testing CallStacks::Queue");
 
 	int iReturnCode = TEST_OK;
-	printf(STR_LINE_JUMP);
+
+	iReturnCode = tester_callstacks_queue_push_pop();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::Queue", "tester_callstacks_queue_push_pop()");
+	iReturnCode = tester_callstacks_queue_push_get();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::Queue", "tester_callstacks_queue_push_get()");
+	iReturnCode = tester_callstacks_queue_get_mem_class();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::Queue", "tester_callstacks_queue_get_mem_class()");
+	iReturnCode = tester_callstacks_queue_pop_mem_class();
+	Test::TesterReport::getInstance()->printSummary((TEST_OK == iReturnCode), "Callstack::Queue", "tester_callstacks_queue_pop_mem_class()");
 
 	return iReturnCode;
 }
