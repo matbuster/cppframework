@@ -32,7 +32,7 @@ int Test::tester_one_mega_allocation() {
 
     printf("[DEBUG]\t[Memory]\t[tester_one_mega_allocation]\tPhysical memory for current process %0.6f Mo\n", (_dPhysicalMemoryShift - _dPhysicalMemoryStartup));
     if (1.2 == (_dPhysicalMemoryShift - _dPhysicalMemoryStartup)) {
-        Debug::Assert(false, "Accuracy for testing allocation is not efficient.");
+        Diagnostic::Assert(false, "Accuracy for testing allocation is not efficient.");
         iRetValue = TEST_KO;
     }
 
@@ -44,7 +44,7 @@ int Test::tester_one_mega_allocation() {
 
     printf("[DEBUG]\t[Memory]\t[tester_one_mega_allocation]\tPhysical memory for current process %0.6f Mo\n", (_dPhysicalMemoryShift - _dPhysicalMemoryStartup));
     if (10.2 == (_dPhysicalMemoryShift - _dPhysicalMemoryStartup)) {
-        Debug::Assert(false, "Accuracy for testing allocation is not efficient.");
+        Diagnostic::Assert(false, "Accuracy for testing allocation is not efficient.");
         iRetValue = TEST_KO;
     }
 
@@ -62,7 +62,7 @@ int Test::tester_total_virtual_memory() {
     uint64_t _ui64TotalVirtualMem = mem->getTotalVirtualMemory();
     printf("[DEBUG]\t[Memory]\t[tester_total_virtual_memory]\tTotal Virtual Mem %llu bytes\n", _ui64TotalVirtualMem);
     if (0 == _ui64TotalVirtualMem) {
-        Debug::Assert(false, "Total Virtual Mem cannot be equals to Zero.");
+        Diagnostic::Assert(false, "Total Virtual Mem cannot be equals to Zero.");
         iReturnCode = TEST_KO;
     }
 
@@ -78,7 +78,7 @@ int Test::tester_virtual_memory_currently_used() {
     uint64_t _ui64VirtualMemoryCurrentlyUsed = mem->getVirtualMemoryCurrentlyUsed();
     printf("[DEBUG]\t[Memory]\t[tester_virtual_memory_currently_used]\tVirtual memory currently used %llu bytes\n", _ui64VirtualMemoryCurrentlyUsed);
     if (0 == _ui64VirtualMemoryCurrentlyUsed) {
-        Debug::Assert(false, "Virtual memory currently used cannot be equals to Zero.");
+        Diagnostic::Assert(false, "Virtual memory currently used cannot be equals to Zero.");
         iReturnCode = TEST_KO;
     }
 
@@ -94,7 +94,7 @@ int Test::tester_virtual_memory_currently_used_by_current_process() {
     uint64_t _ui64VirtualMemoryCurrentlyUsedForCurrentProcess = mem->getVirtualMemoryCurrentyUsedByProcess();
     printf("[DEBUG]\t[Memory]\t[tester_virtual_memory_currently_used_by_current_process]\tVirtual memory currently used for current process %llu bytes\n", _ui64VirtualMemoryCurrentlyUsedForCurrentProcess);
     if (0 == _ui64VirtualMemoryCurrentlyUsedForCurrentProcess) {
-        Debug::Assert(false, "Virtual memory currently used for current process cannot be equals to Zero.");
+        Diagnostic::Assert(false, "Virtual memory currently used for current process cannot be equals to Zero.");
         iReturnCode = TEST_KO;
     }
 
@@ -110,7 +110,7 @@ int Test::tester_total_physics_memory() {
     uint64_t _ui64TotalPhysicMem = mem->getTotalPhysicsMemory();
     printf("[DEBUG]\t[Memory]\t[tester_total_virtual_memory]\tTotal Physics Mem %llu bytes\n", _ui64TotalPhysicMem);
     if (0 == _ui64TotalPhysicMem) {
-        Debug::Assert(false, "Total Physic Mem cannot be equals to Zero.");
+        Diagnostic::Assert(false, "Total Physic Mem cannot be equals to Zero.");
         iReturnCode = TEST_KO;
     }
 
@@ -126,7 +126,7 @@ int Test::tester_physic_memory_currently_used() {
     uint64_t _ui64PhysicMemCurrentlyUsed = mem->getPhysicalMemoryCurrentlyUsed();
     printf("[DEBUG]\t[Memory]\t[tester_physic_memory_currently_used]\tPhysics Mem currently used %llu bytes\n", _ui64PhysicMemCurrentlyUsed);
     if (0 == _ui64PhysicMemCurrentlyUsed) {
-        Debug::Assert(false, "Physics Mem currently used cannot be equals to Zero.");
+        Diagnostic::Assert(false, "Physics Mem currently used cannot be equals to Zero.");
         iReturnCode = TEST_KO;
     }
 
@@ -143,7 +143,7 @@ int Test::tester_physic_memory_currently_used_by_current_process() {
     uint64_t _ui64PhysicMemCurrentlyUsedByCurrentProcess = mem->getPhysicalMemoryCurrentlyUsedByProcess();
     printf("[DEBUG]\t[Memory]\t[tester_physic_memory_currently_used_by_current_process]\tPhysics Mem currently used by current process %llu bytes\n", _ui64PhysicMemCurrentlyUsedByCurrentProcess);
     if (0 == _ui64PhysicMemCurrentlyUsedByCurrentProcess) {
-        Debug::Assert(false, "Physics Mem currently used by current process cannot be equals to Zero.");
+        Diagnostic::Assert(false, "Physics Mem currently used by current process cannot be equals to Zero.");
         iReturnCode = TEST_KO;
     }
 

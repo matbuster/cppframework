@@ -7,16 +7,22 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-namespace Debug {
+namespace Diagnostic {
 
 	// ------------------------------------------------------------------------
 	/** function to display a message in a console
-	 * \param [in] message: message to display in console ( message to display, no additionnal CR )
+	 * \param [in] message: message to display in console ( message to display, no additionnal CR needed, already added in function)
 	 * \return success or failed
 	 */
 	bool display(char * message);
 
-	
+	// ------------------------------------------------------------------------
+	/** function to display a message in a console with no carriage return at the end of the li
+	 * \param [in] message: message to display in console
+	 * \return success or failed
+	 */
+	bool displayNoJump(char * message);
+
 	// ------------------------------------------------------------------------
 	/** function to display a message in a console
 	 * \param [in] functionName: name of funciton to display in the console

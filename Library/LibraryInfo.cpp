@@ -10,8 +10,6 @@
 
 #include "LibraryInfo.h"
 
-#pragma comment(lib,"Version.lib")
-
 Library::LibraryInfo::LibraryInfo() {
 }
 

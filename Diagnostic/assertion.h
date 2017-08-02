@@ -12,7 +12,7 @@
 //#define ASSERT(value, message)	assert(value && message)
 //#define CHECK(value, message)
 
-namespace Debug {
+namespace Diagnostic {
 
 	// -----------------------------------------------------------------------------
 	/** assert, only available for debug mode. This function using base assert

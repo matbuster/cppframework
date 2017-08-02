@@ -20,7 +20,7 @@
 #define DC_CONS_LOG_MAX_HEXA_PER_LINE		20
 
 // ------------------------------------------------------------------------
-bool Debug::display(char * message)
+bool basicDisplayOptionnal(char * message, bool bAddCrJump)
 {
 	if(NULL == message) {
 		return false;
@@ -30,15 +30,26 @@ bool Debug::display(char * message)
 
 	memset(cMessage, 0x00, STR_LONG);
 	strcpy(cMessage, message);
-	strcat(cMessage, "\n");
-
+	if(true == bAddCrJump)
+	{
+		strcat(cMessage, "\n");
+	}
 	printf(cMessage);
 #endif
 	return true;
 }
-
 // ------------------------------------------------------------------------
-bool Debug::display(char * functionName, char * message)
+bool Diagnostic::display(char * message)
+{
+	return basicDisplayOptionnal(message, true);
+}
+// ------------------------------------------------------------------------
+bool Diagnostic::displayNoJump(char * message)
+{
+	return basicDisplayOptionnal(message, false);
+}
+// ------------------------------------------------------------------------
+bool Diagnostic::display(char * functionName, char * message)
 {
 	char cMessage[STR_LONG];
 	memset(cMessage, 0x00, STR_LONG);
@@ -51,7 +62,7 @@ bool Debug::display(char * functionName, char * message)
 }
 
 // ------------------------------------------------------------------------
-bool Debug::displayArgs(char * message, ...)
+bool Diagnostic::displayArgs(char * message, ...)
 {
 	bool bSuccess = false;
 
@@ -70,7 +81,7 @@ bool Debug::displayArgs(char * message, ...)
 }
 
 // ------------------------------------------------------------------------
-bool Debug::displayArgsWithFunctionName(char * functionName, char * message, ...)
+bool Diagnostic::displayArgsWithFunctionName(char * functionName, char * message, ...)
 {
 	bool bSuccess = false;
 	char cMessage[STR_LONG];
@@ -87,7 +98,7 @@ bool Debug::displayArgsWithFunctionName(char * functionName, char * message, ...
 	return bSuccess;
 }
 // ------------------------------------------------------------------------
-bool Debug::displayBuffer(unsigned char * _pInputBuffer, long _iSizeInputBuffer)
+bool Diagnostic::displayBuffer(unsigned char * _pInputBuffer, long _iSizeInputBuffer)
 {
 	bool bSuccess = false;
 
@@ -121,3 +132,5 @@ bool Debug::displayBuffer(unsigned char * _pInputBuffer, long _iSizeInputBuffer)
 
 	return bSuccess;
 }
+// ------------------------------------------------------------------------
+

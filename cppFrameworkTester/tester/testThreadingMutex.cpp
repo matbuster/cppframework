@@ -56,10 +56,10 @@ int Test::tester_one_mutex_no_timeout() {
     if(mutex->WaitOne()) {
        
         if(false == mutex->Release()) {
-            Debug::Assert(false,"Release mutex failed in function : tester_one_mutex_no_timeout()");
+            Diagnostic::Assert(false,"Release mutex failed in function : tester_one_mutex_no_timeout()");
         }
     } else {
-        Debug::Assert(false,"WaitOne mutex failed in function : tester_one_mutex_no_timeout()");
+        Diagnostic::Assert(false,"WaitOne mutex failed in function : tester_one_mutex_no_timeout()");
     }
     delete mutex;
     
@@ -74,10 +74,10 @@ int Test::tester_one_mutex_with_timeout() {
     if(mutex->WaitOne(100)) {
        
         if(false == mutex->Release()) {
-            Debug::Assert(false,"Release mutex failed in function : tester_one_mutex_with_timeout()");
+            Diagnostic::Assert(false,"Release mutex failed in function : tester_one_mutex_with_timeout()");
         }
     } else {
-        Debug::Assert(false,"WaitOne mutex failed in function, or timeout reached : tester_one_mutex_with_timeout()");
+        Diagnostic::Assert(false,"WaitOne mutex failed in function, or timeout reached : tester_one_mutex_with_timeout()");
     }
     delete mutex;
     

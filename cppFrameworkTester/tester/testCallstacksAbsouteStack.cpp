@@ -32,7 +32,7 @@ int Test::tester_callstacks_absolute_stacks_push_pop_1()
 
 	if(absStack->getCount() != iNumMessageToTest)
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong number of items after push.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong number of items after push.");
 	}
 
 	// testing loop
@@ -45,13 +45,13 @@ int Test::tester_callstacks_absolute_stacks_push_pop_1()
 		iNumMessageToTest--;
 		if(absStack->getCount() != iNumMessageToTest)
 		{
-			Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong number of items left after pop.");
+			Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong number of items left after pop.");
 			iReturnCode = TEST_KO;
 		}
 
-		if(i==0) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_1, tempMessage.getSizeMessage())){ Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong MESSAGE_1.");iReturnCode = TEST_KO;}}
-		else if(i==1) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_2, tempMessage.getSizeMessage())){ Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong MESSAGE_2.");iReturnCode = TEST_KO;}}
-		else if(i==2) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_3, tempMessage.getSizeMessage())){ Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong MESSAGE_3.");iReturnCode = TEST_KO;}}
+		if(i==0) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_1, tempMessage.getSizeMessage())){ Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong MESSAGE_1.");iReturnCode = TEST_KO;}}
+		else if(i==1) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_2, tempMessage.getSizeMessage())){ Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong MESSAGE_2.");iReturnCode = TEST_KO;}}
+		else if(i==2) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_3, tempMessage.getSizeMessage())){ Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_1() : Wrong MESSAGE_3.");iReturnCode = TEST_KO;}}
 	}
 
 	delete absStack;
@@ -82,7 +82,7 @@ int Test::tester_callstacks_absolute_stacks_push_pop_2()
 
 	if(absStack->getCount() != iNumMessageToTest)
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong number of items after push.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong number of items after push.");
 	}
 
 	// get the second message
@@ -91,7 +91,7 @@ int Test::tester_callstacks_absolute_stacks_push_pop_2()
 	iReturnCode = absStack->popRequest( &tempMessage );
 	if(0 != memcmp(tempMessage.getMessage(), MESSAGE_2, tempMessage.getSizeMessage())) 
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong MESSAGE_2.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong MESSAGE_2.");
 		iReturnCode = TEST_KO;
 	}
 
@@ -100,7 +100,7 @@ int Test::tester_callstacks_absolute_stacks_push_pop_2()
 	iReturnCode = absStack->popRequest( &tempMessage );
 	if(0 != memcmp(tempMessage.getMessage(), MESSAGE_3, tempMessage.getSizeMessage())) 
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong MESSAGE_3.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong MESSAGE_3.");
 		iReturnCode = TEST_KO;
 	}
 
@@ -109,7 +109,7 @@ int Test::tester_callstacks_absolute_stacks_push_pop_2()
 	iReturnCode = absStack->popRequest( &tempMessage );
 	if(0 != memcmp(tempMessage.getMessage(), MESSAGE_1, tempMessage.getSizeMessage())) 
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong MESSAGE_1.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_2() : Wrong MESSAGE_1.");
 		iReturnCode = TEST_KO;
 	}
 
@@ -142,7 +142,7 @@ int Test::tester_callstacks_absolute_stacks_push_pop_not_found()
 
 	if(absStack->getCount() != iNumMessageToTest)
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_not_found() : Wrong number of items after push.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_not_found() : Wrong number of items after push.");
 	}
 
 	// get the second message
@@ -151,12 +151,12 @@ int Test::tester_callstacks_absolute_stacks_push_pop_not_found()
 	iReturnCode = absStack->popRequest( &tempMessage );
 	if(iReturnCode != BASESTACK_NO_IT_FOUND)
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_not_found() : Wrong number of items after push.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_not_found() : Wrong number of items after push.");
 	}
 
 	if(absStack->getCount() != iNumMessageToTest)
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_pop_not_found() : Wrong number of items after pop.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_pop_not_found() : Wrong number of items after pop.");
 	}
 
 	delete absStack;
@@ -188,7 +188,7 @@ int Test::tester_callstacks_absolute_stacks_push_get()
 
 	if(absStack->getCount() != MAX_TEST_MESSAFE)
 	{
-		Debug::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong number of items after push.");
+		Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong number of items after push.");
 	}
 
 	// testing loop
@@ -200,13 +200,13 @@ int Test::tester_callstacks_absolute_stacks_push_get()
                 
 		if(absStack->getCount() != MAX_TEST_MESSAFE)
 		{
-			Debug::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong number of items left after pop.");
+			Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong number of items left after pop.");
 			iReturnCode = TEST_KO;
 		}
                         
-		if(i==0) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_1, tempMessage.getSizeMessage())){ Debug::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong MESSAGE_1.");iReturnCode = TEST_KO;}}
-		else if(i==1) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_2, tempMessage.getSizeMessage())){ Debug::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong MESSAGE_2.");iReturnCode = TEST_KO;}}
-		else if(i==2) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_3, tempMessage.getSizeMessage())){ Debug::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong MESSAGE_3.");iReturnCode = TEST_KO;}}
+		if(i==0) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_1, tempMessage.getSizeMessage())){ Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong MESSAGE_1.");iReturnCode = TEST_KO;}}
+		else if(i==1) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_2, tempMessage.getSizeMessage())){ Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong MESSAGE_2.");iReturnCode = TEST_KO;}}
+		else if(i==2) {if(0 != memcmp(tempMessage.getMessage(), MESSAGE_3, tempMessage.getSizeMessage())){ Diagnostic::Assert(false, "tester_callstacks_absolute_stacks_push_get() : Wrong MESSAGE_3.");iReturnCode = TEST_KO;}}
 	}
 
 	delete absStack;

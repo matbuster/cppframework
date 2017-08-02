@@ -12,19 +12,21 @@
 
 // --------------------------------------------------------------------
 // define test plan
-#define TEST_COLLECTIONS
-#define TEST_MATH
-#define TEST_CALLSTACKS
-#define TEST_THREADING // bug de temps en temps
-#define TEST_TIMING
-#define TEST_MEMORY // ça aussi?
-#define TEST_NETWORK
+//#define TEST_COLLECTIONS
+//#define TEST_MATH
+//#define TEST_CALLSTACKS
+//#define TEST_THREADING // bug de temps en temps
+//#define TEST_TIMING
+//#define TEST_MEMORY // ça aussi?
+//#define TEST_NETWORK
 //#define TEST_NETWORK_HTTP // can't find testNetworkHttpRequest.h
-#define TEST_FILEIO
-#define TEST_BUFFER
-#define TEST_HARDWARE
-#define TEST_CRYPTO
-#define TEST_SERIALIZATION
+//#define TEST_FILEIO
+//#define TEST_BUFFER
+//#define TEST_HARDWARE
+//#define TEST_CRYPTO
+//#define TEST_SERIALIZATION
+//#define TEST_TOOLS_FILE
+#define TEST_DIAGNOSTIC_TOOLS
 // --------------------------------------------------------------------
 // tester collection include
 #include "cppFrameworkTesterDefines.h"
@@ -90,6 +92,14 @@
 #include "tester/testTimingChrono.h"
 #endif // TEST_TIMING
 
+#ifdef TEST_TOOLS_FILE
+#include "tester/testToolsFileDirectory.h"
+#endif // TEST_TOOLS_FILE
+
+#ifdef TEST_DIAGNOSTIC_TOOLS
+#include "../Diagnostic/commandConsole.h"
+#endif // DIAGNOSTIC TOOLS
+
 // --------------------------------------------------------------------
 #ifdef WIN32
 // general includes for testing in main program
@@ -110,7 +120,6 @@ int _tmain(int argc, _TCHAR* argv[])
 #endif //WIN32
 {
 	Test::TesterReport::getInstance()->printHeader("Testing cpp framework");
-	
 
 #ifdef TEST_COLLECTIONS        
 	// testing namespace Collection 
@@ -171,6 +180,14 @@ int _tmain(int argc, _TCHAR* argv[])
 #ifdef TEST_SERIALIZATION
 	Test::tester_serialization_serialize_item();
 #endif // TEST_SERIALIZATION
+
+#ifdef TEST_TOOLS_FILE
+	Test::test_tools_file_directory();
+#endif // TEST_TOOLS_FILE
+
+#ifdef TEST_DIAGNOSTIC_TOOLS
+	Diagnostic::CommandConsole::getInstance()->displayCommandConsole();
+#endif // TEST_DIAGNOSTIC_TOOLS
 
 	system("pause");
 	return 0;

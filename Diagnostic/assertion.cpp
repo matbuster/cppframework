@@ -8,7 +8,7 @@
 #include <stdio.h>
 
 // -----------------------------------------------------------------------------
-bool Debug::Assert(bool bValue)
+bool Diagnostic::Assert(bool bValue)
 {
 #ifdef _DEBUG
 	assert(bValue);
@@ -16,7 +16,7 @@ bool Debug::Assert(bool bValue)
 	return bValue;
 }
 // -----------------------------------------------------------------------------
-bool Debug::Assert(bool bValue, const char * pMessage)
+bool Diagnostic::Assert(bool bValue, const char * pMessage)
 {
 #ifdef _DEBUG
 	printf(pMessage);

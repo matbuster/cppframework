@@ -22,22 +22,22 @@ int Test::tester_math_matrix_set_get_integer()
 
 	if(1 != C(0,0))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(0,0).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(0,0).");
 		bSuccess = false;
 	}
 	if(2 != C(0,1))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(0,1).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(0,1).");
 		bSuccess = false;
 	}
 	if(3 != C(1,0))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(1,0).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(1,0).");
 		bSuccess = false;
 	}
 	if(4 != C(1,1))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(1,1).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_integer() : Wrong item value C(1,1).");
 		bSuccess = false;
 	}
 
@@ -60,22 +60,22 @@ int Test::tester_math_matrix_set_get_enum()
 
 	if(enBusy != C(0,0))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(0,0).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(0,0).");
 		bSuccess = false;
 	}
 	if(enDefault != C(0,1))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(0,1).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(0,1).");
 		bSuccess = false;
 	}
 	if(enFree != C(1,0))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(1,0).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(1,0).");
 		bSuccess = false;
 	}
 	if(enUnknown != C(1,1))
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(1,1).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_enum() : Wrong item value C(1,1).");
 		bSuccess = false;
 	}
 
@@ -98,12 +98,12 @@ int tester_math_matrix_set_get_class()
 
 	if(0 != C(0,0).getX() && 0 != C(0,0).getX())
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_class() : Wrong item value C(0,0).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_class() : Wrong item value C(0,0).");
 		bSuccess = false;
 	}
 	if(1 != C(1,1).getX() && 1 != C(1,1).getX())
 	{
-		Debug::Assert(false, "tester_math_matrix_set_get_class() : Wrong item value C(1,1).");
+		Diagnostic::Assert(false, "tester_math_matrix_set_get_class() : Wrong item value C(1,1).");
 		bSuccess = false;
 	}
 

@@ -1,7 +1,7 @@
 /**
  * \file 		version.h
  * \date 		04/11/2015 
- * \author 		MAT
+ * \author 		NSJ
  */ 
  
 #ifndef VERSION_H
@@ -22,7 +22,7 @@
 /** v1.1.0 : MAT - TCP module dynamic received / send and big buffer management
 				 - Improving dllLoader initialization
 				 - complete serialization module */
-/** v1.2.0 : MAT - adding tinyXml2 library
+/** v1.2.0 : NSJ - adding tinyXml2 library
 				 - adding VS2010 projet */
 // ---------------------------------------------------------------------------
 

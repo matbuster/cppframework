@@ -40,7 +40,7 @@ int Test::tester_timing_duration() {
     long _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_1_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_1_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_1_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_1_MS.");
         return TEST_KO;
     }
 
@@ -50,7 +50,7 @@ int Test::tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_2_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_2_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
         return TEST_KO;
     }
 
@@ -60,7 +60,7 @@ int Test::tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_3_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_3_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_3_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_3_MS.");
         return TEST_KO;
     }
 
@@ -70,7 +70,7 @@ int Test::tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_4_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_4_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_4_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_4_MS.");
         return TEST_KO;
     }
 
@@ -80,7 +80,7 @@ int Test::tester_timing_duration() {
     _lEllapsedTime_ms = (_lAbsoluteEndTime_ms - _lAbsoluteStartTime_ms);
     printf("[DEBUG]\t[tester_timing_duration]\tEllapsed time %lu ms\n", _lEllapsedTime_ms);
     if (_lEllapsedTime_ms < (TEST_ELLAPSED_VALUE_5_MS - CONST_ACCURACY_TIMING_MS) || _lEllapsedTime_ms > (TEST_ELLAPSED_VALUE_5_MS + CONST_ACCURACY_TIMING_MS)) {
-        Debug::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_5_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing is not enough efficient for TEST_ELLAPSED_VALUE_5_MS.");
         return TEST_KO;
     }
 
@@ -99,7 +99,7 @@ int Test::tester_timing_Chrono() {
 
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_1_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_1_MS.");
         return TEST_KO;        
     }
     
@@ -109,7 +109,7 @@ int Test::tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
         return TEST_KO;        
     }    
     
@@ -119,7 +119,7 @@ int Test::tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_3_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_3_MS.");
         return TEST_KO;        
     }    
     
@@ -129,7 +129,7 @@ int Test::tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_4_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_4_MS.");
         return TEST_KO;        
     }
     
@@ -139,7 +139,7 @@ int Test::tester_timing_Chrono() {
     _dTimeEllapsed = chrono->getTime_ms();
     printf("[DEBUG]\t[tester_timing_Chrono]\tEllapsed time %0.2f ms\n", _dTimeEllapsed);
     if(_dTimeEllapsed < (double)(_dAdditionnalTime - _dPrecision) || _dTimeEllapsed > (double)(_dAdditionnalTime + _dPrecision)) {
-        Debug::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
+        Diagnostic::Assert(false, "Precision on measure timing for Chrono is not enough efficient for TEST_ELLAPSED_VALUE_2_MS.");
         return TEST_KO;        
     }     
 

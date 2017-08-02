@@ -51,6 +51,14 @@ namespace Hardware {
 		 * @param success or failed
 		 */
 		bool getIpAdress(char * _pIpAdress, int _iSizeIpAdress);
+
+		// ----------------------------------------------
+		/**! getter for a string value
+		 * \param [out] _pOutStringValue : ouput string value
+		 * \param [out] _iOutStringSize : output string size
+		 * \param [in] _iMaxInputChar : max input char for string
+		 */
+		bool getStringValue(char * _pOutStringValue, int * _iOutStringSize ,int _iMaxInputChar);
 	};
 };
 

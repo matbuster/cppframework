@@ -28,6 +28,8 @@ int Hardware::Keyboard::kbhit()
     fd_set fds;
     FD_ZERO(&fds);
     FD_SET(0, &fds);
+
+	// select is include in Winsock, you have to include Ws
     return select(1, &fds, NULL, NULL, &tv);
 }
 // ----------------------------------------------------------------------
@@ -139,6 +141,87 @@ bool Hardware::Keyboard::getIpAdress(char * _pIpAdress, int _iSizeIpAdress)
 	}
 	return true;
 }
+// ----------------------------------------------------------------------
+bool Hardware::Keyboard::getStringValue(char * _pOutStringValue, int * _iOutStringSize , int _iMaxInputSize)
+{
+	if(NULL == _pOutStringValue)
+	{
+		return false;
+	}
+	if(NULL == _iOutStringSize)
+	{
+		return false;
+	}
+
+	char buffer[1024];
+	char *line = fgets(buffer, sizeof(buffer), stdin);
+	if( !line ) {
+
+		if( feof(stdin) ) {
+			printf("end of file\n");
+		} else if( ferror(stdin) ) {
+			printf("An error occurerd\n");
+			exit(0);
+		}
+
+	} else {
+		// copy in output buffer
+		int iSizeMessage = strlen(buffer);
+		//
+		// printf("You entered: %s", line);
+		// printf("Length You entered: %d\r\n", iSizeMessage);
+		//
+		if(_iMaxInputSize >= iSizeMessage) { 
+			memcpy(_pOutStringValue, line, iSizeMessage);
+			*_iOutStringSize = iSizeMessage;
+		} else {
+			memcpy(_pOutStringValue, line, _iMaxInputSize);
+			*_iOutStringSize = _iMaxInputSize;
+		}
+	}
+
+	return true;
+}
+// ----------------------------------------------------------------------
+/*
+bool Hardware::Keyboard::getStringValue(char * _pOutStringValue, int * _iOutStringSize , int _iMaxInputSize)
+{
+	std::string out;
+
+	char c;
+	//puts ("Enter text. Include a dot ('.') in a sentence to exit:");
+	do {
+		
+		c=getchar();
+		putchar (c);
+
+		out += c;
+
+		// tab detect
+		if(c != '.')
+		{
+			break;
+		}
+
+	} while (c != '\t');
+
+	// copy in output buffer
+	int iSizeMessage = out.size();
+	//
+	// printf("You entered: %s", line);
+	// printf("Length You entered: %d\r\n", iSizeMessage);
+	//
+	if(_iMaxInputSize >= iSizeMessage) { 
+		memcpy(_pOutStringValue, out.c_str(), iSizeMessage);
+		*_iOutStringSize = iSizeMessage;
+	} else {
+		memcpy(_pOutStringValue, out.c_str(), _iMaxInputSize);
+		*_iOutStringSize = _iMaxInputSize;
+	}
+
+	return true;
+}
+*/
 // ----------------------------------------------------------------------
 
 

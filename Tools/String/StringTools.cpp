@@ -10,6 +10,7 @@
 #include "StringTools.h"
 #include "../../toolsconstant.h"
 
+#include <algorithm>
 #include <string>
 
 /** count the number of occurence of cCharToSearch in pStr 
@@ -277,3 +278,35 @@ bool Tools::String::SubString(char * pStr, long lSizeStr, int iStartIndex, int i
 	memcpy(pSubStr, pStr+iStartIndex, iLenSub);
 	return true;
 }
+
+// ------------------------------------------------------------------------------------------------
+bool Tools::String::UpperCase(char * pInputSting, int iInputStringSize, char * pOutUpperCase)
+{
+	if(NULL == pInputSting || NULL == pOutUpperCase)
+	{
+		return false;
+	}
+	//
+	std::string str(pInputSting);
+	std::transform(str.begin(), str.end(),str.begin(), ::toupper);
+	//
+	memcpy(pOutUpperCase, str.c_str(), str.length());
+	//
+	return true;
+}
+// ------------------------------------------------------------------------------------------------
+bool Tools::String::LowerCase(char * pInputSting, int iInputStringSize, char * pOutLowerCase)
+{
+	if(NULL == pInputSting || NULL == pOutLowerCase)
+	{
+		return false;
+	}
+	//
+	std::string str(pInputSting);
+	std::transform(str.begin(), str.end(),str.begin(), ::tolower);
+	//
+	memcpy(pOutLowerCase, str.c_str(), str.length());
+	//
+	return true;
+}
+// ------------------------------------------------------------------------------------------------

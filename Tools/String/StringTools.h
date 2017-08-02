@@ -21,7 +21,7 @@ namespace Tools {
 		int StringCountOccurence(char * pStr, long lSizeStr, char cCharToSearch);
 
 		// ------------------------------------------------------------------------------------------------
-		/** function to chexk if str1 contain str2 */
+		/** function to check if str1 contain str2 */
 		bool StringCointain(unsigned char * pStr1, long lSizeStr1, unsigned char * pStr2, long lSizeStr2);
 
 		// ------------------------------------------------------------------------------------------------
@@ -65,6 +65,22 @@ namespace Tools {
 		 * \return success or failed
 		 */
 		bool SubString(char * pStr, long lSizeStr, int iStartIndex, int iLenSub, char * pSubStr);
+
+		// ------------------------------------------------------------------------------------------------
+		/**! get the upper case of an existing string
+		 * \param [in] pInputSting : input string value
+		 * \param [in] iInputStringSize : input string size
+		 * \param [out] pOutUpperCase : output string as upper case of the input string
+		 */
+		bool UpperCase(char * pInputSting, int iInputStringSize, char * pOutUpperCase);
+
+  		// ------------------------------------------------------------------------------------------------
+		/**! get the lower case of an existing string
+		 * \param [in] pInputSting : input string value
+		 * \param [in] iInputStringSize : input string size
+		 * \param [out] pOutLowerCase : output string as lower case of the input string
+		 */
+		bool LowerCase(char * pInputSting, int iInputStringSize, char * pOutLowerCase); 
 	};
 };
 

@@ -53,19 +53,19 @@ int Test::tester_callstacks_queue_push_pop()
 		if( (unsigned long)(iLeftInQueue-i) != queue->getCount())	
 		{
 			iReturnCode = TEST_KO;
-			Debug::Assert(false, "tester_callstacks_queue_push_pop() : Wrong number of left items in Queue.");
+			Diagnostic::Assert(false, "tester_callstacks_queue_push_pop() : Wrong number of left items in Queue.");
 			break;
 		}
 		if(lSizeMessage != ulTargetPopSize)
 		{
 			iReturnCode = TEST_KO;
-			Debug::Assert(false, "tester_callstacks_queue_push_pop() : Wrong size of pop message.");
+			Diagnostic::Assert(false, "tester_callstacks_queue_push_pop() : Wrong size of pop message.");
 			break;
 		}
 		if( memcmp(cTempMessage, cTargetPop, lSizeMessage) != 0)
 		{
 			iReturnCode = TEST_KO;
-			Debug::Assert(false, "tester_callstacks_queue_push_pop() : Wrong message get in queue.");
+			Diagnostic::Assert(false, "tester_callstacks_queue_push_pop() : Wrong message get in queue.");
 			break;
 		}
 	}
@@ -117,19 +117,19 @@ int Test::tester_callstacks_queue_push_get()
 		if( (unsigned long)(iLeftMessage) != queue->getCount())	
 		{
 			iReturnCode = TEST_KO;
-			Debug::Assert(false, "tester_callstacks_queue_push_get() : Wrong number of left items in Queue.");
+			Diagnostic::Assert(false, "tester_callstacks_queue_push_get() : Wrong number of left items in Queue.");
 			break;
 		}
 		if(lSizeMessage != ulTargetPopSize)
 		{
 			iReturnCode = TEST_KO;
-			Debug::Assert(false, "tester_callstacks_queue_push_get() : Wrong size of pop message.");
+			Diagnostic::Assert(false, "tester_callstacks_queue_push_get() : Wrong size of pop message.");
 			break;
 		}
 		if( memcmp(cTempMessage, cTargetPop, lSizeMessage) != 0)
 		{
 			iReturnCode = TEST_KO;
-			Debug::Assert(false, "tester_callstacks_queue_push_get() : Wrong message get in queue.");
+			Diagnostic::Assert(false, "tester_callstacks_queue_push_get() : Wrong message get in queue.");
 			break;
 		}
 
@@ -169,7 +169,7 @@ int Test::tester_callstacks_queue_get_mem_class()
 	}
 
 	// SIZE DO NOT CHANGE
-	Debug::Assert(QUEUE_TEST_STR_HUGE == queue->getCount());
+	Diagnostic::Assert(QUEUE_TEST_STR_HUGE == queue->getCount());
 
 	//double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
 	// test summary
@@ -207,7 +207,7 @@ int Test::tester_callstacks_queue_pop_mem_class()
 	}
 
 	// SIZE DO NOT CHANGE
-	Debug::Assert(0 == queue->getCount());
+	Diagnostic::Assert(0 == queue->getCount());
 	//double dVal2 = ramState->getPhysicalMemoryShiftFromCurrentProcess_mo();
 
 	// test summary

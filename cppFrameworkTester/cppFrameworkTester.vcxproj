@@ -97,6 +97,9 @@
     <ClInclude Include="..\Crypto\crc.h" />
     <ClInclude Include="..\Crypto\md5.h" />
     <ClInclude Include="..\Diagnostic\assertion.h" />
+    <ClInclude Include="..\Diagnostic\commandConsole.h" />
+    <ClInclude Include="..\Diagnostic\commandConsoleHelper.h" />
+    <ClInclude Include="..\Diagnostic\console.h" />
     <ClInclude Include="..\Error\FrameworkError.h" />
     <ClInclude Include="..\FileIO\FileIni.h" />
     <ClInclude Include="..\FileIO\FileLog.h" />
@@ -104,6 +107,7 @@
     <ClInclude Include="..\FileIO\FileXml.h" />
     <ClInclude Include="..\Hardware\computer.h" />
     <ClInclude Include="..\Hardware\CPU.h" />
+    <ClInclude Include="..\Hardware\keyboard.h" />
     <ClInclude Include="..\Math\Math.h" />
     <ClInclude Include="..\Math\Matrix.hpp" />
     <ClInclude Include="..\Memory\RAM.h" />
@@ -132,13 +136,17 @@
     <ClInclude Include="..\Timing\DayOfTheWeek.h" />
     <ClInclude Include="..\Timing\Timing.h" />
     <ClInclude Include="..\toolsconstant.h" />
+    <ClInclude Include="..\Tools\Collection\GetterCollection.hpp" />
     <ClInclude Include="..\Tools\Conversion\SizeFileConversion.h" />
     <ClInclude Include="..\Tools\File\Directory.h" />
     <ClInclude Include="..\Tools\File\File.h" />
+    <ClInclude Include="..\Tools\File\FileFolder.h" />
+    <ClInclude Include="..\Tools\File\FileFolderInfos.h" />
     <ClInclude Include="..\Tools\Profile\BaseProfile.h" />
     <ClInclude Include="..\Tools\Profile\BaseProfileGender.h" />
     <ClInclude Include="..\Tools\String\Conversion.h" />
     <ClInclude Include="..\Tools\String\Regex_Helper.h" />
+    <ClInclude Include="..\Tools\String\StdStringTools.h" />
     <ClInclude Include="..\Tools\String\StringTools.h" />
     <ClInclude Include="cppFrameworkTesterDefines.h" />
     <ClInclude Include="stdafx.h" />
@@ -163,6 +171,7 @@
     <ClInclude Include="tester\testThreadingMutex.h" />
     <ClInclude Include="tester\testThreadingThreadPool.h" />
     <ClInclude Include="tester\testTimingChrono.h" />
+    <ClInclude Include="tester\testToolsFileDirectory.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\Buffer\RingBuffer.hpp" />
@@ -177,6 +186,9 @@
     <ClCompile Include="..\Crypto\crc.cpp" />
     <ClCompile Include="..\Crypto\md5.cpp" />
     <ClCompile Include="..\Diagnostic\assertion.cpp" />
+    <ClCompile Include="..\Diagnostic\commandConsole.cpp" />
+    <ClCompile Include="..\Diagnostic\commandConsoleHelper.cpp" />
+    <ClCompile Include="..\Diagnostic\console.cpp" />
     <ClCompile Include="..\Error\FrameworkError.cpp" />
     <ClCompile Include="..\FileIO\FileIni.cpp" />
     <ClCompile Include="..\FileIO\FileLog.cpp" />
@@ -184,6 +196,7 @@
     <ClCompile Include="..\FileIO\FileXml.cpp" />
     <ClCompile Include="..\Hardware\computer.cpp" />
     <ClCompile Include="..\Hardware\CPU.cpp" />
+    <ClCompile Include="..\Hardware\keyboard.cpp" />
     <ClCompile Include="..\Math\Math.cpp" />
     <ClCompile Include="..\Memory\RAM.cpp" />
     <ClCompile Include="..\Network\IPAdresse.cpp" />
@@ -208,9 +221,12 @@
     <ClCompile Include="..\Tools\Conversion\SizeFileConversion.cpp" />
     <ClCompile Include="..\Tools\File\Directory.cpp" />
     <ClCompile Include="..\Tools\File\File.cpp" />
+    <ClCompile Include="..\Tools\File\FileFolder.cpp" />
+    <ClCompile Include="..\Tools\File\FileFolderInfos.cpp" />
     <ClCompile Include="..\Tools\Profile\BaseProfile.cpp" />
     <ClCompile Include="..\Tools\String\Conversion.cpp" />
     <ClCompile Include="..\Tools\String\Regex.cpp" />
+    <ClCompile Include="..\Tools\String\StdStringTools.cpp" />
     <ClCompile Include="..\Tools\String\StringTools.cpp" />
     <ClCompile Include="cppFrameworkTester.cpp" />
     <ClCompile Include="stdafx.cpp" />
@@ -233,6 +249,7 @@
     <ClCompile Include="tester\testThreadingMutex.cpp" />
     <ClCompile Include="tester\testThreadingThreadPool.cpp" />
     <ClCompile Include="tester\testTimingChrono.cpp" />
+    <ClCompile Include="tester\testToolsFileDirectory.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

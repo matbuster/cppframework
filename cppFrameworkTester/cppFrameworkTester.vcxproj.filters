@@ -145,6 +145,9 @@
     <Filter Include="Fichiers sources\cppFramework\Diagnostic">
       <UniqueIdentifier>{b955f393-1040-4933-84d0-6971eb8eb343}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\cppFramework\Tools\Collection">
+      <UniqueIdentifier>{65b4ac90-a918-489f-a922-65d2560fe229}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <None Include="ReadMe.txt" />
@@ -396,6 +399,33 @@
     <ClInclude Include="..\Diagnostic\assertion.h">
       <Filter>Fichiers d%27en-tête\cppFramework\Diagnostic</Filter>
     </ClInclude>
+    <ClInclude Include="tester\testToolsFileDirectory.h">
+      <Filter>Fichiers d%27en-tête\tester</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Diagnostic\console.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Diagnostic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Diagnostic\commandConsole.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Diagnostic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Hardware\keyboard.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Diagnostic\commandConsoleHelper.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Diagnostic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\File\FileFolder.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\File\FileFolderInfos.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\File</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\String\StdStringTools.h">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\String</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Tools\Collection\GetterCollection.hpp">
+      <Filter>Fichiers d%27en-tête\cppFramework\Tools\Collection</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -601,6 +631,30 @@
     </ClCompile>
     <ClCompile Include="..\Diagnostic\assertion.cpp">
       <Filter>Fichiers sources\cppFramework\Diagnostic</Filter>
+    </ClCompile>
+    <ClCompile Include="tester\testToolsFileDirectory.cpp">
+      <Filter>Fichiers sources\tester</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Diagnostic\console.cpp">
+      <Filter>Fichiers sources\cppFramework\Diagnostic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Diagnostic\commandConsole.cpp">
+      <Filter>Fichiers sources\cppFramework\Diagnostic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Hardware\keyboard.cpp">
+      <Filter>Fichiers sources\cppFramework\Hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Diagnostic\commandConsoleHelper.cpp">
+      <Filter>Fichiers sources\cppFramework\Diagnostic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\File\FileFolder.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\File\FileFolderInfos.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\File</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Tools\String\StdStringTools.cpp">
+      <Filter>Fichiers sources\cppFramework\Tools\String</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
