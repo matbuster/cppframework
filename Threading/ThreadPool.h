@@ -23,6 +23,15 @@
 
 namespace Threading
 {
+	/** internal thread pool callback for each thread.
+	  * ensure to delete to the pool the current thread */
+	typedef struct 
+	{
+		Threading::Thread * th;
+		void * pObject;
+	  
+	} sPoolGarbagedItem;
+
 	/** class thread pool */
 	class ThreadPool
 	{

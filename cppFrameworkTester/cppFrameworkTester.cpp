@@ -26,7 +26,7 @@
 //#define TEST_CRYPTO
 //#define TEST_SERIALIZATION
 //#define TEST_TOOLS_FILE
-#define TEST_DIAGNOSTIC_TOOLS
+//#define TEST_DIAGNOSTIC_TOOLS
 // --------------------------------------------------------------------
 // tester collection include
 #include "cppFrameworkTesterDefines.h"
